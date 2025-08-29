@@ -1,0 +1,34 @@
+.section1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1920px;
+    background: url('../images/section1-img.png');
+    padding: 20rem 10rem;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover; 
+}
+
+.section1 h2, .section1 h3, .section1 b, .section1 p{
+    color: #fff
+}
+
+
+
+#map {
+    height: 18.75em;
+    width: 100%;
+    border: 0.0625em solid #ccc;
+    border-radius: 0.3125em;
+}
+
+.contact-map {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    gap: 1.25em;
+    width: 100%;
+    margin-top: 15px;
+}
