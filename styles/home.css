@@ -1,7 +1,7 @@
 .section1{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+    align-items: start;
     width: 100%;
     max-width: 1920px;
     background: url('../images/section1-img.png');
@@ -15,10 +15,546 @@
     color: #fff
 }
 
+.section1-left{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 2rem;
+}
 
+.section1-left h2{
+    font-size: 2.4em;
+}
+
+.section1-left button{
+    background: #DBA069;
+    padding: 2rem;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.section1-left-bottom{
+    display: flex;
+    justify-content: center;
+    align-items: start; 
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section1-left-bottom h3{
+    font-size: 2em;
+}
+
+.section1-left-bottom-text{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    gap: 2rem;
+}
+
+.section1-left-bottom-text-right, .section1-left-bottom-text-left{
+    display: flex;
+    justify-content: start;
+    align-items: center; 
+    gap: 1rem;
+}
+
+.section1-left-bottom-text-left b, .section1-left-bottom-text-right b{
+    font-size: 8em;
+}
+
+.section1-left-bottom-text-left p, .section1-left-bottom-text-right p{
+    font-size: 1.2em;
+    width: 24%;
+}
+
+.section1-right p{
+    font-size: 1.1em;
+    margin-top: 1rem
+}
+
+/*------------------------------------------------*/
+
+.section2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1920px;
+    padding: 2rem 10rem;
+    gap: 3rem;
+}
+
+.section2-top, .section2-bottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: start; 
+    gap: 2rem;
+}
+
+.section2-top-left{
+    display: flex;
+    justify-content: start;
+    align-items: start; 
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section2-top-left-top{
+    display: flex;
+    justify-content: start;
+    align-items: start; 
+    flex-direction: column;
+    gap: 3rem; 
+}
+
+.section2-top-left-top h2{
+    font-size: 3em;
+}
+
+.section2-top-left-top-text{
+    display: flex;
+    justify-content: start;
+    align-items: start; 
+    flex-direction: column;
+    gap: 1rem; 
+}
+
+.section2-top-left-top-text p{
+    font-size: 1.2em;
+}
+
+.section2-top-left-bottom p{
+    margin-top: 1rem;
+}
+
+.section2-top-left-top-text-des h3, .section2-top-left-top-text-des p, .section2-top-left-bottom h3, .section2-top-left-bottom p, .section2-bottom-left h3, .section2-bottom-left p, .section2-bottom-right h3, .section2-bottom-right p{
+    font-size: 1.2em;
+}
+
+
+.section2-bottom-left p, .section2-top-left-bottom p{
+    width: 80%;
+}
+
+/*-----------*/
+
+.section3{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1920px;
+    padding: 2rem 5rem;
+    gap: 2rem;
+    background: rgba(145, 38, 61, 0.05);
+}
+
+.section3 h2{
+    font-size: 3em;
+    margin-left: 10rem;
+}
+
+.section3-slider{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.slider-wrapper {
+    width: 80%;
+    overflow: hidden;
+}
+
+.section3-slides-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.section3-slide{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 100%;
+    flex-shrink: 0;
+}
+
+.section3-slide-obl{
+    font-size: 2em;
+}
+
+.section3-slider-button{
+    cursor: pointer;
+    z-index: 10;
+}
+
+.section3-slide:not(:first-child) {
+    display: none;
+}
+
+/*-----------*/
+
+.section4{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1920px;
+    padding: 2rem 5rem;
+    gap: 2rem;
+}
+
+.section4-text{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 2rem;
+    width: 40%;
+}
+
+.section4-text h2{
+    font-size: 3em;
+    margin-bottom: 2rem;
+}
+
+.section4-text p{
+    font-size: 1.2em;
+}
+
+/*----------------*/
+
+.section5{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1920px;
+    padding: 2rem 25rem;
+    gap: 2rem;
+    background: rgba(145, 38, 61, 0.05);
+}
+
+.section5 h2{
+    font-size: 3em;
+}
+
+.section5-top{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem; 
+}
+
+.section5-top-blocks, .section5-bottom-blocks{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.section5-top-block, .section5-bottom-block{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 50%;
+    gap: 2rem;
+}
+
+.section5-top-block p, .section5-bottom-block p{
+    font-size: 1.2em;
+}
+
+.section5-img, .section5-img img{
+    width: 100%;
+}
+
+.section5-bottom{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem; 
+}
+
+.w-199{
+    width: 100%;
+}
+
+/*----------------*/
+
+.section6{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1920px;
+    padding: 2rem 5rem;
+    gap: 2rem;
+}
+
+.section6 h2{
+    font-size: 3em;
+}
+
+.section6-block{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 4rem;
+}
+
+.section6-block-text{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+}
+
+.section6-block-text-top, .section6-block-text-bottom{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+}
+
+.section6-block-text-top-block, .section6-block-text-bottom-block{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+    width: 40%;
+}
+
+.section6-block-text-top-block-text, .section6-block-text-bottom-block-text{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+}
+
+.section6-block-text-top-block-text h3, .section6-block-text-bottom-block-text h3{
+    font-size: 1.2em;
+}
+
+.section6-block-text-top-block-text p, .section6-block-text-bottom-block-text p{
+    font-size: 1.1em;
+}
+
+/*-------------------*/
+
+.section7{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1920px;
+    padding: 2rem 5rem;
+    gap: 4rem;
+}
+
+.section7 h2{
+    font-size: 3em;
+}
+
+.section7-block{
+    display: flex;
+    justify-content: space-around;
+    align-items: start;
+    gap: 5rem;
+}
+
+.section7-left, .section7-right{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 5rem;
+    width: 40%;
+}
+
+.section7-right{
+    margin-top: 10rem;
+}
+
+.section7-left-block, .section7-right-block{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    width: 80%;
+}
+
+.section7-left-block h3, .section7-right-block h3{
+    font-size: 1.2em;
+    margin-top: 1rem;
+}
+
+.section7-left-block p, .section7-right-block p{
+    font-size: 1.1em;
+}
+
+/*-------------------*/
+
+.section8{
+    width: 70%;
+    border: 0.5rem solid #842231;
+    border-radius: 0.5rem;
+    max-width: 1920px;
+    padding: 2rem 5rem;
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section8 h2{
+    font-size: 2em;
+}
+
+.section8 p{
+    font-size: 1.3em;
+}
+
+.section8-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-group input{
+    padding: 1.5rem 5rem;
+    border: 0px;
+    background: #F2F6FA;
+    font-size: 0.8em;
+}
+
+.section8-form button{
+    background: #842231;
+    padding: 1.5rem 5rem;
+    color: #fff;
+    border-radius: 0.5rem;
+    font-size: 1.1em;
+}
+
+/*-------------------------*/
+
+.section9{
+    max-width: 1920px;
+    width: 100%;
+    padding: 2rem 10rem;
+    gap: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section9 h2{
+    font-size: 3em;
+}
+
+.section9-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 80%;
+}
+
+.section9-text-block{
+    gap: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+}
+
+.section9-text-block b{
+    font-size: 1.1em;
+    text-align: center
+}
+
+/*----------------------*/
+
+.section10{
+    max-width: 1920px;
+    width: 100%;
+    padding: 2rem 10rem;
+    gap: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section10-text{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section10-text-top{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.section10-text-top h2{
+    font-size: 3em;
+}
+
+.section10-text-top p{
+    font-size: 1.2em;
+}
+
+.section10-text-bottom{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    gap: 2rem;
+}
+
+.section10-text-bottom-contacts{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.section10-text-bottom-contact{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section10-text-bottom-contact p{
+    font-size: 1.1em;
+}
 
 #map {
-    height: 18.75em;
+    height: 25rem;
     width: 100%;
     border: 0.0625em solid #ccc;
     border-radius: 0.3125em;
@@ -29,6 +565,6 @@
     align-items: end;
     flex-direction: column;
     gap: 1.25em;
-    width: 100%;
+    width: 40%;
     margin-top: 15px;
 }
