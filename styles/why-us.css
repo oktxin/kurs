@@ -1,0 +1,452 @@
+.why-us-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6rem 10rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.why-us-hero-content {
+    flex: 1;
+    max-width: 50%;
+}
+
+.why-us-hero-content h1 {
+    font-size: 3.5em;
+    color: #842231;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.why-us-hero-content p {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+.cta-button {
+    background: #DBA069;
+    color: white;
+    padding: 1.5rem 3rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #c1895a;
+}
+
+.why-us-hero-image {
+    flex: 1;
+    text-align: center;
+}
+
+.why-us-hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.why-us-advantages {
+    padding: 6rem 10rem;
+    background: white;
+}
+
+.why-us-advantages h2 {
+    text-align: center;
+    font-size: 3em;
+    color: #842231;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.advantage-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.advantage-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.advantage-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.advantage-icon img {
+    width: 40px;
+    height: 40px;
+}
+
+.advantage-card h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.advantage-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.why-us-technology {
+    padding: 6rem 10rem;
+    background: #f8f9fa;
+}
+
+.why-us-technology h2 {
+    text-align: center;
+    font-size: 3em;
+    color: #842231;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+.technology-content {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.technology-text {
+    flex: 1;
+}
+
+.tech-item {
+    margin-bottom: 2.5rem;
+}
+
+.tech-item h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.tech-item p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.technology-image {
+    flex: 1;
+}
+
+.technology-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.why-us-reviews {
+    padding: 6rem 10rem;
+    background: white;
+}
+
+.why-us-reviews h2 {
+    text-align: center;
+    font-size: 3em;
+    color: #842231;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+.reviews-slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.review-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid #eee;
+}
+
+.review-content {
+    margin-bottom: 2rem;
+}
+
+.review-content p {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.review-author h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.review-author span {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.why-us-faq {
+    padding: 6rem 10rem;
+    background: #f8f9fa;
+}
+
+.why-us-faq h2 {
+    text-align: center;
+    font-size: 3em;
+    color: #842231;
+    margin-bottom: 4rem;
+    font-weight: 700;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background: white;
+    border: none;
+    text-align: left;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #f8f9fa;
+}
+
+.faq-icon {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+.faq-answer {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: white;
+}
+
+.faq-answer.active {
+    padding: 1.5rem 2rem;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.why-us-cta {
+    padding: 6rem 10rem;
+    background: linear-gradient(135deg, #842231 0%, #a52c3f 100%);
+    color: white;
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.cta-content p {
+    font-size: 1.2em;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.cta-form {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-form input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.cta-form button {
+    padding: 1rem 2rem;
+    background: #DBA069;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.cta-form button:hover {
+    background: #c1895a;
+}
+
+@media screen and (max-width: 1200px) {
+    .why-us-hero {
+        padding: 4rem 2rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .why-us-hero-content {
+        max-width: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    .why-us-hero-content h1 {
+        font-size: 2.5em;
+    }
+    
+    .why-us-advantages,
+    .why-us-technology,
+    .why-us-reviews,
+    .why-us-faq,
+    .why-us-cta {
+        padding: 4rem 0;
+    }
+    
+    .advantages-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+    
+    .technology-content {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .reviews-slider {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .cta-form {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .advantages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .why-us-hero-content h1 {
+        font-size: 2em;
+    }
+    
+    .why-us-advantages h2,
+    .why-us-technology h2,
+    .why-us-reviews h2,
+    .why-us-faq h2 {
+        font-size: 2em;
+    }
+    
+    .advantage-card {
+        padding: 1rem;
+    }
+    
+    .review-card {
+        padding: 2rem;
+    }
+    
+    .why-us-cta {
+        padding: 3rem 1.5rem;
+    }
+    
+    .cta-content h2 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .why-us-hero {
+        padding: 3rem 1rem;
+    }
+    
+    .why-us-hero-content h1 {
+        font-size: 1.8em;
+    }
+    
+    .why-us-hero-content p {
+        font-size: 1.1em;
+    }
+    
+    .cta-button {
+        padding: 1.2rem 2rem;
+        font-size: 1em;
+    }
+    
+    .advantage-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .advantage-icon img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .tech-item h3 {
+        font-size: 1.3em;
+    }
+    
+    .faq-question {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.1em;
+    }
+    
+    .faq-answer.active {
+        padding: 1.2rem 1.5rem;
+    }
+}
