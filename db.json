@@ -1,0 +1,59 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@nuraelite.kz",
+      "phone": "+375291234567",
+      "password": "Admin123!",
+      "firstName": "Администратор",
+      "lastName": "Системы",
+      "birthDate": "1985-01-01",
+      "username": "admin",
+      "role": "admin",
+      "avatar": null,
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "user@nuraelite.kz",
+      "phone": "+375337654321",
+      "password": "User123!",
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "birthDate": "1990-05-15",
+      "username": "ivanov",
+      "role": "user",
+      "avatar": null,
+      "createdAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 1756574681191,
+      "email": "terter@gmail.com",
+      "phone": "+375295001352",
+      "password": "cXgy#pF@$%sw",
+      "firstName": "gergerg",
+      "lastName": "gregr",
+      "middleName": "",
+      "birthDate": "2002-02-28",
+      "username": "gergerggre789",
+      "role": "user",
+      "avatar": null,
+      "createdAt": "2025-08-30T17:24:41.191Z"
+    },
+    {
+      "id": 1756579816492,
+      "email": "rrrrr@gmail.com",
+      "phone": "+375296081320",
+      "password": "AuR4A*ze&lVm",
+      "firstName": "trt",
+      "lastName": "grer",
+      "middleName": "",
+      "birthDate": "2009-08-21",
+      "username": "trtgre164",
+      "role": "user",
+      "avatar": null,
+      "createdAt": "2025-08-30T18:50:16.492Z"
+    }
+  ],
+  "sessions": []
+}

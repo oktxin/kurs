@@ -34,22 +34,44 @@
                 </div>
             </div>
             <nav class="nav-div-bottom">
-                <a href="home.html">О проекте</a>
-                <a href="#">Локация</a>
-                <a href="advantages.html">Преимущества</a>
+                <a href="../index.html">Главная</a>
                 <a href="why-us.html">Почему мы?</a>
-                <a href="#">Способы оплаты</a>
+                <a href="advantages.html">Преимущества</a>
                 <a href="contacts.html">Контакты</a>
+                <a href="auth.html" id="auth-link" class="auth-link">Вход/Регистрация</a>
             </nav>
         </div>
 
+        <div class="user-menu" id="user-menu" style="display: none;">
+            <div class="user-avatar" id="user-avatar">
+                <img src="../images/default-avatar.png" alt="Аватар">
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <div class="user-info">
+                    <span id="user-name">Пользователь</span>
+                    <span id="user-email">user@example.com</span>
+                </div>
+                <a href="#" class="dropdown-item">
+                    <img src="../images/settings-icon.png" alt="Настройки">
+                    Настройки
+                </a>
+                <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                    <img src="../images/admin-icon.png" alt="Админ-панель">
+                    Админ-панель
+                </a>
+                <button class="dropdown-item logout-btn">
+                    <img src="../images/logout-icon.png" alt="Выход">
+                    Выход
+                </button>
+            </div>
+        </div>
+
         <nav class="mobile-menu">
-            <a href="home.html">О проекте</a>
-            <a href="#">Локация</a>
-            <a href="advantages.html">Преимущества</a>
+            <a href="../index.html">Главная</a>
             <a href="why-us.html">Почему мы?</a>
-            <a href="#">Способы оплаты</a>
+            <a href="advantages.html">Преимущества</a>
             <a href="contacts.html">Контакты</a>
+            <a href="auth.html" class="auth-link">Вход/Регистрация</a>
         </nav>
         
         <div class="menu-overlay"></div>
@@ -245,5 +267,7 @@
 
     <script src="../js/burger-menu.js"></script>
     <script src="../js/why-us.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
