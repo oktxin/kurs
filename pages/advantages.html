@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Преимущества - NURA ELITE</title>
+    <title data-i18n="advantages.title">Преимущества - NURA ELITE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -12,70 +12,71 @@
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="../styles/theme.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../images/logo.png" alt="logo">
-                                        <div class="user-menu" id="user-menu" style="display: none;">
-                    <div class="user-avatar" id="user-avatar">
-                        <img src="../images/default-avatar.jpg" alt="Аватар">
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <div class="user-info">
-                            <span id="user-name">Пользователь</span>
-                            <span id="user-email">user@example.com</span>
-                        </div>
-                        <a href="#" class="dropdown-item">
-                            <img src="../images/icons8-settings.gif" alt="Настройки">
-                            Настройки
-                        </a>
-                        <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
-                            <img src="../images/icons8-admin-50.png" alt="Админ-панель">
-                            Админ-панель
-                        </a>
-                        <button class="dropdown-item logout-btn">
-                            <img src="../images/icons8-logout.gif" alt="Выход">
-                            Выход
-                        </button>
-                    </div>
+            <img src="../images/logo.png" alt="logo" data-i18n="alt.logo">
+            <div class="user-menu" id="user-menu" style="display: none;">
+                <div class="user-avatar" id="user-avatar">
+                    <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
                 </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <div class="user-info">
+                        <span id="user-name">Пользователь</span>
+                        <span id="user-email">user@example.com</span>
+                    </div>
+                    <a href="#" class="dropdown-item">
+                        <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
+                        <span data-i18n="nav.settings">Настройки</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                        <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
+                        <span data-i18n="nav.admin">Админ-панель</span>
+                    </a>
+                    <button class="dropdown-item logout-btn">
+                        <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
+                        <span data-i18n="nav.logout">Выход</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="nav-div">
             <div class="nav-div-top">
-                <img src="../images/whatsapp.png" alt="whatsapp">
+                <img src="../images/whatsapp.png" alt="whatsapp" data-i18n="alt.whatsapp">
                 <div class="nav-div-top-phone">
-                    <img src="../images/phone.png" alt="phone">
-                    <p>+7 700 001 18 88</p>
+                    <img src="../images/phone.png" alt="phone" data-i18n="alt.phone">
+                    <p data-i18n="header.phone">+7 700 001 18 88</p>
                 </div>
             </div>
 
             <nav class="nav-div-bottom">
-                <a href="home.html">Главная</a>
-                <a href="why-us.html">Почему мы?</a>
-                <a href="advantages.html">Преимущества</a>
-                <a href="cottages.html">Коттеджи</a>
-                <a href="favorites.html" class="active">Избранное</a>
-                <a href="contacts.html">Контакты</a>
-                <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+                <a href="home.html" data-i18n="nav.home">Главная</a>
+                <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+                <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+                <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+                <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
+                <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+                <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
             </nav>
         </div>
 
-            <div class="burger-menu">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-            </div>
+        <div class="burger-menu">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+        </div>
 
         <nav class="mobile-menu">
-            <a href="home.html">Главная</a>
-            <a href="why-us.html">Почему мы?</a>
-            <a href="advantages.html">Преимущества</a>
-            <a href="cottages.html">Коттеджи</a>
-            <a href="favorites.html" class="active">Избранное</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+            <a href="home.html" data-i18n="nav.home">Главная</a>
+            <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+            <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+            <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+            <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
+            <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+            <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
         </nav>
         
         <div class="menu-overlay"></div>
@@ -84,55 +85,55 @@
     <main>
         <section class="advantages-hero">
             <div class="hero-content">
-                <h1>Преимущества NURA ELITE</h1>
-                <p>Узнайте, что делает наш коттеджный городок лучшим выбором для вашей семьи</p>
+                <h1 data-i18n="advantages.title">Преимущества NURA ELITE</h1>
+                <p data-i18n="advantages.subtitle">Узнайте, что делает наш коттеджный городок лучшим выбором для вашей семьи</p>
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-number" data-target="36">0</span>
-                        <span class="stat-label">коттеджей</span>
+                        <span class="stat-label" data-i18n="advantages.cottages">коттеджей</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number" data-target="100">0</span>
-                        <span class="stat-label">% безопасность</span>
+                        <span class="stat-label" data-i18n="advantages.security">% безопасность</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-number" data-target="24">0</span>
-                        <span class="stat-label">/7 охрана</span>
+                        <span class="stat-label" data-i18n="advantages.guarding">/7 охрана</span>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <img src="../images/advantages.jpg" alt="Коттеджный городок NURA ELITE">
+                <img src="../images/advantages.jpg" alt="Коттеджный городок NURA ELITE" data-i18n="alt.advantages.hero">
             </div>
         </section>
 
         <section id="location" class="location-section">
             <div class="section-header">
-                <h2>Идеальная локация</h2>
-                <p>Престижный район с развитой инфраструктурой и прекрасной экологией</p>
+                <h2 data-i18n="location.title">Идеальная локация</h2>
+                <p data-i18n="location.subtitle">Престижный район с развитой инфраструктурой и прекрасной экологией</p>
             </div>
             <div class="location-content">
                 <div class="location-features">
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <img src="../images/eco-location.png" alt="Экология">
+                            <img src="../images/eco-location.png" alt="Экология" data-i18n="alt.advantages.eco">
                         </div>
-                        <h3>Экологически чистый район</h3>
-                        <p>Расположение рядом с лесополосой и рекой Нура-Есиль обеспечивает чистый воздух и прекрасную природу</p>
+                        <h3 data-i18n="location.eco.title">Экологически чистый район</h3>
+                        <p data-i18n="location.eco.text">Расположение рядом с лесополосой и рекой Нура-Есиль обеспечивает чистый воздух и прекрасную природу</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <img src="../images/transport.png" alt="Транспорт">
+                            <img src="../images/transport.png" alt="Транспорт" data-i18n="alt.advantages.transport">
                         </div>
-                        <h3>Удобная транспортная развязка</h3>
-                        <p>Легкий доступ к центру города и основным магистралям без пробок и заторов</p>
+                        <h3 data-i18n="location.transport.title">Удобная транспортная развязка</h3>
+                        <p data-i18n="location.transport.text">Легкий доступ к центру города и основным магистралям без пробок и заторов</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">
-                            <img src="../images/infrastructure.png" alt="Инфраструктура">
+                            <img src="../images/infrastructure.png" alt="Инфраструктура" data-i18n="alt.advantages.infra">
                         </div>
-                        <h3>Развитая инфраструктура</h3>
-                        <p>Школы, детские сады, магазины и медицинские учреждения в шаговой доступности</p>
+                        <h3 data-i18n="location.infra.title">Развитая инфраструктура</h3>
+                        <p data-i18n="location.infra.text">Школы, детские сады, магазины и медицинские учреждения в шаговой доступности</p>
                     </div>
                 </div>
                 <div class="location-map">
@@ -143,46 +144,46 @@
 
         <section id="security" class="security-section">
             <div class="section-header">
-                <h2>Максимальная безопасность</h2>
-                <p>Комплексная система безопасности для вашего спокойствия</p>
+                <h2 data-i18n="security.title">Максимальная безопасность</h2>
+                <p data-i18n="security.subtitle">Комплексная система безопасности для вашего спокойствия</p>
             </div>
             <div class="security-features">
                 <div class="security-card">
                     <div class="security-image">
-                        <img src="../images/security-fence.jpg" alt="Ограждение">
+                        <img src="../images/security-fence.jpg" alt="Ограждение" data-i18n="alt.advantages.fence">
                     </div>
                     <div class="security-content">
-                        <h3>Закрытая территория</h3>
+                        <h3 data-i18n="security.fence.title">Закрытая территория</h3>
                         <ul>
-                            <li>3-метровый забор по периметру</li>
-                            <li>Контролируемые въезды и выезды</li>
-                            <li>Круглосуточная охрана</li>
+                            <li data-i18n="security.fence.li1">3-метровый забор по периметру</li>
+                            <li data-i18n="security.fence.li2">Контролируемые въезды и выезды</li>
+                            <li data-i18n="security.fence.li3">Круглосуточная охрана</li>
                         </ul>
                     </div>
                 </div>
                 <div class="security-card reverse">
                     <div class="security-content">
-                        <h3>Система видеонаблюдения</h3>
+                        <h3 data-i18n="security.cctv.title">Система видеонаблюдения</h3>
                         <ul>
-                            <li>200+ камер наблюдения</li>
-                            <li>Запись 24/7 в 4K качестве</li>
-                            <li>Распознавание лиц и номеров</li>
+                            <li data-i18n="security.cctv.li1">200+ камер наблюдения</li>
+                            <li data-i18n="security.cctv.li2">Запись 24/7 в 4K качестве</li>
+                            <li data-i18n="security.cctv.li3">Распознавание лиц и номеров</li>
                         </ul>
                     </div>
                     <div class="security-image">
-                        <img src="../images/cctv.webp" alt="Видеонаблюдение">
+                        <img src="../images/cctv.webp" alt="Видеонаблюдение" data-i18n="alt.advantages.cctv">
                     </div>
                 </div>
                 <div class="security-card">
                     <div class="security-image">
-                        <img src="../images/patrol.jfif" alt="Патруль">
+                        <img src="../images/patrol.jfif" alt="Патруль" data-i18n="alt.advantages.patrol">
                     </div>
                     <div class="security-content">
-                        <h3>Круглосуточное патрулирование</h3>
+                        <h3 data-i18n="security.patrol.title">Круглосуточное патрулирование</h3>
                         <ul>
-                            <li>Профессиональные охранники</li>
-                            <li>Патрулирование территории</li>
-                            <li>Экстренный вызов за 2 минуты</li>
+                            <li data-i18n="security.patrol.li1">Профессиональные охранники</li>
+                            <li data-i18n="security.patrol.li2">Патрулирование территории</li>
+                            <li data-i18n="security.patrol.li3">Экстренный вызов за 2 минуты</li>
                         </ul>
                     </div>
                 </div>
@@ -191,148 +192,148 @@
 
         <section id="technology" class="technology-section">
             <div class="section-header">
-                <h2>Современные технологии</h2>
-                <p>Инновационные решения для комфорта и экономии</p>
+                <h2 data-i18n="technology.title">Современные технологии</h2>
+                <p data-i18n="technology.subtitle">Инновационные решения для комфорта и экономии</p>
             </div>
             <div class="technology-grid">
                 <div class="tech-card">
                     <div class="tech-icon">
-                        <img src="../images/smart-home.png" alt="Умный дом">
+                        <img src="../images/smart-home.png" alt="Умный дом" data-i18n="alt.advantages.smarthome">
                     </div>
-                    <h3>Умный дом</h3>
-                    <p>Автоматическое управление освещением, отоплением и безопасностью через мобильное приложение</p>
+                    <h3 data-i18n="tech.smarthome.title">Умный дом</h3>
+                    <p data-i18n="tech.smarthome.text">Автоматическое управление освещением, отоплением и безопасностью через мобильное приложение</p>
                 </div>
                 <div class="tech-card">
                     <div class="tech-icon">
-                        <img src="../images/energy-saving.png" alt="Энергосбережение">
+                        <img src="../images/energy-saving.png" alt="Энергосбережение" data-i18n="alt.advantages.energy">
                     </div>
-                    <h3>Энергоэффективность</h3>
-                    <p>Тройные стеклопакеты, современная изоляция и энергосберегающие системы отопления</p>
+                    <h3 data-i18n="tech.energy.title">Энергоэффективность</h3>
+                    <p data-i18n="tech.energy.text">Тройные стеклопакеты, современная изоляция и энергосберегающие системы отопления</p>
                 </div>
                 <div class="tech-card">
                     <div class="tech-icon">
-                        <img src="../images/eco-tech.png" alt="Эко технологии">
+                        <img src="../images/eco-tech.png" alt="Эко технологии" data-i18n="alt.advantages.ecotech">
                     </div>
-                    <h3>Экологичные материалы</h3>
-                    <p>Использование безопасных и долговечных материалов для строительства и отделки</p>
+                    <h3 data-i18n="tech.eco.title">Экологичные материалы</h3>
+                    <p data-i18n="tech.eco.text">Использование безопасных и долговечных материалов для строительства и отделки</p>
                 </div>
                 <div class="tech-card">
                     <div class="tech-icon">
-                        <img src="../images/water-system.png" alt="Водоснабжение">
+                        <img src="../images/water-system.png" alt="Водоснабжение" data-i18n="alt.advantages.water">
                     </div>
-                    <h3>Современные коммуникации</h3>
-                    <p>Централизованное водоснабжение, канализация и система фильтрации воды</p>
+                    <h3 data-i18n="tech.water.title">Современные коммуникации</h3>
+                    <p data-i18n="tech.water.text">Централизованное водоснабжение, канализация и система фильтрации воды</p>
                 </div>
             </div>
         </section>
 
         <section id="infrastructure" class="infrastructure-section">
             <div class="section-header">
-                <h2>Развитая инфраструктура</h2>
-                <p>Все необходимое для комфортной жизни в одном месте</p>
+                <h2 data-i18n="infrastructure.title">Развитая инфраструктура</h2>
+                <p data-i18n="infrastructure.subtitle">Все необходимое для комфортной жизни в одном месте</p>
             </div>
             <div class="infrastructure-content">
                 <div class="infrastructure-features">
                     <div class="infra-feature">
                         <div class="infra-icon">
-                            <img src="../images/school.png" alt="Образование">
+                            <img src="../images/school.png" alt="Образование" data-i18n="alt.advantages.education">
                         </div>
                         <div class="infra-text">
-                            <h4>Образовательные учреждения</h4>
-                            <p>Школы и детские сады в пешей доступности</p>
+                            <h4 data-i18n="infra.education.title">Образовательные учреждения</h4>
+                            <p data-i18n="infra.education.text">Школы и детские сады в пешей доступности</p>
                         </div>
                     </div>
                     <div class="infra-feature">
                         <div class="infra-icon">
-                            <img src="../images/medical.png" alt="Медицина">
+                            <img src="../images/medical.png" alt="Медицина" data-i18n="alt.advantages.medical">
                         </div>
                         <div class="infra-text">
-                            <h4>Медицинские центры</h4>
-                            <p>Поликлиники и стоматологии рядом</p>
+                            <h4 data-i18n="infra.medical.title">Медицинские центры</h4>
+                            <p data-i18n="infra.medical.text">Поликлиники и стоматологии рядом</p>
                         </div>
                     </div>
                     <div class="infra-feature">
                         <div class="infra-icon">
-                            <img src="../images/shopping.png" alt="Шопинг">
+                            <img src="../images/shopping.png" alt="Шопинг" data-i18n="alt.advantages.shopping">
                         </div>
                         <div class="infra-text">
-                            <h4>Торговые центры</h4>
-                            <p>Магазины и супермаркеты в 5 минутах езды</p>
+                            <h4 data-i18n="infra.shopping.title">Торговые центры</h4>
+                            <p data-i18n="infra.shopping.text">Магазины и супермаркеты в 5 минутах езды</p>
                         </div>
                     </div>
                     <div class="infra-feature">
                         <div class="infra-icon">
-                            <img src="../images/parks.png" alt="Парки">
+                            <img src="../images/parks.png" alt="Парки" data-i18n="alt.advantages.parks">
                         </div>
                         <div class="infra-text">
-                            <h4>Парки и зоны отдыха</h4>
-                            <p>Скверы, детские площадки и спортивные зоны</p>
+                            <h4 data-i18n="infra.parks.title">Парки и зоны отдыха</h4>
+                            <p data-i18n="infra.parks.text">Скверы, детские площадки и спортивные зоны</p>
                         </div>
                     </div>
                 </div>
                 <div class="infrastructure-image">
-                    <img src="../images/infrastructure-map.jpg" alt="Карта инфраструктуры">
+                    <img src="../images/infrastructure-map.jpg" alt="Карта инфраструктуры" data-i18n="alt.advantages.inframap">
                 </div>
             </div>
         </section>
 
         <section class="comparison-section">
             <div class="section-header">
-                <h2>Сравнение с обычными ЖК</h2>
-                <p>Почему NURA ELITE лучше обычных жилых комплексов</p>
+                <h2 data-i18n="comparison.title">Сравнение с обычными ЖК</h2>
+                <p data-i18n="comparison.subtitle">Почему NURA ELITE лучше обычных жилых комплексов</p>
             </div>
             <div class="comparison-table">
                 <div class="comparison-header">
-                    <div class="comparison-title">Критерий</div>
-                    <div class="comparison-value">Обычные ЖК</div>
-                    <div class="comparison-value elite">NURA ELITE</div>
+                    <div class="comparison-title" data-i18n="comparison.criteria">Критерий</div>
+                    <div class="comparison-value" data-i18n="comparison.regular">Обычные ЖК</div>
+                    <div class="comparison-value elite" data-i18n="comparison.elite">NURA ELITE</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-title">Безопасность</div>
-                    <div class="comparison-value">Ограждение + шлагбаум</div>
-                    <div class="comparison-value elite">Многоуровневая система безопасности</div>
+                    <div class="comparison-title" data-i18n="comparison.security">Безопасность</div>
+                    <div class="comparison-value" data-i18n="comparison.security.regular">Ограждение + шлагбаум</div>
+                    <div class="comparison-value elite" data-i18n="comparison.security.elite">Многоуровневая система безопасности</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-title">Экология</div>
-                    <div class="comparison-value">Городская среда</div>
-                    <div class="comparison-value elite">Рядом с лесополосой и рекой</div>
+                    <div class="comparison-title" data-i18n="comparison.eco">Экология</div>
+                    <div class="comparison-value" data-i18n="comparison.eco.regular">Городская среда</div>
+                    <div class="comparison-value elite" data-i18n="comparison.eco.elite">Рядом с лесополосой и рекой</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-title">Технологии</div>
-                    <div class="comparison-value">Стандартные решения</div>
-                    <div class="comparison-value elite">Умный дом и энергосбережение</div>
+                    <div class="comparison-title" data-i18n="comparison.tech">Технологии</div>
+                    <div class="comparison-value" data-i18n="comparison.tech.regular">Стандартные решения</div>
+                    <div class="comparison-value elite" data-i18n="comparison.tech.elite">Умный дом и энергосбережение</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-title">Инфраструктура</div>
-                    <div class="comparison-value">Развитая городская</div>
-                    <div class="comparison-value elite">Собственная + городская</div>
+                    <div class="comparison-title" data-i18n="comparison.infra">Инфраструктура</div>
+                    <div class="comparison-value" data-i18n="comparison.infra.regular">Развитая городская</div>
+                    <div class="comparison-value elite" data-i18n="comparison.infra.elite">Собственная + городская</div>
                 </div>
                 <div class="comparison-row">
-                    <div class="comparison-title">Инвестиционный потенциал</div>
-                    <div class="comparison-value">Стандартный</div>
-                    <div class="comparison-value elite">Высокий (+25% в год)</div>
+                    <div class="comparison-title" data-i18n="comparison.investment">Инвестиционный потенциал</div>
+                    <div class="comparison-value" data-i18n="comparison.investment.regular">Стандартный</div>
+                    <div class="comparison-value elite" data-i18n="comparison.investment.elite">Высокий (+25% в год)</div>
                 </div>
             </div>
         </section>
 
         <section class="advantages-cta">
             <div class="cta-content">
-                <h2>Убедитесь в преимуществах лично</h2>
-                <p>Запишитесь на экскурсию и получите персональную консультацию</p>
+                <h2 data-i18n="advantages.cta.title">Убедитесь в преимуществах лично</h2>
+                <p data-i18n="advantages.cta.subtitle">Запишитесь на экскурсию и получите персональную консультацию</p>
                 <div class="cta-buttons">
-                    <button class="cta-btn primary">Записаться на просмотр</button>
-                    <button class="cta-btn secondary">Скачать каталог</button>
+                    <button class="cta-btn primary" data-i18n="advantages.cta.primary">Записаться на просмотр</button>
+                    <button class="cta-btn secondary" data-i18n="advantages.cta.secondary">Скачать каталог</button>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <a href="../index.html">Главная</a>
-        <a href="why-us.html">Почему мы?</a>
-        <a href="#location">Локация</a>
-        <a href="#security">Безопасность</a>
-        <a href="#technology">Технологии</a>
+        <a href="../index.html" data-i18n="nav.home">Главная</a>
+        <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+        <a href="#location" data-i18n="location.title">Локация</a>
+        <a href="#security" data-i18n="security.title">Безопасность</a>
+        <a href="#technology" data-i18n="technology.title">Технологии</a>
     </footer>
 
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
@@ -340,5 +341,7 @@
     <script src="../js/advantages.js"></script>
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 </html>

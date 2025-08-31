@@ -81,7 +81,7 @@ class AdminPanel {
             ]);
         } catch (error) {
             console.error('Error loading data:', error);
-            this.showNotification('Ошибка загрузки данных', 'error');
+            this.showNotification(t('admin.notifications.loadError'), 'error');
         } finally {
             this.hidePreloader();
         }
@@ -100,7 +100,7 @@ async loadUsers() {
         this.displayUsers(validUsers);
     } catch (error) {
         console.error('Error loading users:', error);
-        this.showNotification('Ошибка загрузки пользователей', 'error');
+        this.showNotification(t('admin.notifications.usersLoadError'), 'error');
     }
 }
 
@@ -113,12 +113,12 @@ async loadUsers() {
 
 createUserRow(user) {
     const userId = user.id || 'N/A';
-    const firstName = user.firstName || 'Не указано';
-    const lastName = user.lastName || 'Не указано';
-    const email = user.email || 'Не указано';
-    const phone = user.phone || 'Не указано';
+    const firstName = user.firstName || t('admin.users.notSpecified');
+    const lastName = user.lastName || t('admin.users.notSpecified');
+    const email = user.email || t('admin.users.notSpecified');
+    const phone = user.phone || t('admin.users.notSpecified');
     const role = user.role || 'user';
-    const registerDate = user.createdAt ? new Date(user.createdAt).toLocaleDateString('ru-RU') : 'Не указано';
+    const registerDate = user.createdAt ? new Date(user.createdAt).toLocaleDateString('ru-RU') : t('admin.users.notSpecified');
     
     return `
         <tr>
@@ -126,14 +126,14 @@ createUserRow(user) {
             <td>${firstName} ${lastName}</td>
             <td>${email}</td>
             <td>${phone}</td>
-            <td><span class="role-badge role-${role}">${role === 'admin' ? 'Админ' : 'Пользователь'}</span></td>
+            <td><span class="role-badge role-${role}">${role === 'admin' ? t('admin.users.roleAdmin') : t('admin.users.roleUser')}</span></td>
             <td>${registerDate}</td>
             <td>
                 <div class="action-buttons">
-                    <button class="edit-btn" data-user-id="${userId}" title="Редактировать" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
+                    <button class="edit-btn" data-user-id="${userId}" title="${t('admin.actions.edit')}" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
                         ✏️
                     </button>
-                    <button class="delete-btn" data-user-id="${userId}" title="Удалить" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
+                    <button class="delete-btn" data-user-id="${userId}" title="${t('admin.actions.delete')}" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
                         🗑️
                     </button>
                 </div>
@@ -155,7 +155,7 @@ async loadCottages() {
         this.displayCottages(validCottages);
     } catch (error) {
         console.error('Error loading cottages:', error);
-        this.showNotification('Ошибка загрузки коттеджей', 'error');
+        this.showNotification(t('admin.notifications.cottagesLoadError'), 'error');
     }
 }
 
@@ -168,7 +168,6 @@ async loadCottages() {
 
 createCottageRow(cottage) {
     const price = this.formatPrice(cottage.price);
-
     const cottageId = cottage.id || 0;
     
     return `
@@ -181,10 +180,10 @@ createCottageRow(cottage) {
             <td><span class="status-badge status-${cottage.status}">${this.getStatusText(cottage.status)}</span></td>
             <td>
                 <div class="action-buttons">
-                    <button class="edit-btn" data-cottage-id="${cottageId}" title="Редактировать">
+                    <button class="edit-btn" data-cottage-id="${cottageId}" title="${t('admin.actions.edit')}">
                         ✏️
                     </button>
-                    <button class="delete-btn" data-cottage-id="${cottageId}" title="Удалить">
+                    <button class="delete-btn" data-cottage-id="${cottageId}" title="${t('admin.actions.delete')}">
                         🗑️
                     </button>
                 </div>
@@ -195,9 +194,9 @@ createCottageRow(cottage) {
 
     getStatusText(status) {
         const statusMap = {
-            'available': 'Доступно',
-            'reserved': 'Забронировано',
-            'sold': 'Продано'
+            'available': t('admin.cottages.statusAvailable'),
+            'reserved': t('admin.cottages.statusReserved'),
+            'sold': t('admin.cottages.statusSold')
         };
         return statusMap[status] || status;
     }
@@ -208,7 +207,7 @@ addUserActionHandlers() {
             const userId = e.currentTarget.dataset.userId;
             if (!userId) {
                 console.error('Empty user ID');
-                this.showNotification('Ошибка: отсутствует ID пользователя', 'error');
+                this.showNotification(t('admin.errors.missingUserId'), 'error');
                 return;
             }
             this.editUser(userId);
@@ -220,7 +219,7 @@ addUserActionHandlers() {
             const userId = e.currentTarget.dataset.userId;
             if (!userId) {
                 console.error('Empty user ID');
-                this.showNotification('Ошибка: отсутствует ID пользователя', 'error');
+                this.showNotification(t('admin.errors.missingUserId'), 'error');
                 return;
             }
             this.deleteUser(userId);
@@ -234,7 +233,7 @@ addCottageActionHandlers() {
             const cottageId = e.currentTarget.dataset.cottageId;
             if (!cottageId) {
                 console.error('Empty cottage ID');
-                this.showNotification('Ошибка: отсутствует ID коттеджа', 'error');
+                this.showNotification(t('admin.errors.missingCottageId'), 'error');
                 return;
             }
             this.editCottage(cottageId);
@@ -246,7 +245,7 @@ addCottageActionHandlers() {
             const cottageId = e.currentTarget.dataset.cottageId;
             if (!cottageId) {
                 console.error('Empty cottage ID');
-                this.showNotification('Ошибка: отсутствует ID коттеджа', 'error');
+                this.showNotification(t('admin.errors.missingCottageId'), 'error');
                 return;
             }
             this.deleteCottage(cottageId);
@@ -257,34 +256,34 @@ addCottageActionHandlers() {
 async editUser(userId) {
     try {
         if (!userId || userId === 'N/A') {
-            throw new Error('Неверный ID пользователя');
+            throw new Error(t('admin.errors.invalidUserId'));
         }
         
         console.log('Editing user with ID:', userId);
         const user = await this.api.request(`/users/${userId}`);
         
         if (!user) {
-            throw new Error('Пользователь не найден');
+            throw new Error(t('admin.errors.userNotFound'));
         }
         
         this.showUserModal(user);
     } catch (error) {
         console.error('Error loading user:', error);
-        this.showNotification('Ошибка загрузки пользователя: ' + error.message, 'error');
+        this.showNotification(t('admin.errors.userLoadError') + ': ' + error.message, 'error');
     }
 }
 
 async editCottage(cottageId) {
     try {
         if (!cottageId) {
-            throw new Error('Отсутствует ID коттеджа');
+            throw new Error(t('admin.errors.missingCottageId'));
         }
         
         const cottage = await this.api.request(`/cottages/${cottageId}`);
         this.showCottageModal(cottage);
     } catch (error) {
         console.error('Error loading cottage:', error);
-        this.showNotification('Ошибка загрузки коттеджа: ' + error.message, 'error');
+        this.showNotification(t('admin.errors.cottageLoadError') + ': ' + error.message, 'error');
     }
 }
 
@@ -294,7 +293,7 @@ async editCottage(cottageId) {
         const form = document.getElementById('user-form');
         
         if (user) {
-            title.textContent = 'Редактирование пользователя';
+            title.textContent = t('admin.users.modal.editTitle');
             document.getElementById('user-id').value = user.id;
             document.getElementById('user-first-name').value = user.firstName;
             document.getElementById('user-last-name').value = user.lastName;
@@ -302,7 +301,7 @@ async editCottage(cottageId) {
             document.getElementById('user-phone').value = user.phone;
             document.getElementById('user-role').value = user.role;
         } else {
-            title.textContent = 'Добавление пользователя';
+            title.textContent = t('admin.users.modal.addTitle');
             form.reset();
         }
         
@@ -315,7 +314,7 @@ async editCottage(cottageId) {
         const form = document.getElementById('cottage-form');
         
         if (cottage) {
-            title.textContent = 'Редактирование коттеджа';
+            title.textContent = t('admin.cottages.modal.editTitle');
             document.getElementById('cottage-id').value = cottage.id;
             document.getElementById('cottage-title').value = cottage.title;
             document.getElementById('cottage-price').value = cottage.price;
@@ -328,7 +327,7 @@ async editCottage(cottageId) {
             document.getElementById('cottage-description').value = cottage.description || '';
             document.getElementById('cottage-images').value = cottage.images ? cottage.images.join(', ') : '';
         } else {
-            title.textContent = 'Добавление коттеджа';
+            title.textContent = t('admin.cottages.modal.addTitle');
             form.reset();
         }
         
@@ -407,7 +406,7 @@ async saveUser() {
                 method: 'PUT',
                 body: JSON.stringify({ ...userData, id: userId }) 
             });
-            this.showNotification('Пользователь успешно обновлен', 'success');
+            this.showNotification(t('admin.notifications.userUpdated'), 'success');
         } else {
             userData.password = 'tempPassword123!';
             userData.createdAt = new Date().toISOString();
@@ -415,14 +414,14 @@ async saveUser() {
                 method: 'POST',
                 body: JSON.stringify(userData)
             });
-            this.showNotification('Пользователь успешно добавлен', 'success');
+            this.showNotification(t('admin.notifications.userAdded'), 'success');
         }
 
         this.hideModals();
         this.loadUsers();
     } catch (error) {
         console.error('Error saving user:', error);
-        this.showNotification('Ошибка сохранения пользователя', 'error');
+        this.showNotification(t('admin.notifications.userSaveError'), 'error');
     }
 }
 
@@ -451,21 +450,21 @@ async saveCottage() {
                 method: 'PUT',
                 body: JSON.stringify({ ...cottageData, id: cottageId }) 
             });
-            this.showNotification('Коттедж успешно обновлен', 'success');
+            this.showNotification(t('admin.notifications.cottageUpdated'), 'success');
         } else {
             cottageData.createdAt = new Date().toISOString();
             await this.api.request('/cottages', {
                 method: 'POST',
                 body: JSON.stringify(cottageData)
             });
-            this.showNotification('Коттедж успешно добавлен', 'success');
+            this.showNotification(t('admin.notifications.cottageAdded'), 'success');
         }
 
         this.hideModals();
         this.loadCottages();
     } catch (error) {
         console.error('Error saving cottage:', error);
-        this.showNotification('Ошибка сохранения коттеджа', 'error');
+        this.showNotification(t('admin.notifications.cottageSaveError'), 'error');
     }
 }
 
@@ -473,7 +472,7 @@ async deleteUser(userId) {
     this.currentAction = {
         type: 'deleteUser',
         id: userId, 
-        message: 'Вы уверены, что хотите удалить этого пользователя?'
+        message: t('admin.confirmation.deleteUser')
     };
     this.showConfirmationModal();
 }
@@ -482,7 +481,7 @@ async deleteCottage(cottageId) {
     this.currentAction = {
         type: 'deleteCottage',
         id: cottageId, 
-        message: 'Вы уверены, что хотите удалить этот коттедж?'
+        message: t('admin.confirmation.deleteCottage')
     };
     this.showConfirmationModal();
 }
@@ -503,20 +502,20 @@ async executeConfirmedAction() {
             await this.api.request(`/users/${id}`, {
                 method: 'DELETE'
             });
-            this.showNotification('Пользователь успешно удален', 'success');
+            this.showNotification(t('admin.notifications.userDeleted'), 'success');
             this.loadUsers();
         } else if (type === 'deleteCottage') {
             await this.api.request(`/cottages/${id}`, {
                 method: 'DELETE'
             });
-            this.showNotification('Коттедж успешно удален', 'success');
+            this.showNotification(t('admin.notifications.cottageDeleted'), 'success');
             this.loadCottages();
         }
         
         this.hideModals();
     } catch (error) {
         console.error('Error deleting:', error);
-        this.showNotification('Ошибка удаления', 'error');
+        this.showNotification(t('admin.notifications.deleteError'), 'error');
     }
 }
 

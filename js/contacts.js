@@ -9,15 +9,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 const officePlacemark = new ymaps.Placemark([51.1694, 71.4491], {
-                    hintContent: 'Главный офис NURA ELITE',
-                    balloonContent: 'ул. Кунаева 10, БЦ "Изумрудный"'
+                    hintContent: t('map.office.hint'),
+                    balloonContent: t('map.office.balloon')
                 }, {
                     preset: 'islands#redIcon'
                 });
 
                 const complexPlacemark = new ymaps.Placemark([51.1800, 71.4600], {
-                    hintContent: 'Коттеджный городок NURA ELITE',
-                    balloonContent: 'Нур-Султан, район NURA ELITE'
+                    hintContent: t('map.complex.hint'),
+                    balloonContent: t('map.complex.balloon')
                 }, {
                     preset: 'islands#blueIcon'
                 });
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof ymaps !== 'undefined') {
         initMap();
     } else {
-        console.warn('Yandex Maps API не загружена');
+        console.warn(t('map.warning'));
     }
 
     const contactForm = document.querySelector('.contact-form');
@@ -44,16 +44,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const phone = this.querySelector('input[type="tel"]').value.trim();
 
             if (!name) {
-                showNotification('Пожалуйста, введите ваше имя', 'error');
+                showNotification(t('contact.form.nameRequired'), 'error');
                 return;
             }
             
             if (!phone) {
-                showNotification('Пожалуйста, введите номер телефона', 'error');
+                showNotification(t('contact.form.phoneRequired'), 'error');
                 return;
             }
 
-            showNotification('Сообщение отправлено! Мы свяжемся с вами в ближайшее время.', 'success');
+            showNotification(t('contact.form.success'), 'success');
             this.reset();
         });
     }
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 const textarea = document.querySelector('textarea');
                 if (textarea) {
-                    textarea.value = 'Хочу записаться на экскурсию по коттеджному городку';
+                    textarea.value = t('contact.form.tourMessage');
                 }
             }
         });
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
         detail.addEventListener('click', function() {
             const text = this.querySelector('p').textContent;
             navigator.clipboard.writeText(text).then(() => {
-                showNotification('Скопировано в буфер обмена', 'success');
+                showNotification(t('contact.copied'), 'success');
             });
         });
     });

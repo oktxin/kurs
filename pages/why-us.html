@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Почему выбирают NURA ELITE</title>
+    <title data-i18n="whyus.title">Почему выбирают NURA ELITE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -12,70 +12,71 @@
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="../styles/theme.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../images/logo.png" alt="logo">
-                                        <div class="user-menu" id="user-menu" style="display: none;">
-                    <div class="user-avatar" id="user-avatar">
-                        <img src="../images/default-avatar.jpg" alt="Аватар">
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <div class="user-info">
-                            <span id="user-name">Пользователь</span>
-                            <span id="user-email">user@example.com</span>
-                        </div>
-                        <a href="#" class="dropdown-item">
-                            <img src="../images/icons8-settings.gif" alt="Настройки">
-                            Настройки
-                        </a>
-                        <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
-                            <img src="../images/icons8-admin-50.png" alt="Админ-панель">
-                            Админ-панель
-                        </a>
-                        <button class="dropdown-item logout-btn">
-                            <img src="../images/icons8-logout.gif" alt="Выход">
-                            Выход
-                        </button>
-                    </div>
+            <img src="../images/logo.png" alt="logo" data-i18n="alt.logo">
+            <div class="user-menu" id="user-menu" style="display: none;">
+                <div class="user-avatar" id="user-avatar">
+                    <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
                 </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <div class="user-info">
+                        <span id="user-name">Пользователь</span>
+                        <span id="user-email">user@example.com</span>
+                    </div>
+                    <a href="#" class="dropdown-item">
+                        <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
+                        <span data-i18n="nav.settings">Настройки</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                        <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
+                        <span data-i18n="nav.admin">Админ-панель</span>
+                    </a>
+                    <button class="dropdown-item logout-btn">
+                        <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
+                        <span data-i18n="nav.logout">Выход</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="nav-div">
             <div class="nav-div-top">
-                <img src="../images/whatsapp.png" alt="whatsapp">
+                <img src="../images/whatsapp.png" alt="whatsapp" data-i18n="alt.whatsapp">
                 <div class="nav-div-top-phone">
-                    <img src="../images/phone.png" alt="phone">
-                    <p>+7 700 001 18 88</p>
+                    <img src="../images/phone.png" alt="phone" data-i18n="alt.phone">
+                    <p data-i18n="header.phone">+7 700 001 18 88</p>
                 </div>
             </div>
 
             <nav class="nav-div-bottom">
-                <a href="home.html">Главная</a>
-                <a href="why-us.html">Почему мы?</a>
-                <a href="advantages.html">Преимущества</a>
-                <a href="cottages.html">Коттеджи</a>
-                <a href="favorites.html" class="active">Избранное</a>
-                <a href="contacts.html">Контакты</a>
-                <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+                <a href="home.html" data-i18n="nav.home">Главная</a>
+                <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+                <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+                <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+                <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
+                <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+                <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
             </nav>
         </div>
 
-            <div class="burger-menu">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-            </div>
+        <div class="burger-menu">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+        </div>
 
         <nav class="mobile-menu">
-            <a href="home.html">Главная</a>
-            <a href="why-us.html">Почему мы?</a>
-            <a href="advantages.html">Преимущества</a>
-            <a href="cottages.html">Коттеджи</a>
-            <a href="favorites.html" class="active">Избранное</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+            <a href="home.html" data-i18n="nav.home">Главная</a>
+            <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+            <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+            <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+            <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
+            <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+            <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
         </nav>
         
         <div class="menu-overlay"></div>
@@ -84,166 +85,166 @@
     <main>
         <section class="why-us-hero">
             <div class="why-us-hero-content">
-                <h1>Почему выбирают NURA ELITE?</h1>
-                <p>Узнайте, что делает наш коттеджный городок уникальным и почему клиенты выбирают нас</p>
-                <button class="cta-button">Получить консультацию</button>
+                <h1 data-i18n="whyus.title">Почему выбирают NURA ELITE?</h1>
+                <p data-i18n="whyus.subtitle">Узнайте, что делает наш коттеджный городок уникальным и почему клиенты выбирают нас</p>
+                <button class="cta-button" data-i18n="whyus.cta">Получить консультацию</button>
             </div>
             <div class="why-us-hero-image">
-                <img src="../images/why-us-hero.png" alt="Коттеджный городок NURA ELITE">
+                <img src="../images/why-us-hero.png" alt="Коттеджный городок NURA ELITE" data-i18n="alt.whyus.hero">
             </div>
         </section>
 
         <section id="advantages" class="why-us-advantages">
-            <h2>Ключевые преимущества</h2>
+            <h2 data-i18n="whyus.advantages.title">Ключевые преимущества</h2>
             <div class="advantages-grid">
                 <div class="advantage-card">
                     <div class="advantage-icon">
-                        <img src="../images/security.png" alt="Безопасность">
+                        <img src="../images/security.png" alt="Безопасность" data-i18n="alt.security">
                     </div>
-                    <h3>100% безопасность</h3>
-                    <p>Круглосуточная охрана, видеонаблюдение и закрытая территория для вашего спокойствия</p>
+                    <h3 data-i18n="whyus.advantage1.title">100% безопасность</h3>
+                    <p data-i18n="whyus.advantage1.text">Круглосуточная охрана, видеонаблюдение и закрытая территория для вашего спокойствия</p>
                 </div>
 
                 <div class="advantage-card">
                     <div class="advantage-icon">
-                        <img src="../images/eco.png" alt="Экология">
+                        <img src="../images/eco.png" alt="Экология" data-i18n="alt.eco">
                     </div>
-                    <h3>Экологичный район</h3>
-                    <p>Расположение рядом с лесополосой и рекой Нура-Есиль в экологически чистом районе</p>
+                    <h3 data-i18n="whyus.advantage2.title">Экологичный район</h3>
+                    <p data-i18n="whyus.advantage2.text">Расположение рядом с лесополосой и рекой Нура-Есиль в экологически чистом районе</p>
                 </div>
 
                 <div class="advantage-card">
                     <div class="advantage-icon">
-                        <img src="../images/ener.png" alt="Энергоэффективность">
+                        <img src="../images/ener.png" alt="Энергоэффективность" data-i18n="alt.ener">
                     </div>
-                    <h3>Энергоэффективность</h3>
-                    <p>Современные технологии сохраняют тепло зимой и прохладу летом, экономя ваши средства</p>
+                    <h3 data-i18n="whyus.advantage3.title">Энергоэффективность</h3>
+                    <p data-i18n="whyus.advantage3.text">Современные технологии сохраняют тепло зимой и прохладу летом, экономя ваши средства</p>
                 </div>
 
                 <div class="advantage-card">
                     <div class="advantage-icon">
                         <img src="../images/infrastructure.png" alt="Инфраструктура">
                     </div>
-                    <h3>Развитая инфраструктура</h3>
-                    <p>Все необходимое для комфортной жизни в шаговой доступности</p>
+                    <h3 data-i18n="whyus.advantage4.title">Развитая инфраструктура</h3>
+                    <p data-i18n="whyus.advantage4.text">Все необходимое для комфортной жизни в шаговой доступности</p>
                 </div>
 
                 <div class="advantage-card">
                     <div class="advantage-icon">
                         <img src="../images/quality.png" alt="Качество">
                     </div>
-                    <h3>Высокое качество</h3>
-                    <p>Используем только проверенные материалы и современные технологии строительства</p>
+                    <h3 data-i18n="whyus.advantage5.title">Высокое качество</h3>
+                    <p data-i18n="whyus.advantage5.text">Используем только проверенные материалы и современные технологии строительства</p>
                 </div>
 
                 <div class="advantage-card">
                     <div class="advantage-icon">
                         <img src="../images/investment.png" alt="Инвестиции">
                     </div>
-                    <h3>Выгодная инвестиция</h3>
-                    <p>Стабильный рост стоимости недвижимости в престижном районе города</p>
+                    <h3 data-i18n="whyus.advantage6.title">Выгодная инвестиция</h3>
+                    <p data-i18n="whyus.advantage6.text">Стабильный рост стоимости недвижимости в престижном районе города</p>
                 </div>
             </div>
         </section>
 
         <section id="technology" class="why-us-technology">
-            <h2>Современные технологии</h2>
+            <h2 data-i18n="whyus.technology.title">Современные технологии</h2>
             <div class="technology-content">
                 <div class="technology-text">
                     <div class="tech-item">
-                        <h3>Умный дом</h3>
-                        <p>Автоматизированные системы управления домом для вашего комфорта и экономии</p>
+                        <h3 data-i18n="whyus.tech1.title">Умный дом</h3>
+                        <p data-i18n="whyus.tech1.text">Автоматизированные системы управления домом для вашего комфорта и экономии</p>
                     </div>
                     <div class="tech-item">
-                        <h3>Энергосбережение</h3>
-                        <p>Тройные стеклопакеты, современное утепление и энергоэффективные системы</p>
+                        <h3 data-i18n="whyus.tech2.title">Энергосбережение</h3>
+                        <p data-i18n="whyus.tech2.text">Тройные стеклопакеты, современное утепление и энергоэффективные системы</p>
                     </div>
                     <div class="tech-item">
-                        <h3>Экологичные материалы</h3>
-                        <p>Используем только безопасные и долговечные материалы для строительства</p>
+                        <h3 data-i18n="whyus.tech3.title">Экологичные материалы</h3>
+                        <p data-i18n="whyus.tech3.text">Используем только безопасные и долговечные материалы для строительства</p>
                     </div>
                 </div>
                 <div class="technology-image">
-                    <img src="../images/technology.webp" alt="Современные технологии">
+                    <img src="../images/technology.webp" alt="Современные технологии" data-i18n="alt.whyus.technology">
                 </div>
             </div>
         </section>
 
         <section id="reviews" class="why-us-reviews">
-            <h2>Отзывы клиентов</h2>
+            <h2 data-i18n="whyus.reviews.title">Отзывы клиентов</h2>
             <div class="reviews-slider">
                 <div class="review-card">
                     <div class="review-content">
-                        <p>"Выбрали NURA ELITE за расположение и качество. Очень довольны решением - тихо, безопасно и красиво!"</p>
+                        <p data-i18n="whyus.review1.text">"Выбрали NURA ELITE за расположение и качество. Очень довольны решением - тихо, безопасно и красиво!"</p>
                     </div>
                     <div class="review-author">
-                        <h4>Асем и Арман</h4>
-                        <span>Владельцы коттеджа с 2022 года</span>
+                        <h4 data-i18n="whyus.review1.author">Асем и Арман</h4>
+                        <span data-i18n="whyus.review1.status">Владельцы коттеджа с 2022 года</span>
                     </div>
                 </div>
 
                 <div class="review-card">
                     <div class="review-content">
-                        <p>"Отличная инвестиция! За год стоимость нашей недвижимости выросла на 25%. Рекомендуем всем!"</p>
+                        <p data-i18n="whyus.review2.text">"Отличная инвестиция! За год стоимость нашей недвижимости выросла на 25%. Рекомендуем всем!"</p>
                     </div>
                     <div class="review-author">
-                        <h4>Данияр К.</h4>
-                        <span>Инвестор</span>
+                        <h4 data-i18n="whyus.review2.author">Данияр К.</h4>
+                        <span data-i18n="whyus.review2.status">Инвестор</span>
                     </div>
                 </div>
 
                 <div class="review-card">
                     <div class="review-content">
-                        <p>"Нравится забота об экологии и современный подход к строительству. Дети растут в здоровой среде."</p>
+                        <p data-i18n="whyus.review3.text">"Нравится забота об экологии и современный подход к строительству. Дети растут в здоровой среде."</p>
                     </div>
                     <div class="review-author">
-                        <h4>Семья Нургалиевых</h4>
-                        <span>Владельцы с 2023 года</span>
+                        <h4 data-i18n="whyus.review3.author">Семья Нургалиевых</h4>
+                        <span data-i18n="whyus.review3.status">Владельцы с 2023 года</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="faq" class="why-us-faq">
-            <h2>Частые вопросы</h2>
+            <h2 data-i18n="whyus.faq.title">Частые вопросы</h2>
             <div class="faq-container">
                 <div class="faq-item">
                     <button class="faq-question">
-                        Какие документы нужны для покупки?
+                        <span data-i18n="whyus.faq1.question">Какие документы нужны для покупки?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Для покупки потребуется паспорт, ИИН и документы, подтверждающие доход. Наши менеджеры помогут собрать полный пакет документов.</p>
+                        <p data-i18n="whyus.faq1.answer">Для покупки потребуется паспорт, ИИН и документы, подтверждающие доход. Наши менеджеры помогут собрать полный пакет документов.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Есть ли рассрочка?
+                        <span data-i18n="whyus.faq2.question">Есть ли рассрочка?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Да, мы предоставляем беспроцентную рассрочку до 24 месяцев. Также работаем со всеми major банками Казахстана.</p>
+                        <p data-i18n="whyus.faq2.answer">Да, мы предоставляем беспроцентную рассрочку до 24 месяцев. Также работаем со всеми major банками Казахстана.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Когда сдача объектов?
+                        <span data-i18n="whyus.faq3.question">Когда сдача объектов?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Срок сдачи коттеджей - I квартал 2022 года. Весь коттеджный городок будет сдан во II квартале 2022 года.</p>
+                        <p data-i18n="whyus.faq3.answer">Срок сдачи коттеджей - I квартал 2022 года. Весь коттеджный городок будет сдан во II квартале 2022 года.</p>
                     </div>
                 </div>
 
                 <div class="faq-item">
                     <button class="faq-question">
-                        Какие коммуникации подключены?
+                        <span data-i18n="whyus.faq4.question">Какие коммуникации подключены?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <p>Все коттеджи подключены к центральным коммуникациям: водоснабжение, электричество, канализация, газоснабжение.</p>
+                        <p data-i18n="whyus.faq4.answer">Все коттеджи подключены к центральным коммуникациям: водоснабжение, электричество, канализация, газоснабжение.</p>
                     </div>
                 </div>
             </div>
@@ -251,27 +252,29 @@
 
         <section class="why-us-cta">
             <div class="cta-content">
-                <h2>Готовы стать частью NURA ELITE?</h2>
-                <p>Запишитесь на экскурсию и лично оцените все преимущества нашего коттеджного городка</p>
+                <h2 data-i18n="whyus.cta.title">Готовы стать частью NURA ELITE?</h2>
+                <p data-i18n="whyus.cta.subtitle">Запишитесь на экскурсию и лично оцените все преимущества нашего коттеджного городка</p>
                 <form class="cta-form">
-                    <input type="text" placeholder="Ваше имя" required>
-                    <input type="tel" placeholder="Номер телефона" required>
-                    <button type="submit">Записаться на просмотр</button>
+                    <input type="text" placeholder="Ваше имя" data-i18n="whyus.cta.name" required>
+                    <input type="tel" placeholder="Номер телефона" data-i18n="whyus.cta.phone" required>
+                    <button type="submit" data-i18n="whyus.cta.button">Записаться на просмотр</button>
                 </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <a href="home.html">Главная</a>
-        <a href="#advantages">Преимущества</a>
-        <a href="#technology">Технологии</a>
-        <a href="#contacts">Контакты</a>
+        <a href="home.html" data-i18n="nav.home">Главная</a>
+        <a href="#advantages" data-i18n="nav.advantages">Преимущества</a>
+        <a href="#technology" data-i18n="nav.whyus">Почему мы?</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
     </footer>
 
     <script src="../js/burger-menu.js"></script>
     <script src="../js/why-us.js"></script>
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Админ-панель - NURA ELITE</title>
+    <title data-i18n="admin.title">Админ-панель - NURA ELITE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -12,53 +12,54 @@
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/responsive.css">
     <link rel="stylesheet" href="../styles/admin.css">
+    <link rel="stylesheet" href="../styles/theme.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../images/logo.png" alt="logo">
-            <div class="user-menu" id="user-menu" style="display: none;">
-                <div class="user-avatar" id="user-avatar">
-                    <img src="../images/default-avatar.jpg" alt="Аватар">
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu">
-                    <div class="user-info">
-                        <span id="user-name">Пользователь</span>
-                        <span id="user-email">user@example.com</span>
+            <img src="../images/logo.png" alt="logo" data-i18n="alt.logo">
+                <div class="user-menu" id="user-menu" style="display: none;">
+                    <div class="user-avatar" id="user-avatar">
+                        <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
                     </div>
-                    <a href="#" class="dropdown-item">
-                        <img src="../images/icons8-settings.gif" alt="Настройки">
-                        Настройки
-                    </a>
-                    <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
-                        <img src="../images/admin-icon.png" alt="Админ-панель">
-                        Админ-панель
-                    </a>
-                    <button class="dropdown-item logout-btn">
-                        <img src="../images/logout-icon.png" alt="Выход">
-                        Выход
-                    </button>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <div class="user-info">
+                            <span id="user-name" data-i18n="nav.user">Пользователь</span>
+                            <span id="user-email">user@example.com</span>
+                        </div>
+                        <a href="#" class="dropdown-item">
+                            <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
+                            <span data-i18n="nav.settings">Настройки</span>
+                        </a>
+                        <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                            <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
+                            <span data-i18n="nav.admin">Админ-панель</span>
+                        </a>
+                        <button class="dropdown-item logout-btn">
+                            <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
+                            <span data-i18n="nav.logout">Выход</span>
+                        </button>
+                    </div>
                 </div>
-            </div>
         </div>
 
         <div class="nav-div">
             <div class="nav-div-top">
-                <img src="../images/whatsapp.png" alt="whatsapp">
+                <img src="../images/whatsapp.png" alt="whatsapp" data-i18n="alt.whatsapp">
                 <div class="nav-div-top-phone">
-                    <img src="../images/phone.png" alt="phone">
-                    <p>+7 700 001 18 88</p>
+                    <img src="../images/phone.png" alt="phone" data-i18n="alt.phone">
+                    <p data-i18n="header.phone">+7 700 001 18 88</p>
                 </div>
             </div>
 
             <nav class="nav-div-bottom">
-                <a href="home.html">Главная</a>
-                <a href="why-us.html">Почему мы?</a>
-                <a href="advantages.html">Преимущества</a>
-                <a href="cottages.html">Коттеджи</a>
-                <a href="favorites.html">Избранное</a>
-                <a href="contacts.html">Контакты</a>
-                <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+                <a href="home.html" data-i18n="nav.home">Главная</a>
+                <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+                <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+                <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+                <a href="favorites.html" data-i18n="nav.favorites">Избранное</a>
+                <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+                <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
             </nav>
         </div>
 
@@ -69,13 +70,13 @@
         </div>
 
         <nav class="mobile-menu">
-            <a href="home.html">Главная</a>
-            <a href="why-us.html">Почему мы?</a>
-            <a href="advantages.html">Преимущества</a>
-            <a href="cottages.html">Коттеджи</a>
-            <a href="favorites.html">Избранное</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+            <a href="home.html" data-i18n="nav.home">Главная</a>
+            <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+            <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+            <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+            <a href="favorites.html" data-i18n="nav.favorites">Избранное</a>
+            <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+            <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
         </nav>
         
         <div class="menu-overlay"></div>
@@ -85,48 +86,47 @@
         <section class="admin-section">
             <div class="container">
                 <div class="admin-header">
-                    <h2>Админ-панель</h2>
+                    <h2 data-i18n="admin.title">Админ-панель</h2>
                     <div class="admin-tabs">
-                        <button class="tab-btn active" data-tab="users">Пользователи</button>
-                        <button class="tab-btn" data-tab="cottages">Коттеджи</button>
+                        <button class="tab-btn active" data-tab="users" data-i18n="admin.tabs.users">Пользователи</button>
+                        <button class="tab-btn" data-tab="cottages" data-i18n="admin.tabs.cottages">Коттеджи</button>
                     </div>
                 </div>
 
                 <div class="preloader" id="preloader">
                     <div class="spinner"></div>
-                    <p>Загрузка данных...</p>
+                    <p data-i18n="admin.loading">Загрузка данных...</p>
                 </div>
 
                 <div class="admin-content" id="admin-content" style="display: none;">
                     <div class="auth-required" id="auth-required" style="display: none;">
                         <div class="auth-message">
-                            <img src="../images/auth-required.png" alt="Требуется авторизация">
-                            <h3>Для доступа к админ-панели необходимы права администратора</h3>
-                            <p>Войдите в аккаунт администратора для управления системой</p>
-                            <a href="auth.html" class="auth-btn">Войти в аккаунт</a>
+                            <h3 data-i18n="admin.authRequired.title">Для доступа к админ-панели необходимы права администратора</h3>
+                            <p data-i18n="admin.authRequired.text">Войдите в аккаунт администратора для управления системой</p>
+                            <a href="auth.html" class="auth-btn" data-i18n="admin.authRequired.button">Войти в аккаунт</a>
                         </div>
                     </div>
 
                     <div class="admin-tab-content active" id="users-tab">
                         <div class="admin-actions">
                             <div class="search-box">
-                                <input type="text" id="users-search" placeholder="Поиск пользователей...">
-                                <img src="../images/search-icon.png" alt="Поиск">
+                                <input type="text" id="users-search" placeholder="Поиск пользователей..." data-i18n="admin.users.search.placeholder">
+                                <img src="../images/search-icon.gif" alt="Поиск" data-i18n="alt.search">
                             </div>
-                            <button class="refresh-btn" id="refresh-users">Обновить</button>
+                            <button class="refresh-btn" id="refresh-users" data-i18n="admin.refresh">Обновить</button>
                         </div>
 
                         <div class="admin-table-container">
                             <table class="admin-table" id="users-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Имя</th>
-                                        <th>Email</th>
-                                        <th>Телефон</th>
-                                        <th>Роль</th>
-                                        <th>Дата регистрации</th>
-                                        <th>Действия</th>
+                                        <th data-i18n="admin.users.table.id">ID</th>
+                                        <th data-i18n="admin.users.table.name">Имя</th>
+                                        <th data-i18n="admin.users.table.email">Email</th>
+                                        <th data-i18n="admin.users.table.phone">Телефон</th>
+                                        <th data-i18n="admin.users.table.role">Роль</th>
+                                        <th data-i18n="admin.users.table.registrationDate">Дата регистрации</th>
+                                        <th data-i18n="admin.users.table.actions">Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody id="users-table-body">
@@ -138,24 +138,24 @@
                     <div class="admin-tab-content" id="cottages-tab">
                         <div class="admin-actions">
                             <div class="search-box">
-                                <input type="text" id="cottages-search" placeholder="Поиск коттеджей...">
-                                <img src="../images/search-icon.png" alt="Поиск">
+                                <input type="text" id="cottages-search" placeholder="Поиск коттеджей..." data-i18n="admin.cottages.search.placeholder">
+                                <img src="../images/search-icon.gif" alt="Поиск" data-i18n="alt.search">
                             </div>
-                            <button class="add-btn" id="add-cottage">Добавить коттедж</button>
-                            <button class="refresh-btn" id="refresh-cottages">Обновить</button>
+                            <button class="add-btn" id="add-cottage" data-i18n="admin.cottages.addButton">Добавить коттедж</button>
+                            <button class="refresh-btn" id="refresh-cottages" data-i18n="admin.refresh">Обновить</button>
                         </div>
 
                         <div class="admin-table-container">
                             <table class="admin-table" id="cottages-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Название</th>
-                                        <th>Цена</th>
-                                        <th>Площадь</th>
-                                        <th>Спальни</th>
-                                        <th>Статус</th>
-                                        <th>Действия</th>
+                                        <th data-i18n="admin.cottages.table.id">ID</th>
+                                        <th data-i18n="admin.cottages.table.name">Название</th>
+                                        <th data-i18n="admin.cottages.table.price">Цена</th>
+                                        <th data-i18n="admin.cottages.table.area">Площадь</th>
+                                        <th data-i18n="admin.cottages.table.bedrooms">Спальни</th>
+                                        <th data-i18n="admin.cottages.table.status">Статус</th>
+                                        <th data-i18n="admin.cottages.table.actions">Действия</th>
                                     </tr>
                                 </thead>
                                 <tbody id="cottages-table-body">
@@ -171,40 +171,40 @@
     <div class="modal" id="user-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="user-modal-title">Редактирование пользователя</h3>
+                <h3 id="user-modal-title" data-i18n="admin.users.modal.editTitle">Редактирование пользователя</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
                 <form id="user-form" class="admin-form">
                     <input type="hidden" id="user-id">
                     <div class="form-group">
-                        <label for="user-first-name">Имя</label>
+                        <label for="user-first-name" data-i18n="admin.users.form.firstName">Имя</label>
                         <input type="text" id="user-first-name" required>
                     </div>
                     <div class="form-group">
-                        <label for="user-last-name">Фамилия</label>
+                        <label for="user-last-name" data-i18n="admin.users.form.lastName">Фамилия</label>
                         <input type="text" id="user-last-name" required>
                     </div>
                     <div class="form-group">
-                        <label for="user-email">Email</label>
+                        <label for="user-email" data-i18n="admin.users.form.email">Email</label>
                         <input type="email" id="user-email" required>
                     </div>
                     <div class="form-group">
-                        <label for="user-phone">Телефон</label>
+                        <label for="user-phone" data-i18n="admin.users.form.phone">Телефон</label>
                         <input type="tel" id="user-phone" required>
                     </div>
                     <div class="form-group">
-                        <label for="user-role">Роль</label>
+                        <label for="user-role" data-i18n="admin.users.form.role">Роль</label>
                         <select id="user-role" required>
-                            <option value="user">Пользователь</option>
-                            <option value="admin">Администратор</option>
+                            <option value="user" data-i18n="admin.users.form.roleUser">Пользователь</option>
+                            <option value="admin" data-i18n="admin.users.form.roleAdmin">Администратор</option>
                         </select>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="cancel-btn">Отмена</button>
-                <button class="confirm-btn" id="save-user">Сохранить</button>
+                <button class="cancel-btn" data-i18n="admin.modal.cancel">Отмена</button>
+                <button class="confirm-btn" id="save-user" data-i18n="admin.modal.save">Сохранить</button>
             </div>
         </div>
     </div>
@@ -212,7 +212,7 @@
     <div class="modal" id="cottage-modal">
         <div class="modal-content large-modal">
             <div class="modal-header">
-                <h3 id="cottage-modal-title">Редактирование коттеджа</h3>
+                <h3 id="cottage-modal-title" data-i18n="admin.cottages.modal.editTitle">Редактирование коттеджа</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
@@ -220,61 +220,61 @@
                     <input type="hidden" id="cottage-id">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="cottage-title">Название</label>
+                            <label for="cottage-title" data-i18n="admin.cottages.form.name">Название</label>
                             <input type="text" id="cottage-title" required>
                         </div>
                         <div class="form-group">
-                            <label for="cottage-price">Цена (₸)</label>
+                            <label for="cottage-price" data-i18n="admin.cottages.form.price">Цена (₸)</label>
                             <input type="number" id="cottage-price" min="0" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="cottage-location">Местоположение</label>
+                            <label for="cottage-location" data-i18n="admin.cottages.form.location">Местоположение</label>
                             <input type="text" id="cottage-location" required>
                         </div>
                         <div class="form-group">
-                            <label for="cottage-area">Площадь (м²)</label>
+                            <label for="cottage-area" data-i18n="admin.cottages.form.area">Площадь (м²)</label>
                             <input type="number" id="cottage-area" min="0" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="cottage-bedrooms">Спальни</label>
+                            <label for="cottage-bedrooms" data-i18n="admin.cottages.form.bedrooms">Спальни</label>
                             <input type="number" id="cottage-bedrooms" min="0" required>
                         </div>
                         <div class="form-group">
-                            <label for="cottage-bathrooms">Ванные</label>
+                            <label for="cottage-bathrooms" data-i18n="admin.cottages.form.bathrooms">Ванные</label>
                             <input type="number" id="cottage-bathrooms" min="0" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="cottage-floors">Этажи</label>
+                            <label for="cottage-floors" data-i18n="admin.cottages.form.floors">Этажи</label>
                             <input type="number" id="cottage-floors" min="0" required>
                         </div>
                         <div class="form-group">
-                            <label for="cottage-status">Статус</label>
+                            <label for="cottage-status" data-i18n="admin.cottages.form.status">Статус</label>
                             <select id="cottage-status" required>
-                                <option value="available">Доступно</option>
-                                <option value="reserved">Забронировано</option>
-                                <option value="sold">Продано</option>
+                                <option value="available" data-i18n="admin.cottages.form.statusAvailable">Доступно</option>
+                                <option value="reserved" data-i18n="admin.cottages.form.statusReserved">Забронировано</option>
+                                <option value="sold" data-i18n="admin.cottages.form.statusSold">Продано</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="cottage-description">Описание</label>
+                        <label for="cottage-description" data-i18n="admin.cottages.form.description">Описание</label>
                         <textarea id="cottage-description" rows="3"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="cottage-images">Изображения (URL через запятую)</label>
-                        <textarea id="cottage-images" rows="2" placeholder="image1.jpg, image2.jpg"></textarea>
+                        <label for="cottage-images" data-i18n="admin.cottages.form.images">Изображения (URL через запятую)</label>
+                        <textarea id="cottage-images" rows="2" placeholder="image1.jpg, image2.jpg" data-i18n="admin.cottages.form.imagesPlaceholder"></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="cancel-btn">Отмена</button>
-                <button class="confirm-btn" id="save-cottage">Сохранить</button>
+                <button class="cancel-btn" data-i18n="admin.modal.cancel">Отмена</button>
+                <button class="confirm-btn" id="save-cottage" data-i18n="admin.modal.save">Сохранить</button>
             </div>
         </div>
     </div>
@@ -282,31 +282,33 @@
     <div class="modal" id="confirmation-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Подтверждение действия</h3>
+                <h3 data-i18n="admin.confirmation.title">Подтверждение действия</h3>
                 <button class="modal-close">&times;</button>
             </div>
             <div class="modal-body">
-                <p id="confirmation-message">Вы уверены, что хотите выполнить это действие?</p>
+                <p id="confirmation-message" data-i18n="admin.confirmation.message">Вы уверены, что хотите выполнить это действие?</p>
             </div>
             <div class="modal-footer">
-                <button class="cancel-btn">Отмена</button>
-                <button class="confirm-btn" id="confirm-action">Подтвердить</button>
+                <button class="cancel-btn" data-i18n="admin.modal.cancel">Отмена</button>
+                <button class="confirm-btn" id="confirm-action" data-i18n="admin.confirmation.confirm">Подтвердить</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <a href="../index.html">Главная</a>
-        <a href="why-us.html">Почему мы?</a>
-        <a href="advantages.html">Преимущества</a>
-        <a href="cottages.html">Коттеджи</a>
-        <a href="favorites.html">Избранное</a>
-        <a href="contacts.html">Контакты</a>
+        <a href="../index.html" data-i18n="nav.home">Главная</a>
+        <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+        <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+        <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+        <a href="favorites.html" data-i18n="nav.favorites">Избранное</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
     </footer>
 
     <script src="../js/burger-menu.js"></script>
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/admin.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 </html>

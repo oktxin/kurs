@@ -22,7 +22,7 @@ class ApiService {
 async request(endpoint, options = {}) {
     if (endpoint.includes('NaN')) {
         console.error('Invalid endpoint with NaN:', endpoint);
-        throw new Error('Неверный запрос к API');
+        throw new Error(t('api.errors.invalidRequest'));
     }
     
     const url = `${API_BASE}${endpoint}`;
@@ -61,7 +61,7 @@ async request(endpoint, options = {}) {
             );
 
             if (!user) {
-                throw new Error('Неверные учетные данные');
+                throw new Error(t('api.errors.invalidCredentials'));
             }
 
             this.user = user;
@@ -90,7 +90,7 @@ async request(endpoint, options = {}) {
             );
 
             if (existingUser) {
-                throw new Error('Пользователь с таким email или телефоном уже существует');
+                throw new Error(t('api.errors.userExists'));
             }
 
             const newUser = {
@@ -154,7 +154,7 @@ async request(endpoint, options = {}) {
 
     async addFavorite(cottageId) {
         if (!this.isAuthenticated()) {
-            throw new Error('Требуется авторизация');
+            throw new Error(t('api.errors.authRequired'));
         }
 
         const favorite = {

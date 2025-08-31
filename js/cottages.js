@@ -33,7 +33,7 @@ class CottagesManager {
             this.setupPagination(cottages.length);
         } catch (error) {
             console.error('Error loading cottages:', error);
-            this.showError('Ошибка загрузки коттеджей');
+            this.showError(t('cottages.errors.loadError'));
         } finally {
             this.hidePreloader();
         }
@@ -91,7 +91,7 @@ class CottagesManager {
             
         } catch (error) {
             console.error('Error applying filters:', error);
-            this.showError('Ошибка применения фильтров');
+            this.showError(t('cottages.errors.filterError'));
         } finally {
             this.hidePreloader();
         }
@@ -138,8 +138,8 @@ class CottagesManager {
 
     createCottageCard(cottage) {
         const isFavorite = this.favorites.has(cottage.id);
-        const statusText = cottage.status === 'available' ? 'Доступно' : 
-                          cottage.status === 'reserved' ? 'Забронировано' : 'Продано';
+        const statusText = cottage.status === 'available' ? t('cottages.status.available') : 
+                          cottage.status === 'reserved' ? t('cottages.status.reserved') : t('cottages.status.sold');
         const statusClass = cottage.status === 'available' ? 'badge-available' : 
                            cottage.status === 'reserved' ? 'badge-reserved' : 'badge-sold';
         
@@ -161,20 +161,20 @@ class CottagesManager {
                     
                     <div class="cottage-features">
                         <div class="feature-item">
-                            <img src="../images/area-icon.png" alt="Площадь">
+                            <img src="../images/area-icon.png" alt="${t('cottages.features.area')}">
                             ${cottage.area} м²
                         </div>
                         <div class="feature-item">
-                            <img src="../images/bed-icon.png" alt="Спальни">
-                            ${cottage.bedrooms} спальни
+                            <img src="../images/bed-icon.png" alt="${t('cottages.features.bedrooms')}">
+                            ${cottage.bedrooms} ${t('cottages.features.bedrooms')}
                         </div>
                         <div class="feature-item">
-                            <img src="../images/bath-icon.png" alt="Ванные">
-                            ${cottage.bathrooms} ванные
+                            <img src="../images/bath-icon.png" alt="${t('cottages.features.bathrooms')}">
+                            ${cottage.bathrooms} ${t('cottages.features.bathrooms')}
                         </div>
                         <div class="feature-item">
-                            <img src="../images/floor-icon.png" alt="Этажи">
-                            ${cottage.floors} этажа
+                            <img src="../images/floor-icon.png" alt="${t('cottages.features.floors')}">
+                            ${cottage.floors} ${t('cottages.features.floors')}
                         </div>
                     </div>
                     
@@ -184,7 +184,7 @@ class CottagesManager {
                             ♥
                         </button>
                         <button class="view-details-btn" data-cottage-id="${cottage.id}">
-                            Подробнее
+                            ${t('cottages.actions.details')}
                         </button>
                     </div>
                 </div>
@@ -232,7 +232,7 @@ class CottagesManager {
 
         paginationHTML += `
             <span class="pagination-info">
-                Страница ${this.currentPage} из ${totalPages}
+                ${t('cottages.pagination.page')} ${this.currentPage} ${t('cottages.pagination.of')} ${totalPages}
             </span>
         `;
         
@@ -307,68 +307,70 @@ class CottagesManager {
         this.debouncedApplyFilters = this.debounce(() => this.applyFilters(), 500);
     }
 
-    addFavoriteHandlers() {
-        document.querySelectorAll('.favorite-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const cottageId = parseInt(e.target.dataset.cottageId);
-                this.toggleFavorite(cottageId, e.target);
-            });
+addFavoriteHandlers() {
+    document.querySelectorAll('.favorite-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const cottageId = e.target.dataset.cottageId; 
+            this.toggleFavorite(cottageId, e.target);
         });
+    });
 
-        document.querySelectorAll('.view-details-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const cottageId = parseInt(e.target.dataset.cottageId);
-                this.viewCottageDetails(cottageId);
-            });
+    document.querySelectorAll('.view-details-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const cottageId = e.target.dataset.cottageId; 
+            this.viewCottageDetails(cottageId);
         });
+    });
+}
+
+
+async toggleFavorite(cottageId, button) {
+    if (!this.api.isAuthenticated()) {
+        this.showNotification(t('cottages.favorites.authRequired'), 'error');
+        return;
     }
 
-    async toggleFavorite(cottageId, button) {
-        if (!this.api.isAuthenticated()) {
-            this.showNotification('Для добавления в избранное необходимо авторизоваться', 'error');
-            return;
-        }
+    try {
+        if (this.favorites.has(cottageId)) {
+            this.favorites.delete(cottageId);
+            button.classList.remove('active');
 
-        try {
-            if (this.favorites.has(cottageId)) {
-                this.favorites.delete(cottageId);
-                button.classList.remove('active');
-
-                const favorites = await this.api.request('/favorites');
-                const favorite = favorites.find(f => f.userId === this.api.user.id && f.cottageId === cottageId);
-                
-                if (favorite) {
-                    await this.api.request(`/favorites/${favorite.id}`, {
-                        method: 'DELETE'
-                    });
-                }
-                
-                this.showNotification('Удалено из избранного', 'success');
-            } else {
-                this.favorites.add(cottageId);
-                button.classList.add('active');
-
-                await this.api.request('/favorites', {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        userId: this.api.user.id,
-                        cottageId: cottageId,
-                        createdAt: new Date().toISOString()
-                    })
+            const favorites = await this.api.request('/favorites');
+            const favorite = favorites.find(f => f.userId === this.api.user.id && f.cottageId === cottageId);
+            
+            if (favorite) {
+                await this.api.request(`/favorites/${favorite.id}`, {
+                    method: 'DELETE'
                 });
-                
-                this.showNotification('Добавлено в избранное', 'success');
             }
             
-            this.saveFavorites();
-        } catch (error) {
-            console.error('Error toggling favorite:', error);
-            this.showNotification('Ошибка при изменении избранного', 'error');
+            this.showNotification(t('cottages.favorites.removed'), 'success');
+        } else {
+            this.favorites.add(cottageId);
+            button.classList.add('active');
+
+            await this.api.request('/favorites', {
+                method: 'POST',
+                body: JSON.stringify({
+                    userId: this.api.user.id,
+                    cottageId: cottageId, 
+                    createdAt: new Date().toISOString()
+                })
+            });
+            
+            this.showNotification(t('cottages.favorites.added'), 'success');
         }
+        
+        this.saveFavorites();
+    } catch (error) {
+        console.error('Error toggling favorite:', error);
+        this.showNotification(t('cottages.favorites.error'), 'error');
     }
+}
+
 
     viewCottageDetails(cottageId) {
-        this.showNotification('Детали коттеджа будут показаны здесь', 'info');
+        this.showNotification(t('cottages.actions.detailsComing'), 'info');
     }
 
     loadFavorites() {
@@ -428,8 +430,8 @@ class CottagesManager {
         const grid = document.getElementById('cottages-grid');
         grid.innerHTML = `
             <div class="no-results">
-                <img src="../images/error-icon.png" alt="Ошибка">
-                <h3>Ошибка</h3>
+                <img src="../images/error-icon.png" alt="${t('cottages.errors.error')}">
+                <h3>${t('cottages.errors.error')}</h3>
                 <p>${message}</p>
             </div>
         `;

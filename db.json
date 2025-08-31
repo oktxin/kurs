@@ -212,22 +212,10 @@
   ],
   "favorites": [
     {
-      "id": "b42e",
-      "userId": 1756579816492,
-      "cottageId": 2,
-      "createdAt": "2025-08-30T22:06:49.028Z"
-    },
-    {
-      "id": "c363",
-      "userId": 1756579816492,
-      "cottageId": 3,
-      "createdAt": "2025-08-30T22:06:52.371Z"
-    },
-    {
-      "id": "d445",
-      "userId": "1",
-      "cottageId": 414,
-      "createdAt": "2025-08-31T15:49:39.749Z"
+      "id": "653d",
+      "userId": "2",
+      "cottageId": "414f",
+      "createdAt": "2025-08-31T20:04:13.607Z"
     }
   ]
 }

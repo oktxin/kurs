@@ -1,0 +1,323 @@
+:root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --accent-color: #842231;
+    --border-color: #dee2e6;
+    --shadow: 0 2px 10px rgba(0,0,0,0.1);
+    --modal-bg: #ffffff;
+    --modal-text: #212529;
+    --button-hover: #a52c3f;
+    --button-active: #8a2535;
+    --input-bg: #ffffff;
+    --card-bg: #ffffff;
+    --header-bg: #ffffff;
+    --footer-bg: #f8f9fa;
+    --nav-hover: #e9ecef;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+}
+
+.dark-theme {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #adb5bd;
+    --accent-color: #4ecdc4;
+    --border-color: #495057;
+    --shadow: 0 2px 10px rgba(0,0,0,0.3);
+    --modal-bg: #2d2d2d;
+    --modal-text: #ffffff;
+    --button-hover: #3aa69f;
+    --button-active: #2b8c86;
+    --input-bg: #3d3d3d;
+    --card-bg: #2d2d2d;
+    --header-bg: #2d2d2d;
+    --footer-bg: #1a1a1a;
+    --nav-hover: #3d3d3d;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --warning-color: #f39c12;
+    --info-color: #3498db;
+}
+
+.dark-theme body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-theme header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.dark-theme footer {
+    background-color: var(--footer-bg);
+    border-top: 1px solid var(--border-color);
+}
+
+.dark-theme .why-us-hero,
+.dark-theme .why-us-advantages,
+.dark-theme .why-us-technology,
+.dark-theme .why-us-reviews,
+.dark-theme .advantages-hero,
+.dark-theme .location-section,
+.dark-theme .security-section,
+.dark-theme .technology-section,
+.dark-theme .infrastructure-section,
+.dark-theme .comparison-section,
+.dark-theme .filters-section,
+.dark-theme .contact-info,
+.dark-theme .map-section,
+.dark-theme .contact-form-section,
+.dark-theme .sidebar-item,
+.dark-theme .social-section,
+.dark-theme .contacts-faq,
+.dark-theme .admin-tabs{
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.dark-theme .advantage-card,
+.dark-theme .review-card,
+.dark-theme .why-us-faq,
+.dark-theme .feature-card,
+.dark-theme .tech-card,
+.dark-theme .infra-feature,
+.dark-theme .comparison-row,
+.dark-theme .filters-panel,
+.dark-theme .sorting-panel,
+.dark-theme .favorites-header,
+.dark-theme .contact-card,
+.dark-theme .form-container,
+.dark-theme .faq-item,
+.dark-theme .social-card,
+.dark-theme .admin-tab-content.active,
+.dark-theme .admin-header,
+.dark-theme .role-badge,
+.dark-theme .status-badge{
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark-theme .nav-div-bottom a,
+.dark-theme .why-us-hero p,
+.dark-theme .advantage-card p,
+.dark-theme .advantage-card h3,
+.dark-theme .tech-item p,
+.dark-theme .tech-item h3,
+.dark-theme .review-content p,
+.dark-theme .review-author h4,
+.dark-theme .review-author span,
+.dark-theme .hero-content p,
+.dark-theme .stat-label,
+.dark-theme .feature-card h3,
+.dark-theme .feature-card p,
+.dark-theme .section-header p,
+.dark-theme .security-content ul li,
+.dark-theme .tech-card h3,
+.dark-theme .tech-card p,
+.dark-theme .infra-text h4,
+.dark-theme .infra-text p,
+.dark-theme .comparison-title,
+.dark-theme .comparison-value,
+.dark-theme .filter-group label,
+.dark-theme .cottage-title,
+.dark-theme .cottage-location,
+.dark-theme .feature-item,
+.dark-theme .sorting-panel label,
+.dark-theme .favorites-stats span,
+.dark-theme .contact-card-content p,
+.dark-theme .map-section h4,
+.dark-theme .map-section p,
+.dark-theme .form-container p,
+.dark-theme .form-container h4,
+.dark-theme .social-card h4,
+.dark-theme .social-card p,
+.dark-theme .social-card span,
+.dark-theme .faq-item h4,
+.dark-theme .faq-item p {
+    color: var(--text-primary);
+}
+
+.dark-theme footer a {
+    color: var(--text-primary);
+}
+
+.dark-theme .nav-div-bottom a:hover {
+    background-color: var(--nav-hover);
+}
+
+.dark-theme .cottage-card, 
+.dark-theme .favorite-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+.dark-theme .modal-content {
+    background-color: var(--modal-bg);
+    color: var(--modal-text);
+}
+
+.dark-theme input, 
+.dark-theme select, 
+.dark-theme textarea {
+    background-color: var(--input-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.dark-theme button {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.dark-theme button:hover {
+    background-color: var(--button-hover);
+}
+
+.dark-theme button:active {
+    background-color: var(--button-active);
+}
+
+.dark-theme .notification.success {
+    background-color: var(--success-color);
+}
+
+.dark-theme .notification.error {
+    background-color: var(--error-color);
+}
+
+.dark-theme .notification.warning {
+    background-color: var(--warning-color);
+}
+
+.dark-theme .notification.info {
+    background-color: var(--info-color);
+}
+
+.dark-theme .form-group label {
+    color: var(--text-primary);
+}
+
+.dark-theme .admin-table {
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+.dark-theme .admin-table th {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark-theme .admin-table tr:hover {
+    background-color: var(--nav-hover);
+}
+
+.dark-theme .role-badge, 
+.dark-theme .status-badge {
+    color: white;
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--button-hover);
+    transform: scale(1.1);
+}
+
+.language-selector {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 25px;
+    padding: 0.5rem;
+    display: flex;
+    gap: 0.5rem;
+    box-shadow: var(--shadow);
+}
+
+.language-btn {
+    background: transparent;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.language-btn:hover {
+    background: var(--nav-hover);
+}
+
+.language-btn.active {
+    background: var(--accent-color);
+    color: white;
+}
+
+.dark-theme .section5-top-block img,
+.dark-theme .section5-bottom-block img,
+.dark-theme .section6-block-text-top-block img,
+.dark-theme .section6-block-text-bottom-block img,
+.dark-theme .section10-text-bottom-contact img,
+.dark-theme .feature-item img,
+.dark-theme .sidebar-item img,
+.dark-theme .search-box img{
+    filter: invert(1);
+}
+
+.dark-theme .logo img {
+    filter: brightness(0.8);
+}
+
+.dark-theme .nav-div-top img {
+    filter: brightness(0.8);
+}
+
+.dark-theme .burger-line {
+    background-color: var(--text-primary);
+}
+
+@media screen and (max-width: 768px) {
+    .theme-toggle {
+        bottom: 70px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .language-selector {
+        bottom: 125px;
+        right: 15px;
+    }
+}

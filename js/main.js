@@ -28,7 +28,6 @@ class AuthManager {
         }
     }
 
-
     updateUI(user) {
         const authLink = document.getElementById('auth-link');
         const userMenu = document.getElementById('user-menu');
@@ -58,7 +57,7 @@ class AuthManager {
         
         if (userAvatar) {
             userAvatar.innerHTML = `
-                <img src="${user.avatar || '../images/default-avatar.jpg'}" alt="Аватар">
+                <img src="${user.avatar || '../images/default-avatar.jpg'}" alt="Аватар" data-i18n="alt.avatar">
             `;
         }
 
@@ -92,13 +91,13 @@ class AuthManager {
                     await this.api.logout();
                     this.updateUI(null);
                     dropdownMenu.classList.remove('active');
-                    this.showNotification('Вы успешно вышли из системы', 'success');
+                    this.showNotification(t('auth.logout.success'), 'success');
 
                     if (window.location.pathname.includes('admin.html')) {
                         window.location.href = 'home.html';
                     }
                 } catch (error) {
-                    this.showNotification('Ошибка при выходе', 'error');
+                    this.showNotification(t('auth.logout.error'), 'error');
                 }
             });
         }

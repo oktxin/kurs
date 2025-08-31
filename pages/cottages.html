@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Коттеджи - NURA ELITE</title>
+    <title data-i18n="cottages.title">Коттеджи - NURA ELITE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -12,71 +12,71 @@
     <link rel="stylesheet" href="../styles/footer.css">
     <link rel="stylesheet" href="../styles/global.css">
     <link rel="stylesheet" href="../styles/responsive.css">
-
+    <link rel="stylesheet" href="../styles/theme.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="../images/logo.png" alt="logo">
-                                        <div class="user-menu" id="user-menu" style="display: none;">
-                    <div class="user-avatar" id="user-avatar">
-                        <img src="../images/default-avatar.jpg" alt="Аватар">
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <div class="user-info">
-                            <span id="user-name">Пользователь</span>
-                            <span id="user-email">user@example.com</span>
-                        </div>
-                        <a href="#" class="dropdown-item">
-                            <img src="../images/icons8-settings.gif" alt="Настройки">
-                            Настройки
-                        </a>
-                        <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
-                            <img src="../images/icons8-admin-50.png" alt="Админ-панель">
-                            Админ-панель
-                        </a>
-                        <button class="dropdown-item logout-btn">
-                            <img src="../images/icons8-logout.gif" alt="Выход">
-                            Выход
-                        </button>
-                    </div>
+            <img src="../images/logo.png" alt="logo" data-i18n="alt.logo">
+            <div class="user-menu" id="user-menu" style="display: none;">
+                <div class="user-avatar" id="user-avatar">
+                    <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
                 </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <div class="user-info">
+                        <span id="user-name" data-i18n="nav.user">Пользователь</span>
+                        <span id="user-email">user@example.com</span>
+                    </div>
+                    <a href="#" class="dropdown-item">
+                        <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
+                        <span data-i18n="nav.settings">Настройки</span>
+                    </a>
+                    <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                        <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
+                        <span data-i18n="nav.admin">Админ-панель</span>
+                    </a>
+                    <button class="dropdown-item logout-btn">
+                        <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
+                        <span data-i18n="nav.logout">Выход</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="nav-div">
             <div class="nav-div-top">
-                <img src="../images/whatsapp.png" alt="whatsapp">
+                <img src="../images/whatsapp.png" alt="whatsapp" data-i18n="alt.whatsapp">
                 <div class="nav-div-top-phone">
-                    <img src="../images/phone.png" alt="phone">
-                    <p>+7 700 001 18 88</p>
+                    <img src="../images/phone.png" alt="phone" data-i18n="alt.phone">
+                    <p data-i18n="header.phone">+7 700 001 18 88</p>
                 </div>
             </div>
 
             <nav class="nav-div-bottom">
-                <a href="home.html">Главная</a>
-                <a href="why-us.html">Почему мы?</a>
-                <a href="advantages.html">Преимущества</a>
-                <a href="cottages.html">Коттеджи</a>
-                <a href="favorites.html" class="active">Избранное</a>
-                <a href="contacts.html">Контакты</a>
-                <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+                <a href="home.html" data-i18n="nav.home">Главная</a>
+                <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+                <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+                <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+                <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
+                <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+                <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
             </nav>
         </div>
 
-            <div class="burger-menu">
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-                <div class="burger-line"></div>
-            </div>
+        <div class="burger-menu">
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+            <div class="burger-line"></div>
+        </div>
 
         <nav class="mobile-menu">
-            <a href="home.html">Главная</a>
-            <a href="why-us.html">Почему мы?</a>
-            <a href="advantages.html">Преимущества</a>
-            <a href="cottages.html">Коттеджи</a>
-            <a href="favorites.html" class="active">Избранное</a>
-            <a href="contacts.html">Контакты</a>
-            <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
+            <a href="home.html" data-i18n="nav.home">Главная</a>
+            <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+            <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+            <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+            <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
+            <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
+            <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
         </nav>
         
         <div class="menu-overlay"></div>
@@ -85,93 +85,93 @@
     <main>
         <section class="cottages-hero">
             <div class="hero-content">
-                <h1>Коттеджи NURA ELITE</h1>
-                <p>Выберите свой идеальный дом в элитном коттеджном городке</p>
+                <h1 data-i18n="cottages.hero.title">Коттеджи NURA ELITE</h1>
+                <p data-i18n="cottages.hero.subtitle">Выберите свой идеальный дом в элитном коттеджном городке</p>
             </div>
         </section>
 
         <section class="filters-section">
             <div class="container">
                 <div class="filters-header">
-                    <h2>Поиск коттеджей</h2>
+                    <h2 data-i18n="cottages.filters.title">Поиск коттеджей</h2>
                     <button class="toggle-filters-btn" id="toggle-filters">
-                        <span>Фильтры</span>
-                        <img src="../images/filter.gif" alt="Фильтры">
+                        <span data-i18n="cottages.filters.button">Фильтры</span>
+                        <img src="../images/filter.gif" alt="Фильтры" data-i18n="alt.filter">
                     </button>
                 </div>
 
                 <div class="filters-panel" id="filters-panel">
                     <div class="filter-group">
-                        <label>Поиск по названию</label>
-                        <input type="text" id="search-input" placeholder="Введите название...">
+                        <label data-i18n="cottages.filters.search">Поиск по названию</label>
+                        <input type="text" id="search-input" placeholder="Введите название..." data-i18n="cottages.filters.search.placeholder">
                     </div>
 
                     <div class="filter-group">
-                        <label>Категория</label>
+                        <label data-i18n="cottages.filters.category">Категория</label>
                         <select id="category-filter">
-                            <option value="">Все категории</option>
-                            <option value="economy">Эконом</option>
-                            <option value="standard">Стандарт</option>
-                            <option value="comfort">Комфорт</option>
-                            <option value="premium">Премиум</option>
-                            <option value="luxury">Люкс</option>
+                            <option value="" data-i18n="cottages.filters.all">Все категории</option>
+                            <option value="economy" data-i18n="cottages.filters.economy">Эконом</option>
+                            <option value="standard" data-i18n="cottages.filters.standard">Стандарт</option>
+                            <option value="comfort" data-i18n="cottages.filters.comfort">Комфорт</option>
+                            <option value="premium" data-i18n="cottages.filters.premium">Премиум</option>
+                            <option value="luxury" data-i18n="cottages.filters.luxury">Люкс</option>
                         </select>
                     </div>
 
                     <div class="filter-group">
-                        <label>Статус</label>
+                        <label data-i18n="cottages.filters.status">Статус</label>
                         <select id="status-filter">
-                            <option value="">Все статусы</option>
-                            <option value="available">Доступно</option>
-                            <option value="reserved">Забронировано</option>
-                            <option value="sold">Продано</option>
+                            <option value="" data-i18n="cottages.filters.all">Все статусы</option>
+                            <option value="available" data-i18n="cottages.filters.available">Доступно</option>
+                            <option value="reserved" data-i18n="cottages.filters.reserved">Забронировано</option>
+                            <option value="sold" data-i18n="cottages.filters.sold">Продано</option>
                         </select>
                     </div>
 
                     <div class="filter-group">
-                        <label>Цена, ₸</label>
+                        <label data-i18n="cottages.filters.price">Цена, ₸</label>
                         <div class="range-inputs">
-                            <input type="number" id="price-min" placeholder="От" min="0">
+                            <input type="number" id="price-min" placeholder="От" min="0" data-i18n="cottages.filters.from">
                             <span>-</span>
-                            <input type="number" id="price-max" placeholder="До" min="0">
+                            <input type="number" id="price-max" placeholder="До" min="0" data-i18n="cottages.filters.to">
                         </div>
                     </div>
 
                     <div class="filter-group">
-                        <label>Площадь, м²</label>
+                        <label data-i18n="cottages.filters.area">Площадь, м²</label>
                         <div class="range-inputs">
-                            <input type="number" id="area-min" placeholder="От" min="0">
+                            <input type="number" id="area-min" placeholder="От" min="0" data-i18n="cottages.filters.from">
                             <span>-</span>
-                            <input type="number" id="area-max" placeholder="До" min="0">
+                            <input type="number" id="area-max" placeholder="До" min="0" data-i18n="cottages.filters.to">
                         </div>
                     </div>
 
                     <div class="filter-group">
-                        <label>Спальни</label>
+                        <label data-i18n="cottages.filters.bedrooms">Спальни</label>
                         <select id="bedrooms-filter">
-                            <option value="">Любое количество</option>
-                            <option value="1">1 спальня</option>
-                            <option value="2">2 спальни</option>
-                            <option value="3">3 спальни</option>
-                            <option value="4">4+ спальни</option>
+                            <option value="" data-i18n="cottages.filters.any">Любое количество</option>
+                            <option value="1" data-i18n="cottages.filters.bedroom1">1 спальня</option>
+                            <option value="2" data-i18n="cottages.filters.bedroom2">2 спальни</option>
+                            <option value="3" data-i18n="cottages.filters.bedroom3">3 спальни</option>
+                            <option value="4" data-i18n="cottages.filters.bedroom4">4+ спальни</option>
                         </select>
                     </div>
 
                     <div class="filter-actions">
-                        <button type="button" id="apply-filters" class="primary-btn">Применить</button>
-                        <button type="button" id="reset-filters" class="secondary-btn">Сбросить</button>
+                        <button type="button" id="apply-filters" class="primary-btn" data-i18n="cottages.filters.apply">Применить</button>
+                        <button type="button" id="reset-filters" class="secondary-btn" data-i18n="cottages.filters.reset">Сбросить</button>
                     </div>
                 </div>
 
                 <div class="sorting-panel">
-                    <label>Сортировка:</label>
+                    <label data-i18n="cottages.sorting">Сортировка:</label>
                     <select id="sort-by">
-                        <option value="price-asc">Цена (по возрастанию)</option>
-                        <option value="price-desc">Цена (по убыванию)</option>
-                        <option value="area-asc">Площадь (по возрастанию)</option>
-                        <option value="area-desc">Площадь (по убыванию)</option>
-                        <option value="newest">Сначала новые</option>
-                        <option value="oldest">Сначала старые</option>
+                        <option value="price-asc" data-i18n="cottages.sorting.priceAsc">Цена (по возрастанию)</option>
+                        <option value="price-desc" data-i18n="cottages.sorting.priceDesc">Цена (по убыванию)</option>
+                        <option value="area-asc" data-i18n="cottages.sorting.areaAsc">Площадь (по возрастанию)</option>
+                        <option value="area-desc" data-i18n="cottages.sorting.areaDesc">Площадь (по убыванию)</option>
+                        <option value="newest" data-i18n="cottages.sorting.newest">Сначала новые</option>
+                        <option value="oldest" data-i18n="cottages.sorting.oldest">Сначала старые</option>
                     </select>
                 </div>
             </div>
@@ -181,16 +181,16 @@
             <div class="container">
                 <div class="preloader" id="preloader">
                     <div class="spinner"></div>
-                    <p>Загрузка коттеджей...</p>
+                    <p data-i18n="cottages.loading">Загрузка коттеджей...</p>
                 </div>
 
                 <div class="cottages-grid" id="cottages-grid">
                 </div>
 
                 <div class="no-results" id="no-results" style="display: none;">
-                    <img src="../images/no-results.png" alt="Ничего не найдено">
-                    <h3>Ничего не найдено</h3>
-                    <p>Попробуйте изменить параметры поиска</p>
+                    <img src="../images/no-results.png" alt="Ничего не найдено" data-i18n="alt.noResults">
+                    <h3 data-i18n="cottages.noResults.title">Ничего не найдено</h3>
+                    <p data-i18n="cottages.noResults.text">Попробуйте изменить параметры поиска</p>
                 </div>
 
                 <div class="pagination" id="pagination">
@@ -200,15 +200,17 @@
     </main>
 
     <footer>
-        <a href="../index.html">Главная</a>
-        <a href="why-us.html">Почему мы?</a>
-        <a href="advantages.html">Преимущества</a>
-        <a href="cottages.html">Коттеджи</a>
-        <a href="contacts.html">Контакты</a>
+        <a href="../index.html" data-i18n="nav.home">Главная</a>
+        <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
+        <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
+        <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
+        <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
     </footer>
     <script src="../js/burger-menu.js"></script>
     <script src="../js/api.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/cottages.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/i18n.js"></script>
 </body>
 </html>

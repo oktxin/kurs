@@ -59,8 +59,8 @@ if (typeof window.AuthForm === 'undefined') {
                 font-family: 'Fira Sans', sans-serif;
             `;
             errorDiv.innerHTML = `
-                <strong>Ошибка подключения</strong><br>
-                Сервер авторизации недоступен. Убедитесь, что json-server запущен на порту 3000.
+                <strong>${t('auth.errors.connection')}</strong><br>
+                ${t('auth.errors.serverUnavailable')}
             `;
             document.body.appendChild(errorDiv);
         }
@@ -286,12 +286,12 @@ if (typeof window.AuthForm === 'undefined') {
             const byPhoneRegex = /^\+375\s?(25|29|33|44)\s?\d{3}[-]?\d{2}[-]?\d{2}$/;
             
             if (!phone) {
-                this.showError(errorElement, 'Номер телефона обязателен');
+                this.showError(errorElement, t('auth.validation.phoneRequired'));
                 return false;
             }
 
             if (!byPhoneRegex.test(phone)) {
-                this.showError(errorElement, 'Введите корректный номер РБ (+375 XX XXX-XX-XX)');
+                this.showError(errorElement, t('auth.validation.phoneFormat'));
                 return false;
             }
 
@@ -306,12 +306,12 @@ if (typeof window.AuthForm === 'undefined') {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
             if (!email) {
-                this.showError(errorElement, 'Email обязателен');
+                this.showError(errorElement, t('auth.validation.emailRequired'));
                 return false;
             }
 
             if (!emailRegex.test(email)) {
-                this.showError(errorElement, 'Введите корректный email');
+                this.showError(errorElement, t('auth.validation.emailFormat'));
                 return false;
             }
 
@@ -324,17 +324,17 @@ if (typeof window.AuthForm === 'undefined') {
             if (!errorElement) return false;
             
             if (required && !name.trim()) {
-                this.showError(errorElement, 'Это поле обязательно');
+                this.showError(errorElement, t('auth.validation.fieldRequired'));
                 return false;
             }
 
             if (name && !/^[а-яА-ЯёЁa-zA-Z\- ]+$/.test(name)) {
-                this.showError(errorElement, 'Только буквы, дефисы и пробелы');
+                this.showError(errorElement, t('auth.validation.nameFormat'));
                 return false;
             }
 
             if (name && name.length < 2) {
-                this.showError(errorElement, 'Минимум 2 символа');
+                this.showError(errorElement, t('auth.validation.nameMinLength'));
                 return false;
             }
 
@@ -347,7 +347,7 @@ if (typeof window.AuthForm === 'undefined') {
             if (!errorElement) return false;
             
             if (!date) {
-                this.showError(errorElement, 'Дата рождения обязательна');
+                this.showError(errorElement, t('auth.validation.birthDateRequired'));
                 return false;
             }
 
@@ -356,7 +356,7 @@ if (typeof window.AuthForm === 'undefined') {
             const minAgeDate = new Date(today.getFullYear() - 16, today.getMonth(), today.getDate());
 
             if (birthDate > minAgeDate) {
-                this.showError(errorElement, 'Вам должно быть не менее 16 лет');
+                this.showError(errorElement, t('auth.validation.minAge'));
                 return false;
             }
 
@@ -369,42 +369,42 @@ if (typeof window.AuthForm === 'undefined') {
             if (!errorElement) return false;
             
             if (!password) {
-                this.showError(errorElement, 'Пароль обязателен');
+                this.showError(errorElement, t('auth.validation.passwordRequired'));
                 return false;
             }
 
             if (password.length < 8) {
-                this.showError(errorElement, 'Минимум 8 символов');
+                this.showError(errorElement, t('auth.validation.passwordMinLength'));
                 return false;
             }
 
             if (password.length > 20) {
-                this.showError(errorElement, 'Максимум 20 символов');
+                this.showError(errorElement, t('auth.validation.passwordMaxLength'));
                 return false;
             }
 
             if (!/(?=.*[a-z])/.test(password)) {
-                this.showError(errorElement, 'Добавьте строчную букву');
+                this.showError(errorElement, t('auth.validation.passwordLowercase'));
                 return false;
             }
 
             if (!/(?=.*[A-Z])/.test(password)) {
-                this.showError(errorElement, 'Добавьте заглавную букву');
+                this.showError(errorElement, t('auth.validation.passwordUppercase'));
                 return false;
             }
 
             if (!/(?=.*\d)/.test(password)) {
-                this.showError(errorElement, 'Добавьте цифру');
+                this.showError(errorElement, t('auth.validation.passwordDigit'));
                 return false;
             }
 
             if (!/(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?])/.test(password)) {
-                this.showError(errorElement, 'Добавьте специальный символ');
+                this.showError(errorElement, t('auth.validation.passwordSpecial'));
                 return false;
             }
 
             if (window.AUTH_COMMON_PASSWORDS.includes(password.toLowerCase())) {
-                this.showError(errorElement, 'Пароль слишком распространен');
+                this.showError(errorElement, t('auth.validation.passwordCommon'));
                 return false;
             }
 
@@ -422,12 +422,12 @@ if (typeof window.AuthForm === 'undefined') {
             const password = passwordInput.value;
             
             if (!confirmPassword) {
-                this.showError(errorElement, 'Подтвердите пароль');
+                this.showError(errorElement, t('auth.validation.confirmPasswordRequired'));
                 return false;
             }
 
             if (confirmPassword !== password) {
-                this.showError(errorElement, 'Пароли не совпадают');
+                this.showError(errorElement, t('auth.validation.passwordsMismatch'));
                 return false;
             }
 
@@ -440,7 +440,7 @@ if (typeof window.AuthForm === 'undefined') {
             if (!errorElement) return false;
             
             if (!checked) {
-                this.showError(errorElement, 'Необходимо принять соглашение');
+                this.showError(errorElement, t('auth.validation.agreementRequired'));
                 return false;
             }
 
@@ -495,7 +495,7 @@ if (typeof window.AuthForm === 'undefined') {
                 const usernameInput = document.getElementById('username');
                 if (usernameInput) {
                     usernameInput.readOnly = false;
-                    usernameInput.placeholder = 'Введите свой никнейм';
+                    usernameInput.placeholder = t('auth.username.enterOwn');
                 }
                 return;
             }
@@ -518,7 +518,7 @@ if (typeof window.AuthForm === 'undefined') {
             
             const attemptsElement = document.querySelector('.attempts-count');
             if (attemptsElement) {
-                attemptsElement.textContent = `(${this.usernameAttempts} попыток)`;
+                attemptsElement.textContent = `(${this.usernameAttempts} ${t('auth.username.attempts')})`;
             }
             
             if (this.usernameAttempts === 0) {
@@ -528,7 +528,7 @@ if (typeof window.AuthForm === 'undefined') {
                 if (generateBtn) generateBtn.disabled = true;
                 if (usernameInput) {
                     usernameInput.readOnly = false;
-                    usernameInput.placeholder = 'Введите свой никнейм';
+                    usernameInput.placeholder = t('auth.username.enterOwn');
                 }
             }
             
@@ -540,17 +540,17 @@ if (typeof window.AuthForm === 'undefined') {
             if (!errorElement) return false;
             
             if (!username) {
-                this.showError(errorElement, 'Никнейм обязателен');
+                this.showError(errorElement, t('auth.validation.usernameRequired'));
                 return false;
             }
 
             if (username.length < 3) {
-                this.showError(errorElement, 'Минимум 3 символа');
+                this.showError(errorElement, t('auth.validation.usernameMinLength'));
                 return false;
             }
 
             if (!/^[a-zA-Z0-9_]+$/.test(username)) {
-                this.showError(errorElement, 'Только буквы, цифры и подчеркивания');
+                this.showError(errorElement, t('auth.validation.usernameFormat'));
                 return false;
             }
 
@@ -654,10 +654,10 @@ if (typeof window.AuthForm === 'undefined') {
             this.isSubmitting = true;
 
             const loginBtn = e.target.querySelector('.auth-btn');
-            const originalText = loginBtn ? loginBtn.textContent : 'Войти';
+            const originalText = loginBtn ? loginBtn.textContent : t('auth.login.submit');
             
             if (loginBtn) {
-                loginBtn.textContent = 'Вход...';
+                loginBtn.textContent = t('auth.login.submitting');
                 loginBtn.disabled = true;
             }
 
@@ -694,7 +694,7 @@ if (typeof window.AuthForm === 'undefined') {
                 console.log('Login successful, user:', user);
                 console.log('Current path:', window.location.pathname);
                 
-                this.showNotification('Вход выполнен успешно!', 'success');
+                this.showNotification(t('auth.login.success'), 'success');
 
                 const redirectPath = window.location.pathname.includes('/pages/') 
                     ? 'home.html'
@@ -706,7 +706,7 @@ if (typeof window.AuthForm === 'undefined') {
                 }, 1000);
 
             } catch (error) {
-                this.showNotification(error.message || 'Ошибка входа', 'error');
+                this.showNotification(error.message || t('auth.login.error'), 'error');
                 this.isSubmitting = false;
                 if (loginBtn) {
                     loginBtn.textContent = originalText;
@@ -722,10 +722,10 @@ if (typeof window.AuthForm === 'undefined') {
             this.isSubmitting = true;
 
             const registerBtn = e.target.querySelector('.auth-btn');
-            const originalText = registerBtn ? registerBtn.textContent : 'Зарегистрироваться';
+            const originalText = registerBtn ? registerBtn.textContent : t('auth.register.submit');
             
             if (registerBtn) {
-                registerBtn.textContent = 'Регистрация...';
+                registerBtn.textContent = t('auth.register.submitting');
                 registerBtn.disabled = true;
             }
 
@@ -754,7 +754,7 @@ if (typeof window.AuthForm === 'undefined') {
 
                 const user = await this.api.register(formData);
                 
-                this.showNotification('Регистрация прошла успешно!', 'success');
+                this.showNotification(t('auth.register.success'), 'success');
 
                 e.stopImmediatePropagation();
 
@@ -767,7 +767,7 @@ if (typeof window.AuthForm === 'undefined') {
                 }, 1000);
 
             } catch (error) {
-                this.showNotification(error.message || 'Ошибка регистрации', 'error');
+                this.showNotification(error.message || t('auth.register.error'), 'error');
                 this.isSubmitting = false;
                 if (registerBtn) {
                     registerBtn.textContent = originalText;

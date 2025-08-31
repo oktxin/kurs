@@ -19,11 +19,11 @@ class FavoritesManager {
         const content = document.getElementById('favorites-content');
         
         if (!this.api.isAuthenticated()) {
-            authRequired.style.display = 'block';
-            content.style.display = 'none';
+            if (authRequired) authRequired.style.display = 'block';
+            if (content) content.style.display = 'none';
         } else {
-            authRequired.style.display = 'none';
-            content.style.display = 'block';
+            if (authRequired) authRequired.style.display = 'none';
+            if (content) content.style.display = 'block';
         }
     }
 
@@ -37,20 +37,21 @@ class FavoritesManager {
             const cottages = await this.api.request('/cottages');
 
             this.favorites = userFavorites.map(fav => {
-                const cottage = cottages.find(c => c.id === fav.cottageId);
+                const cottage = cottages.find(c => String(c.id) === String(fav.cottageId));
+                if (!cottage) return null;
                 return {
                     ...cottage,
                     favoriteId: fav.id,
                     addedAt: fav.createdAt
                 };
-            }).filter(Boolean); 
+            }).filter(Boolean);
 
             this.displayFavorites();
             this.updateStats();
             
         } catch (error) {
             console.error('Error loading favorites:', error);
-            this.showError('Ошибка загрузки избранного');
+            this.showError(t('favorites.errors.loadError'));
         } finally {
             this.hidePreloader();
         }
@@ -60,6 +61,8 @@ class FavoritesManager {
         const grid = document.getElementById('favorites-grid');
         const noFavorites = document.getElementById('no-favorites');
         const actions = document.getElementById('favorites-actions');
+        
+        if (!grid || !noFavorites || !actions) return;
         
         if (this.favorites.length === 0) {
             grid.innerHTML = '';
@@ -77,21 +80,24 @@ class FavoritesManager {
     }
 
     createFavoriteCard(cottage) {
-        const statusText = cottage.status === 'available' ? 'Доступно' : 
-                          cottage.status === 'reserved' ? 'Забронировано' : 'Продано';
+        const statusText = cottage.status === 'available' ? t('favorites.status.available') : 
+                          cottage.status === 'reserved' ? t('favorites.status.reserved') : t('favorites.status.sold');
         const statusClass = cottage.status === 'available' ? 'badge-available' : 
                            cottage.status === 'reserved' ? 'badge-reserved' : 'badge-sold';
+        const firstImage = (Array.isArray(cottage.images) && cottage.images.length > 0) 
+                            ? cottage.images[0] 
+                            : 'default_cottage.jpeg';
         
         return `
-            <div class="cottage-card favorite-card" data-favorite-id="${cottage.favoriteId}">
-                <button class="remove-favorite-btn" data-favorite-id="${cottage.favoriteId}" title="Удалить из избранного">
-                    ×
-                </button>
-                <span class="cottage-badge ${statusClass}">${statusText}</span>
-                <img src="../images/${cottage.images[0] || 'default_cottage.jpeg'}" 
-                     alt="${cottage.title}" 
-                     class="cottage-image"
-                     onerror="this.src='../images/default_cottage.jpeg'">
+    <div class="cottage-card favorite-card" data-favorite-id="${cottage.favoriteId}">
+        <button class="remove-favorite-btn" data-favorite-id="${cottage.favoriteId}" title="${t('favorites.actions.remove')}">
+            ×
+        </button>
+        <span class="cottage-badge ${statusClass}">${statusText}</span>
+        <img src="../images/${firstImage}" 
+             alt="${cottage.title}" 
+             class="cottage-image"
+             onerror="this.src='../images/default_cottage.jpeg'">
                 
                 <div class="cottage-content">
                     <div class="cottage-header">
@@ -103,26 +109,26 @@ class FavoritesManager {
                     
                     <div class="cottage-features">
                         <div class="feature-item">
-                            <img src="../images/area-icon.png" alt="Площадь">
+                            <img src="../images/area-icon.png" alt="${t('favorites.features.area')}">
                             ${cottage.area} м²
                         </div>
                         <div class="feature-item">
-                            <img src="../images/bed-icon.png" alt="Спальни">
-                            ${cottage.bedrooms} спальни
+                            <img src="../images/bed-icon.png" alt="${t('favorites.features.bedrooms')}">
+                            ${cottage.bedrooms} ${t('favorites.features.bedrooms')}
                         </div>
                         <div class="feature-item">
-                            <img src="../images/bath-icon.png" alt="Ванные">
-                            ${cottage.bathrooms} ванные
+                            <img src="../images/bath-icon.png" alt="${t('favorites.features.bathrooms')}">
+                            ${cottage.bathrooms} ${t('favorites.features.bathrooms')}
                         </div>
                         <div class="feature-item">
-                            <img src="../images/floor-icon.png" alt="Этажи">
-                            ${cottage.floors} этажа
+                            <img src="../images/floor-icon.png" alt="${t('favorites.features.floors')}">
+                            ${cottage.floors} ${t('favorites.features.floors')}
                         </div>
                     </div>
                     
                     <div class="cottage-actions">
                         <button class="view-details-btn" data-cottage-id="${cottage.id}">
-                            Подробнее
+                            ${t('favorites.actions.details')}
                         </button>
                     </div>
                 </div>
@@ -132,7 +138,14 @@ class FavoritesManager {
 
     updateStats() {
         const countElement = document.getElementById('favorites-count');
-        countElement.textContent = `${this.favorites.length} ${this.getPluralForm(this.favorites.length, ['коттедж', 'коттеджа', 'коттеджей'])}`;
+        if (!countElement) return;
+        
+        const count = this.favorites.length;
+        countElement.textContent = `${count} ${this.getPluralForm(count, [
+            t('favorites.plural.one'),
+            t('favorites.plural.few'),
+            t('favorites.plural.many')
+        ])}`;
     }
 
     getPluralForm(number, forms) {
@@ -141,37 +154,42 @@ class FavoritesManager {
     }
 
     setupEventListeners() {
-        document.getElementById('clear-all-btn').addEventListener('click', () => {
-            this.showConfirmationModal();
-        });
+        const clearBtn = document.getElementById('clear-all-btn');
+        if (clearBtn) {
+            clearBtn.addEventListener('click', () => {
+                this.showConfirmationModal();
+            });
+        }
 
         const modal = document.getElementById('confirmation-modal');
-        const closeBtn = document.querySelector('.modal-close');
-        const cancelBtn = document.querySelector('.cancel-btn');
-        const confirmBtn = document.querySelector('.confirm-btn');
+        const closeBtn = modal?.querySelector('.modal-close');
+        const cancelBtn = modal?.querySelector('.cancel-btn');
+        const confirmBtn = modal?.querySelector('.confirm-btn');
 
-        closeBtn.addEventListener('click', () => this.hideModal());
-        cancelBtn.addEventListener('click', () => this.hideModal());
-        confirmBtn.addEventListener('click', () => this.clearAllFavorites());
+        if (closeBtn) closeBtn.addEventListener('click', () => this.hideModal());
+        if (cancelBtn) cancelBtn.addEventListener('click', () => this.hideModal());
+        if (confirmBtn) confirmBtn.addEventListener('click', () => this.clearAllFavorites());
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                this.hideModal();
-            }
-        });
+        if (modal) {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    this.hideModal();
+                }
+            });
+        }
     }
 
     addRemoveHandlers() {
         document.querySelectorAll('.remove-favorite-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const favoriteId = parseInt(e.target.dataset.favoriteId);
+                const favoriteId = e.target.dataset.favoriteId;
                 this.removeFavorite(favoriteId, e.target.closest('.cottage-card'));
             });
         });
 
         document.querySelectorAll('.view-details-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const cottageId = parseInt(e.target.dataset.cottageId);
+                const cottageId = e.target.dataset.cottageId;
                 this.viewCottageDetails(cottageId);
             });
         });
@@ -185,24 +203,28 @@ class FavoritesManager {
 
             this.favorites = this.favorites.filter(fav => fav.favoriteId !== favoriteId);
 
-            cardElement.style.opacity = '0';
-            cardElement.style.transition = 'opacity 0.3s ease';
-            
-            setTimeout(() => {
-                cardElement.remove();
-                this.updateStats();
+            if (cardElement) {
+                cardElement.style.opacity = '0';
+                cardElement.style.transition = 'opacity 0.3s ease';
                 
-                if (this.favorites.length === 0) {
-                    document.getElementById('no-favorites').style.display = 'block';
-                    document.getElementById('favorites-actions').style.display = 'none';
-                }
-            }, 300);
+                setTimeout(() => {
+                    cardElement.remove();
+                    this.updateStats();
+                    
+                    if (this.favorites.length === 0) {
+                        const noFavorites = document.getElementById('no-favorites');
+                        const actions = document.getElementById('favorites-actions');
+                        if (noFavorites) noFavorites.style.display = 'block';
+                        if (actions) actions.style.display = 'none';
+                    }
+                }, 300);
+            }
 
-            this.showNotification('Удалено из избранного', 'success');
+            this.showNotification(t('favorites.notifications.removed'), 'success');
             
         } catch (error) {
             console.error('Error removing favorite:', error);
-            this.showNotification('Ошибка при удалении из избранного', 'error');
+            this.showNotification(t('favorites.notifications.removeError'), 'error');
         }
     }
 
@@ -225,11 +247,11 @@ class FavoritesManager {
             this.displayFavorites();
             this.updateStats();
             
-            this.showNotification('Все коттеджи удалены из избранного', 'success');
+            this.showNotification(t('favorites.notifications.cleared'), 'success');
             
         } catch (error) {
             console.error('Error clearing favorites:', error);
-            this.showNotification('Ошибка при очистке избранного', 'error');
+            this.showNotification(t('favorites.notifications.clearError'), 'error');
         } finally {
             this.hidePreloader();
         }
@@ -240,27 +262,41 @@ class FavoritesManager {
     }
 
     showConfirmationModal() {
-        document.getElementById('confirmation-modal').classList.add('active');
+        const modal = document.getElementById('confirmation-modal');
+        if (modal) {
+            modal.classList.add('active');
+        }
     }
 
     hideModal() {
-        document.getElementById('confirmation-modal').classList.remove('active');
+        const modal = document.getElementById('confirmation-modal');
+        if (modal) {
+            modal.classList.remove('active');
+        }
     }
 
     showPreloader() {
-        document.getElementById('preloader').style.display = 'block';
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.display = 'block';
+        }
     }
 
     hidePreloader() {
-        document.getElementById('preloader').style.display = 'none';
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.display = 'none';
+        }
     }
 
     showError(message) {
         const grid = document.getElementById('favorites-grid');
+        if (!grid) return;
+        
         grid.innerHTML = `
             <div class="no-results">
-                <img src="../images/error-icon.png" alt="Ошибка">
-                <h3>Ошибка</h3>
+                <img src="../images/error-icon.png" alt="${t('favorites.errors.error')}">
+                <h3>${t('favorites.errors.error')}</h3>
                 <p>${message}</p>
             </div>
         `;
@@ -288,7 +324,9 @@ class FavoritesManager {
         document.body.appendChild(notification);
         
         setTimeout(() => {
-            document.body.removeChild(notification);
+            if (notification.parentNode) {
+                document.body.removeChild(notification);
+            }
         }, 3000);
     }
 

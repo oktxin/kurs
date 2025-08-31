@@ -52,16 +52,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const phoneInput = this.querySelector('input[type="tel"]');
 
             if (!nameInput.value.trim()) {
-                alert('Пожалуйста, введите ваше имя');
+                alert(t('form.validation.nameRequired'));
                 return;
             }
             
             if (!phoneInput.value.trim()) {
-                alert('Пожалуйста, введите ваш номер телефона');
+                alert(t('form.validation.phoneRequired'));
                 return;
             }
 
-            alert('Спасибо! Мы свяжемся с вами в ближайшее время для записи на просмотр.');
+            alert(t('form.success.message'));
             this.reset();
         });
     }

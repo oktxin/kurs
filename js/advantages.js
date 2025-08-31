@@ -42,18 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 const features = [
                     {
                         coords: [51.1694, 71.4491],
-                        title: 'Экологически чистый район',
-                        content: 'Лесополоса и река Нура-Есиль'
+                        title: t('map.features.eco.title'),
+                        content: t('map.features.eco.content')
                     },
                     {
                         coords: [51.1650, 71.4550],
-                        title: 'Транспортная развязка',
-                        content: 'Удобный доступ к магистралям'
+                        title: t('map.features.transport.title'),
+                        content: t('map.features.transport.content')
                     },
                     {
                         coords: [51.1720, 71.4430],
-                        title: 'Инфраструктура',
-                        content: 'Школы, детсады, магазины рядом'
+                        title: t('map.features.infra.title'),
+                        content: t('map.features.infra.content')
                     }
                 ];
 
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     window.location.href = 'contacts.html#contact-form';
                 }
             } else if (this.classList.contains('secondary')) {
-                showNotification('Каталог будет скачан в ближайшее время', 'info');
+                showNotification(t('advantages.downloadNotification'), 'info');
             }
         });
     });
