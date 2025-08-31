@@ -185,6 +185,16 @@
     flex-shrink: 0;
 }
 
+.section3-slide img:first-child{
+    width: 800px;
+    height: 500px
+}
+
+.section3-slide img:nth-child(2){
+    width: 500px;
+    height: 410px
+}
+
 .section3-slide-obl{
     font-size: 2em;
 }

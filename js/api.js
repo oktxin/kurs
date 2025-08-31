@@ -19,33 +19,38 @@ class ApiService {
         }
     }
 
-    async request(endpoint, options = {}) {
-        const url = `${API_BASE}${endpoint}`;
-        const config = {
-            headers: {
-                'Content-Type': 'application/json',
-                ...options.headers
-            },
-            ...options
-        };
-
-        if (this.token) {
-            config.headers['Authorization'] = `Bearer ${this.token}`;
-        }
-
-        try {
-            const response = await fetch(url, config);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            return await response.json();
-        } catch (error) {
-            console.error('API request failed:', error);
-            throw error;
-        }
+async request(endpoint, options = {}) {
+    if (endpoint.includes('NaN')) {
+        console.error('Invalid endpoint with NaN:', endpoint);
+        throw new Error('Неверный запрос к API');
     }
+    
+    const url = `${API_BASE}${endpoint}`;
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+            ...options.headers
+        },
+        ...options
+    };
+
+    if (this.token) {
+        config.headers['Authorization'] = `Bearer ${this.token}`;
+    }
+
+    try {
+        const response = await fetch(url, config);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error('API request failed:', error);
+        throw error;
+    }
+}
 
     async login(credentials) {
         try {
@@ -130,6 +135,66 @@ class ApiService {
             this.user = null;
         } catch (error) {
             console.error('Logout error:', error);
+        }
+    }
+
+        async getFavorites() {
+        if (!this.isAuthenticated()) {
+            return [];
+        }
+
+        try {
+            const favorites = await this.request('/favorites');
+            return favorites.filter(fav => fav.userId === this.user.id);
+        } catch (error) {
+            console.error('Error getting favorites:', error);
+            return [];
+        }
+    }
+
+    async addFavorite(cottageId) {
+        if (!this.isAuthenticated()) {
+            throw new Error('Требуется авторизация');
+        }
+
+        const favorite = {
+            userId: this.user.id,
+            cottageId: cottageId,
+            createdAt: new Date().toISOString()
+        };
+
+        return await this.request('/favorites', {
+            method: 'POST',
+            body: JSON.stringify(favorite)
+        });
+    }
+
+    async removeFavorite(favoriteId) {
+        return await this.request(`/favorites/${favoriteId}`, {
+            method: 'DELETE'
+        });
+    }
+
+    async getFavoriteCottages() {
+        if (!this.isAuthenticated()) {
+            return [];
+        }
+
+        try {
+            const [favorites, cottages] = await Promise.all([
+                this.request('/favorites'),
+                this.request('/cottages')
+            ]);
+
+            const userFavorites = favorites.filter(fav => fav.userId === this.user.id);
+            
+            return userFavorites.map(fav => {
+                const cottage = cottages.find(c => c.id === fav.cottageId);
+                return cottage ? { ...cottage, favoriteId: fav.id } : null;
+            }).filter(Boolean);
+        } catch (error) {
+            console.error('Error getting favorite cottages:', error);
+            return [];
         }
     }
 

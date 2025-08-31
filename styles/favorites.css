@@ -1,0 +1,300 @@
+.favorites-hero {
+    background: linear-gradient(135deg, rgba(219, 160, 105, 0.9) 0%, rgba(196, 137, 90, 0.9) 100%),
+                url('../images/favorites-hero-bg.jpg') center/cover;
+    color: white;
+    padding: 8rem 2rem;
+    text-align: center;
+}
+
+.favorites-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.favorites-hero p {
+    font-size: 1.3em;
+    opacity: 0.9;
+}
+
+.favorites-section {
+    padding: 4rem 0;
+}
+
+.favorites-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    gap: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.favorites-header h2 {
+    color: #842231;
+    font-size: 2em;
+    margin: 0;
+}
+
+.favorites-stats {
+    font-size: 1.1em;
+    color: #666;
+    font-weight: 500;
+}
+
+.auth-required {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.auth-message img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+}
+
+.auth-message h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+}
+
+.auth-message p {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.auth-btn {
+    padding: 1rem 2rem;
+    background: #842231;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.auth-btn:hover {
+    background: #a52c3f;
+}
+
+.no-favorites {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.empty-state img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+    opacity: 0.6;
+}
+
+.empty-state h3 {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+}
+
+.empty-state p {
+    color: #999;
+    margin-bottom: 2rem;
+}
+
+.browse-btn {
+    padding: 1rem 2rem;
+    background: #DBA069;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.browse-btn:hover {
+    background: #c1895a;
+}
+
+.favorites-actions {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+}
+
+.clear-all-btn {
+    padding: 1rem 2rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.clear-all-btn:hover {
+    background: #c82333;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    color: #842231;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+.modal-body p {
+    color: #333;
+    margin: 0;
+}
+
+.modal-footer {
+    padding: 1.5rem;
+    border-top: 1px solid #e9ecef;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.cancel-btn {
+    padding: 0.8rem 1.5rem;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.confirm-btn {
+    padding: 0.8rem 1.5rem;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.favorite-card {
+    position: relative;
+}
+
+.remove-favorite-btn {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    transition: background 0.3s ease;
+    z-index: 2;
+}
+
+.remove-favorite-btn:hover {
+    background: #c82333;
+}
+
+@media screen and (max-width: 768px) {
+    .favorites-hero {
+        padding: 6rem 1rem;
+    }
+    
+    .favorites-hero h1 {
+        font-size: 2.5em;
+    }
+    
+    .favorites-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 1rem;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+    }
+    
+    .cancel-btn,
+    .confirm-btn {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .favorites-hero h1 {
+        font-size: 2em;
+    }
+    
+    .auth-message img,
+    .empty-state img {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .remove-favorite-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1em;
+    }
+}

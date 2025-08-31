@@ -1,0 +1,452 @@
+.cottages-hero {
+    background: linear-gradient(135deg, rgba(132, 34, 49, 0.9) 0%, rgba(165, 44, 63, 0.9) 100%),
+                url('../images/cottages-hero-bg.jpg') center/cover;
+    color: white;
+    padding: 8rem 2rem;
+    text-align: center;
+}
+
+.cottages-hero h1 {
+    font-size: 3.5em;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.cottages-hero p {
+    font-size: 1.3em;
+    opacity: 0.9;
+}
+
+.filters-section {
+    background: #f8f9fa;
+    padding: 3rem 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.filters-header h2 {
+    color: #842231;
+    font-size: 2em;
+}
+
+.toggle-filters-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: #842231;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.toggle-filters-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.filters-panel {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-group label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.filter-group input,
+.filter-group select {
+    padding: 0.8rem;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.filter-group input:focus,
+.filter-group select:focus {
+    outline: none;
+    border-color: #DBA069;
+}
+
+.range-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.range-inputs input {
+    flex: 1;
+}
+
+.filter-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.primary-btn {
+    padding: 0.8rem 2rem;
+    background: #842231;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.secondary-btn {
+    padding: 0.8rem 2rem;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.sorting-panel {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.sorting-panel label {
+    font-weight: 600;
+    color: #333;
+}
+
+.sorting-panel select {
+    padding: 0.5rem;
+    border: 2px solid #e9ecef;
+    border-radius: 6px;
+}
+
+.cottages-list-section {
+    padding: 4rem 0;
+}
+
+.preloader {
+    text-align: center;
+    padding: 3rem;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #842231;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.cottages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.cottage-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.cottage-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.cottage-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.cottage-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+.badge-available {
+    background: #28a745;
+    color: white;
+}
+
+.badge-reserved {
+    background: #ffc107;
+    color: #333;
+}
+
+.badge-sold {
+    background: #dc3545;
+    color: white;
+}
+
+.cottage-content {
+    padding: 1.5rem;
+}
+
+.cottage-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+}
+
+.cottage-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+.cottage-price {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #842231;
+}
+
+.cottage-location {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+}
+
+.cottage-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.feature-item img {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+.cottage-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.3s ease;
+}
+
+.favorite-btn:hover {
+    background: #f8f9fa;
+}
+
+.favorite-btn.active {
+    color: #dc3545;
+}
+
+.view-details-btn {
+    padding: 0.8rem 1.5rem;
+    background: #DBA069;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.view-details-btn:hover {
+    background: #c1895a;
+}
+
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.no-results img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 1.5rem;
+    opacity: 0.5;
+}
+
+.no-results h3 {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.no-results p {
+    color: #999;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.pagination-btn {
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #e9ecef;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    border-color: #DBA069;
+    background: #f8f9fa;
+}
+
+.pagination-btn.active {
+    background: #842231;
+    color: white;
+    border-color: #842231;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-info {
+    margin: 0 1rem;
+    color: #666;
+}
+
+@media screen and (max-width: 768px) {
+    .cottages-hero {
+        padding: 6rem 1rem;
+    }
+    
+    .cottages-hero h1 {
+        font-size: 2.5em;
+    }
+    
+    .filters-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .filters-panel {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
+    
+    .cottages-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .sorting-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+    }
+
+    .filters-section{
+        width: 100%;
+    }
+
+    .filter-group{
+        width: 100%;
+    }
+
+    .filter-group label {
+        width: 100%;
+    }
+
+    .filter-group input,
+    .filter-group select {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .cottages-hero h1 {
+        font-size: 2em;
+    }
+    
+    .cottage-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .cottage-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .view-details-btn {
+        width: 100%;
+    }
+}

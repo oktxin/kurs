@@ -17,12 +17,29 @@
     <header>
         <div class="logo">
             <img src="../images/logo.png" alt="logo">
-        </div>
-        
-        <div class="burger-menu">
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
+                                        <div class="user-menu" id="user-menu" style="display: none;">
+                    <div class="user-avatar" id="user-avatar">
+                        <img src="../images/default-avatar.jpg" alt="Аватар">
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <div class="user-info">
+                            <span id="user-name">Пользователь</span>
+                            <span id="user-email">user@example.com</span>
+                        </div>
+                        <a href="#" class="dropdown-item">
+                            <img src="../images/icons8-settings.gif" alt="Настройки">
+                            Настройки
+                        </a>
+                        <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                            <img src="../images/icons8-admin-50.png" alt="Админ-панель">
+                            Админ-панель
+                        </a>
+                        <button class="dropdown-item logout-btn">
+                            <img src="../images/icons8-logout.gif" alt="Выход">
+                            Выход
+                        </button>
+                    </div>
+                </div>
         </div>
 
         <div class="nav-div">
@@ -33,45 +50,32 @@
                     <p>+7 700 001 18 88</p>
                 </div>
             </div>
+
             <nav class="nav-div-bottom">
-                <a href="../index.html">Главная</a>
+                <a href="home.html">Главная</a>
                 <a href="why-us.html">Почему мы?</a>
                 <a href="advantages.html">Преимущества</a>
+                <a href="cottages.html">Коттеджи</a>
+                <a href="favorites.html" class="active">Избранное</a>
                 <a href="contacts.html">Контакты</a>
-                <a href="auth.html" id="auth-link" class="auth-link">Вход/Регистрация</a>
+                <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
             </nav>
         </div>
 
-        <div class="user-menu" id="user-menu" style="display: none;">
-            <div class="user-avatar" id="user-avatar">
-                <img src="../images/default-avatar.png" alt="Аватар">
+            <div class="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
             </div>
-            <div class="dropdown-menu" id="dropdown-menu">
-                <div class="user-info">
-                    <span id="user-name">Пользователь</span>
-                    <span id="user-email">user@example.com</span>
-                </div>
-                <a href="#" class="dropdown-item">
-                    <img src="../images/settings-icon.png" alt="Настройки">
-                    Настройки
-                </a>
-                <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
-                    <img src="../images/admin-icon.png" alt="Админ-панель">
-                    Админ-панель
-                </a>
-                <button class="dropdown-item logout-btn">
-                    <img src="../images/logout-icon.png" alt="Выход">
-                    Выход
-                </button>
-            </div>
-        </div>
 
         <nav class="mobile-menu">
-            <a href="../index.html">Главная</a>
+            <a href="home.html">Главная</a>
             <a href="why-us.html">Почему мы?</a>
             <a href="advantages.html">Преимущества</a>
+            <a href="cottages.html">Коттеджи</a>
+            <a href="favorites.html" class="active">Избранное</a>
             <a href="contacts.html">Контакты</a>
-            <a href="auth.html" class="auth-link">Вход/Регистрация</a>
+            <a href="auth.html" class="auth-link" id="auth-link">Вход/Регистрация</a>
         </nav>
         
         <div class="menu-overlay"></div>
@@ -85,7 +89,7 @@
                 <button class="cta-button">Получить консультацию</button>
             </div>
             <div class="why-us-hero-image">
-                <img src="../images/why-us-hero.jpg" alt="Коттеджный городок NURA ELITE">
+                <img src="../images/why-us-hero.png" alt="Коттеджный городок NURA ELITE">
             </div>
         </section>
 
@@ -110,7 +114,7 @@
 
                 <div class="advantage-card">
                     <div class="advantage-icon">
-                        <img src="../images/energy.png" alt="Энергоэффективность">
+                        <img src="../images/ener.png" alt="Энергоэффективность">
                     </div>
                     <h3>Энергоэффективность</h3>
                     <p>Современные технологии сохраняют тепло зимой и прохладу летом, экономя ваши средства</p>
@@ -160,7 +164,7 @@
                     </div>
                 </div>
                 <div class="technology-image">
-                    <img src="../images/technology.jpg" alt="Современные технологии">
+                    <img src="../images/technology.webp" alt="Современные технологии">
                 </div>
             </div>
         </section>

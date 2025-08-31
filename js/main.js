@@ -28,6 +28,7 @@ class AuthManager {
         }
     }
 
+
     updateUI(user) {
         const authLink = document.getElementById('auth-link');
         const userMenu = document.getElementById('user-menu');
@@ -57,12 +58,13 @@ class AuthManager {
         
         if (userAvatar) {
             userAvatar.innerHTML = `
-                <img src="${user.avatar || '../images/default-avatar.png'}" alt="Аватар">
+                <img src="${user.avatar || '../images/default-avatar.jpg'}" alt="Аватар">
             `;
         }
 
         if (adminPanelLink) {
             adminPanelLink.style.display = user.role === 'admin' ? 'flex' : 'none';
+            adminPanelLink.href = 'admin.html';
         }
     }
 
@@ -91,6 +93,10 @@ class AuthManager {
                     this.updateUI(null);
                     dropdownMenu.classList.remove('active');
                     this.showNotification('Вы успешно вышли из системы', 'success');
+
+                    if (window.location.pathname.includes('admin.html')) {
+                        window.location.href = 'home.html';
+                    }
                 } catch (error) {
                     this.showNotification('Ошибка при выходе', 'error');
                 }
@@ -98,15 +104,13 @@ class AuthManager {
         }
 
         document.querySelectorAll('.dropdown-item').forEach(item => {
+            if (item.id === 'admin-panel-link') {
+                return;
+            }
+            
             item.addEventListener('click', (e) => {
                 if (e.target.classList.contains('logout-btn')) return;
-                
                 dropdownMenu.classList.remove('active');
-
-                if (item.href && item.href.includes('admin')) {
-                    e.preventDefault();
-                    this.showNotification('Админ-панель в разработке', 'info');
-                }
             });
         });
     }

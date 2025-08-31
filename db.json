@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "admin@nuraelite.kz",
       "phone": "+375291234567",
       "password": "Admin123!",
@@ -14,7 +14,7 @@
       "createdAt": "2024-01-01T00:00:00.000Z"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "user@nuraelite.kz",
       "phone": "+375337654321",
       "password": "User123!",
@@ -27,7 +27,7 @@
       "createdAt": "2024-02-01T00:00:00.000Z"
     },
     {
-      "id": 1756574681191,
+      "id": "1756574681191",
       "email": "terter@gmail.com",
       "phone": "+375295001352",
       "password": "cXgy#pF@$%sw",
@@ -41,7 +41,7 @@
       "createdAt": "2025-08-30T17:24:41.191Z"
     },
     {
-      "id": 1756579816492,
+      "id": "1756579816492",
       "email": "rrrrr@gmail.com",
       "phone": "+375296081320",
       "password": "AuR4A*ze&lVm",
@@ -55,5 +55,179 @@
       "createdAt": "2025-08-30T18:50:16.492Z"
     }
   ],
-  "sessions": []
+  "sessions": [],
+  "cottages": [
+    {
+      "id": "414f",
+      "title": "Коттедж Премиум 368м²",
+      "price": 250000000,
+      "area": 368,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "floors": 2,
+      "landArea": 1000,
+      "category": "premium",
+      "status": "available",
+      "location": "Нур-Султан, сектор A",
+      "description": "Элитный коттедж с панорамными окнами, современной отделкой и собственной территорией",
+      "images": [
+        "house1-img.png"
+      ],
+      "features": [
+        "гараж",
+        "сауна",
+        "камин",
+        "умный дом"
+      ],
+      "constructionYear": 2022,
+      "createdAt": "2024-01-15T10:00:00.000Z"
+    },
+    {
+      "id": "415f",
+      "title": "Коттедж Комфорт 179м²",
+      "price": 120000000,
+      "area": 179,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "floors": 1,
+      "landArea": 500,
+      "category": "comfort",
+      "status": "available",
+      "location": "Нур-Султан, сектор B",
+      "description": "Уютный коттедж для семьи с современной планировкой",
+      "images": [
+        "house2-img.png"
+      ],
+      "features": [
+        "гараж",
+        "терраса"
+      ],
+      "constructionYear": 2023,
+      "createdAt": "2024-02-10T14:30:00.000Z"
+    },
+    {
+      "id": "416f",
+      "title": "Коттедж Эконом 125м²",
+      "price": 80000000,
+      "area": 125,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "floors": 1,
+      "landArea": 300,
+      "category": "economy",
+      "status": "sold",
+      "location": "Нур-Султан, сектор C",
+      "description": "Бюджетный вариант коттеджа с оптимальной планировкой",
+      "images": [
+        "house3-img.png"
+      ],
+      "features": [
+        "парковка"
+      ],
+      "constructionYear": 2023,
+      "createdAt": "2024-03-05T09:15:00.000Z"
+    },
+    {
+      "id": "417f",
+      "title": "Коттедж Люкс 420м²",
+      "price": 350000000,
+      "area": 420,
+      "bedrooms": 5,
+      "bathrooms": 4,
+      "floors": 3,
+      "landArea": 1500,
+      "category": "luxury",
+      "status": "available",
+      "location": "Нур-Султан, сектор A",
+      "description": "Роскошный коттедж с бассейном и профессиональной кухней",
+      "images": [
+        "house4-img.png"
+      ],
+      "features": [
+        "бассейн",
+        "гараж на 2 авто",
+        "сауна",
+        "камин",
+        "умный дом",
+        "охрана"
+      ],
+      "constructionYear": 2024,
+      "createdAt": "2024-01-20T16:45:00.000Z"
+    },
+    {
+      "id": "418f",
+      "title": "Коттедж Стандарт 195м²",
+      "price": 95000000,
+      "area": 195,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "floors": 2,
+      "landArea": 600,
+      "category": "standard",
+      "status": "reserved",
+      "location": "Нур-Султан, сектор B",
+      "description": "Классический коттедж для комфортной жизни семьи",
+      "images": [
+        "house5-img.png"
+      ],
+      "features": [
+        "гараж",
+        "сад"
+      ],
+      "constructionYear": 2023,
+      "createdAt": "2024-02-28T11:20:00.000Z"
+    },
+    {
+      "id": "699d",
+      "title": "rwerwe",
+      "price": 333,
+      "location": "rewrew",
+      "area": 33,
+      "bedrooms": 33,
+      "bathrooms": 33,
+      "floors": 33,
+      "status": "sold",
+      "description": "rewrewrewrewrrwer",
+      "images": [
+        "house1-img.png"
+      ],
+      "createdAt": "2025-08-31T15:48:29.997Z"
+    },
+    {
+      "id": "5733",
+      "title": "rewrwe",
+      "price": 33,
+      "location": "rwerew",
+      "area": 33,
+      "bedrooms": 3,
+      "bathrooms": 3,
+      "floors": 3,
+      "status": "reserved",
+      "description": "werewrewre",
+      "images": [
+        "house1-img.png"
+      ],
+      "createdAt": "2025-08-31T15:48:42.280Z"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "b42e",
+      "userId": 1756579816492,
+      "cottageId": 2,
+      "createdAt": "2025-08-30T22:06:49.028Z"
+    },
+    {
+      "id": "c363",
+      "userId": 1756579816492,
+      "cottageId": 3,
+      "createdAt": "2025-08-30T22:06:52.371Z"
+    },
+    {
+      "id": "d445",
+      "userId": "1",
+      "cottageId": 414,
+      "createdAt": "2025-08-31T15:49:39.749Z"
+    }
+  ]
 }
