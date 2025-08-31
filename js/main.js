@@ -124,6 +124,28 @@ window.updateAuthUI = function(user) {
     authManager.updateUI(user);
 };
 
+function updateLanguageButtons() {
+    const language = localStorage.getItem('language') || 'ru';
+    document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === language);
+    });
+}
+
+function updateThemeToggle() {
+    const theme = localStorage.getItem('theme') || 'light';
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        themeToggle.title = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     window.authManager = new AuthManager();
+    updateLanguageButtons();
+    updateThemeToggle();
+
+    window.addEventListener('languageChange', (event) => {
+        updateLanguageButtons();
+    });
 });

@@ -721,6 +721,22 @@ class I18nManager {
 'favorites.notifications.removeError': 'Ошибка при удалении из избранного',
 'favorites.notifications.cleared': 'Все коттеджи удалены из избранного',
 'favorites.notifications.clearError': 'Ошибка при очистке избранного',
+
+'accessibility.title': 'Версия для слабовидящих',
+'accessibility.fontSize': 'Размер шрифта',
+'accessibility.small': 'Маленький',
+'accessibility.medium': 'Средний',
+'accessibility.large': 'Большой',
+'accessibility.colorScheme': 'Цветовая схема',
+'accessibility.blackWhite': 'Черный-Белый',
+'accessibility.blackGreen': 'Черный-Зеленый',
+'accessibility.whiteBlack': 'Белый-Черный',
+'accessibility.beigeBrown': 'Бежевый-Коричневый',
+'accessibility.blueDarkBlue': 'Голубой-Синий',
+'accessibility.images': 'Изображения',
+'accessibility.showImages': 'Показывать',
+'accessibility.hideImages': 'Скрыть',
+'accessibility.reset': 'Сбросить настройки'
         };
     }
 
@@ -1416,6 +1432,22 @@ class I18nManager {
 'favorites.notifications.removeError': 'Error removing from favorites',
 'favorites.notifications.cleared': 'All cottages removed from favorites',
 'favorites.notifications.clearError': 'Error clearing favorites',
+
+'accessibility.title': 'Accessibility Version',
+'accessibility.fontSize': 'Font Size',
+'accessibility.small': 'Small',
+'accessibility.medium': 'Medium',
+'accessibility.large': 'Large',
+'accessibility.colorScheme': 'Color Scheme',
+'accessibility.blackWhite': 'Black-White',
+'accessibility.blackGreen': 'Black-Green',
+'accessibility.whiteBlack': 'White-Black',
+'accessibility.beigeBrown': 'Beige-Brown',
+'accessibility.blueDarkBlue': 'Blue-Dark Blue',
+'accessibility.images': 'Images',
+'accessibility.showImages': 'Show',
+'accessibility.hideImages': 'Hide',
+'accessibility.reset': 'Reset Settings'
         };
     }
 
@@ -2110,6 +2142,22 @@ class I18nManager {
 'favorites.notifications.removeError': 'Таңдаулылардан алып тастау кезінде қате',
 'favorites.notifications.cleared': 'Барлық коттеждер таңдаулылардан алып тасталды',
 'favorites.notifications.clearError': 'Таңдаулыларды тазарту кезінде қате',
+
+'accessibility.title': 'Көру мүмкіндігі шектеулілер үшін нұсқа',
+'accessibility.fontSize': 'Қаріп өлшемі',
+'accessibility.small': 'Кіші',
+'accessibility.medium': 'Орташа',
+'accessibility.large': 'Үлкен',
+'accessibility.colorScheme': 'Түс схемасы',
+'accessibility.blackWhite': 'Қара-Ақ',
+'accessibility.blackGreen': 'Қара-Жасыл',
+'accessibility.whiteBlack': 'Ақ-Қара',
+'accessibility.beigeBrown': 'Бежевый-Қоңыр',
+'accessibility.blueDarkBlue': 'Көк-Қою көк',
+'accessibility.images': 'Суреттер',
+'accessibility.showImages': 'Көрсету',
+'accessibility.hideImages': 'Жасыру',
+'accessibility.reset': 'Баптауларды қалпына келтіру'
         };
     }
 
@@ -2235,6 +2283,7 @@ class I18nManager {
 
 document.addEventListener('DOMContentLoaded', () => {
     window.i18nManager = new I18nManager();
+    updateLanguageButtons();
 });
 
 function t(key, params = {}) {

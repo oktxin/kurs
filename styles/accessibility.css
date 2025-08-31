@@ -1,0 +1,745 @@
+/* Стили для версии для слабовидящих */
+.accessibility-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    z-index: 10002;
+    background: var(--card-bg);
+    padding: 0;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    font-family: 'Fira Sans', sans-serif;
+    border: 1px solid var(--border-color);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.accessibility-panel.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.accessibility-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--header-bg);
+    border-radius: 12px 12px 0 0;
+}
+
+.accessibility-header h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.accessibility-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.accessibility-close:hover {
+    background: var(--nav-hover);
+    color: var(--text-primary);
+}
+
+.accessibility-content {
+    padding: 20px;
+}
+
+.accessibility-group {
+    margin-bottom: 20px;
+}
+
+.accessibility-group h4 {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.accessibility-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.accessibility-btn {
+    padding: 10px 16px;
+    border: 2px solid var(--border-color);
+    background: var(--input-bg);
+    color: var(--text-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 80px;
+    text-align: center;
+}
+
+.accessibility-btn.active {
+    border-color: var(--accent-color);
+    background: var(--accent-color);
+    color: white;
+}
+
+.accessibility-btn:hover {
+    border-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.accessibility-reset {
+    background: var(--error-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.accessibility-reset:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+}
+
+.accessibility-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.accessibility-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.color-scheme-black-white,
+.color-scheme-black-white footer a {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+}
+
+.color-scheme-black-white .section5-top-block img,
+.color-scheme-black-white .section5-bottom-block img,
+.color-scheme-black-white .section6-block-text-top-block img,
+.color-scheme-black-white .section6-block-text-bottom-block img,
+.color-scheme-black-white .section10-text-bottom-contact img,
+.color-scheme-black-white .feature-item img,
+.color-scheme-black-white .sidebar-item img,
+.color-scheme-black-white .search-box img{
+    filter: invert(1);
+}
+
+.color-scheme-black-white .logo img {
+    filter: brightness(0.8);
+}
+
+.color-scheme-black-white .nav-div-top img {
+    filter: brightness(0.8);
+}
+
+.color-scheme-black-white .burger-line {
+    background-color: var(--text-primary);
+}
+
+.color-scheme-black-white body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.color-scheme-black-white .why-us-hero,
+.color-scheme-black-white .why-us-advantages,
+.color-scheme-black-white .why-us-technology,
+.color-scheme-black-white .why-us-reviews,
+.color-scheme-black-white .advantages-hero,
+.color-scheme-black-white .location-section,
+.color-scheme-black-white .security-section,
+.color-scheme-black-white .technology-section,
+.color-scheme-black-white .infrastructure-section,
+.color-scheme-black-white .comparison-section,
+.color-scheme-black-white .filters-section,
+.color-scheme-black-white .contact-info,
+.color-scheme-black-white .map-section,
+.color-scheme-black-white .contact-form-section,
+.color-scheme-black-white .sidebar-item,
+.color-scheme-black-white .social-section,
+.color-scheme-black-white .contacts-faq,
+.color-scheme-black-white .admin-tabs,
+.color-scheme-black-white .advantage-card,
+.color-scheme-black-white .review-card,
+.color-scheme-black-white .why-us-faq,
+.color-scheme-black-white .why-us-faq,
+.color-scheme-black-white .feature-card,
+.color-scheme-black-white .tech-card,
+.color-scheme-black-white .infra-feature,
+.color-scheme-black-white .comparison-row,
+.color-scheme-black-white .filters-panel,
+.color-scheme-black-white .sorting-panel,
+.color-scheme-black-white .favorites-header,
+.color-scheme-black-white .contact-card,
+.color-scheme-black-white .form-container,
+.color-scheme-black-white .faq-item,
+.color-scheme-black-white .social-card,
+.color-scheme-black-white .admin-tab-content.active,
+.color-scheme-black-white .admin-header,
+.color-scheme-black-white .role-badge,
+.color-scheme-black-white .status-badge,
+.color-scheme-black-white .faq-answer.active{
+    background: #000000 !important;
+    color: #ffffff !important;
+}
+
+.color-scheme-black-white .why-us-hero p,
+.color-scheme-black-white .advantage-card p,
+.color-scheme-black-white .advantage-card h3,
+.color-scheme-black-white .tech-item p,
+.color-scheme-black-white .tech-item h3,
+.color-scheme-black-white .review-content p,
+.color-scheme-black-white .review-author h4,
+.color-scheme-black-white .review-author span,
+.color-scheme-black-white .hero-content p,
+.color-scheme-black-white .stat-label,
+.color-scheme-black-white .feature-card h3,
+.color-scheme-black-white .feature-card p,
+.color-scheme-black-white .section-header p,
+.color-scheme-black-white .security-content ul li,
+.color-scheme-black-white .tech-card h3,
+.color-scheme-black-white .tech-card p,
+.color-scheme-black-white .infra-text h4,
+.color-scheme-black-white .infra-text p,
+.color-scheme-black-white .comparison-title,
+.color-scheme-black-white .comparison-value,
+.color-scheme-black-white .filter-group label,
+.color-scheme-black-white .cottage-title,
+.color-scheme-black-white .cottage-location,
+.color-scheme-black-white .feature-item,
+.color-scheme-black-white .sorting-panel label,
+.color-scheme-black-white .favorites-stats span,
+.color-scheme-black-white .contact-card-content p,
+.color-scheme-black-white .map-section h4,
+.color-scheme-black-white .map-section p,
+.color-scheme-black-white .form-container p,
+.color-scheme-black-white .form-container h4,
+.color-scheme-black-white .social-card h4,
+.color-scheme-black-white .social-card p,
+.color-scheme-black-white .social-card span,
+.color-scheme-black-white .faq-item h4,
+.color-scheme-black-white .faq-item p {
+    color: #ffffff !important;
+}
+
+.color-scheme-black-white footer a {
+    color: var(--text-primary);
+}
+
+
+
+
+
+
+.color-scheme-black-green {
+    background-color: #000000 !important;
+    color: #00ff00 !important;
+}
+
+.color-scheme-black-green footer a {
+    background-color: #000000 !important;
+    color: #00ff00 !important;
+}
+
+.color-scheme-black-green .section5-top-block img,
+.color-scheme-black-green .section5-bottom-block img,
+.color-scheme-black-green .section6-block-text-top-block img,
+.color-scheme-black-green .section6-block-text-bottom-block img,
+.color-scheme-black-green .section10-text-bottom-contact img,
+.color-scheme-black-green .feature-item img,
+.color-scheme-black-green .sidebar-item img,
+.color-scheme-black-green .search-box img{
+    filter: invert(1);
+}
+
+.color-scheme-black-green .logo img {
+    filter: brightness(0.8);
+}
+
+.color-scheme-black-green .nav-div-top img {
+    filter: brightness(0.8);
+}
+
+.color-scheme-black-green body {
+    background-color: #000000 !important;
+    color: #00ff00 !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.color-scheme-black-green .why-us-hero,
+.color-scheme-black-green .why-us-advantages,
+.color-scheme-black-green .why-us-technology,
+.color-scheme-black-green .why-us-reviews,
+.color-scheme-black-green .advantages-hero,
+.color-scheme-black-green .location-section,
+.color-scheme-black-green .security-section,
+.color-scheme-black-green .technology-section,
+.color-scheme-black-green .infrastructure-section,
+.color-scheme-black-green .comparison-section,
+.color-scheme-black-green .filters-section,
+.color-scheme-black-green .contact-info,
+.color-scheme-black-green .map-section,
+.color-scheme-black-green .contact-form-section,
+.color-scheme-black-green .sidebar-item,
+.color-scheme-black-green .social-section,
+.color-scheme-black-green .contacts-faq,
+.color-scheme-black-green .admin-tabs,
+.color-scheme-black-green .advantage-card,
+.color-scheme-black-green .review-card,
+.color-scheme-black-green .why-us-faq,
+.color-scheme-black-green .why-us-faq,
+.color-scheme-black-green .feature-card,
+.color-scheme-black-green .tech-card,
+.color-scheme-black-green .infra-feature,
+.color-scheme-black-green .comparison-row,
+.color-scheme-black-green .filters-panel,
+.color-scheme-black-green .sorting-panel,
+.color-scheme-black-green .favorites-header,
+.color-scheme-black-green .contact-card,
+.color-scheme-black-green .form-container,
+.color-scheme-black-green .faq-item,
+.color-scheme-black-green .social-card,
+.color-scheme-black-green .admin-tab-content.active,
+.color-scheme-black-green .admin-header,
+.color-scheme-black-green .role-badge,
+.color-scheme-black-green .status-badge,
+.color-scheme-black-green .faq-answer.active{
+    background: #000000 !important;
+    color: #00ff00 !important;
+}
+
+.color-scheme-black-green .why-us-hero p,
+.color-scheme-black-green .advantage-card p,
+.color-scheme-black-green .advantage-card h3,
+.color-scheme-black-green .tech-item p,
+.color-scheme-black-green .tech-item h3,
+.color-scheme-black-green .review-content p,
+.color-scheme-black-green .review-author h4,
+.color-scheme-black-green .review-author span,
+.color-scheme-black-green .hero-content p,
+.color-scheme-black-green .stat-label,
+.color-scheme-black-green .feature-card h3,
+.color-scheme-black-green .feature-card p,
+.color-scheme-black-green .section-header p,
+.color-scheme-black-green .security-content ul li,
+.color-scheme-black-green .tech-card h3,
+.color-scheme-black-green .tech-card p,
+.color-scheme-black-green .infra-text h4,
+.color-scheme-black-green .infra-text p,
+.color-scheme-black-green .comparison-title,
+.color-scheme-black-green .comparison-value,
+.color-scheme-black-green .filter-group label,
+.color-scheme-black-green .cottage-title,
+.color-scheme-black-green .cottage-location,
+.color-scheme-black-green .feature-item,
+.color-scheme-black-green .sorting-panel label,
+.color-scheme-black-green .favorites-stats span,
+.color-scheme-black-green .contact-card-content p,
+.color-scheme-black-green .map-section h4,
+.color-scheme-black-green .map-section p,
+.color-scheme-black-green .form-container p,
+.color-scheme-black-green .form-container h4,
+.color-scheme-black-green .social-card h4,
+.color-scheme-black-green .social-card p,
+.color-scheme-black-green .social-card span,
+.color-scheme-black-green .faq-item h4,
+.color-scheme-black-green .faq-item p {
+    color: #00ff00 !important;
+}
+
+
+
+
+
+
+.color-scheme-white-black {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.color-scheme-white-black footer a {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+.color-scheme-white-black body {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.color-scheme-white-black .why-us-hero,
+.color-scheme-white-black .why-us-advantages,
+.color-scheme-white-black .why-us-technology,
+.color-scheme-white-black .why-us-reviews,
+.color-scheme-white-black .advantages-hero,
+.color-scheme-white-black .location-section,
+.color-scheme-white-black .security-section,
+.color-scheme-white-black .technology-section,
+.color-scheme-white-black .infrastructure-section,
+.color-scheme-white-black .comparison-section,
+.color-scheme-white-black .filters-section,
+.color-scheme-white-black .contact-info,
+.color-scheme-white-black .map-section,
+.color-scheme-white-black .contact-form-section,
+.color-scheme-white-black .sidebar-item,
+.color-scheme-white-black .social-section,
+.color-scheme-white-black .contacts-faq,
+.color-scheme-white-black .admin-tabs,
+.color-scheme-white-black .advantage-card,
+.color-scheme-white-black .review-card,
+.color-scheme-white-black .why-us-faq,
+.color-scheme-white-black .why-us-faq,
+.color-scheme-white-black .feature-card,
+.color-scheme-white-black .tech-card,
+.color-scheme-white-black .infra-feature,
+.color-scheme-white-black .comparison-row,
+.color-scheme-white-black .filters-panel,
+.color-scheme-white-black .sorting-panel,
+.color-scheme-white-black .favorites-header,
+.color-scheme-white-black .contact-card,
+.color-scheme-white-black .form-container,
+.color-scheme-white-black .faq-item,
+.color-scheme-white-black .social-card,
+.color-scheme-white-black .admin-tab-content.active,
+.color-scheme-white-black .admin-header,
+.color-scheme-white-black .role-badge,
+.color-scheme-white-black .status-badge,
+.color-scheme-white-black .faq-answer.active{
+    background: #ffffff !important;
+    color: #000000 !important;
+}
+
+.color-scheme-white-black .why-us-hero p,
+.color-scheme-white-black .advantage-card p,
+.color-scheme-white-black .advantage-card h3,
+.color-scheme-white-black .tech-item p,
+.color-scheme-white-black .tech-item h3,
+.color-scheme-white-black .review-content p,
+.color-scheme-white-black .review-author h4,
+.color-scheme-white-black .review-author span,
+.color-scheme-white-black .hero-content p,
+.color-scheme-white-black .stat-label,
+.color-scheme-white-black .feature-card h3,
+.color-scheme-white-black .feature-card p,
+.color-scheme-white-black .section-header p,
+.color-scheme-white-black .security-content ul li,
+.color-scheme-white-black .tech-card h3,
+.color-scheme-white-black .tech-card p,
+.color-scheme-white-black .infra-text h4,
+.color-scheme-white-black .infra-text p,
+.color-scheme-white-black .comparison-title,
+.color-scheme-white-black .comparison-value,
+.color-scheme-white-black .filter-group label,
+.color-scheme-white-black .cottage-title,
+.color-scheme-white-black .cottage-location,
+.color-scheme-white-black .feature-item,
+.color-scheme-white-black .sorting-panel label,
+.color-scheme-white-black .favorites-stats span,
+.color-scheme-white-black .contact-card-content p,
+.color-scheme-white-black .map-section h4,
+.color-scheme-white-black .map-section p,
+.color-scheme-white-black .form-container p,
+.color-scheme-white-black .form-container h4,
+.color-scheme-white-black .social-card h4,
+.color-scheme-white-black .social-card p,
+.color-scheme-white-black .social-card span,
+.color-scheme-white-black .faq-item h4,
+.color-scheme-white-black .faq-item p {
+    color: #000000 !important;
+}
+
+
+
+
+.color-scheme-beige-brown {
+    background-color: #f5f5dc !important;
+    color: #8b4513 !important;
+}
+
+.color-scheme-beige-brown footer a {
+    background-color: #f5f5dc !important;
+    color: #8b4513 !important;
+}
+
+.color-scheme-beige-brown body {
+    background-color: #f5f5dc !important;
+    color: #8b4513 !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.color-scheme-beige-brown .why-us-hero,
+.color-scheme-beige-brown .why-us-advantages,
+.color-scheme-beige-brown .why-us-technology,
+.color-scheme-beige-brown .why-us-reviews,
+.color-scheme-beige-brown .advantages-hero,
+.color-scheme-beige-brown .location-section,
+.color-scheme-beige-brown .security-section,
+.color-scheme-beige-brown .technology-section,
+.color-scheme-beige-brown .infrastructure-section,
+.color-scheme-beige-brown .comparison-section,
+.color-scheme-beige-brown .filters-section,
+.color-scheme-beige-brown .contact-info,
+.color-scheme-beige-brown .map-section,
+.color-scheme-beige-brown .contact-form-section,
+.color-scheme-beige-brown .sidebar-item,
+.color-scheme-beige-brown .social-section,
+.color-scheme-beige-brown .contacts-faq,
+.color-scheme-beige-brown .admin-tabs,
+.color-scheme-beige-brown .advantage-card,
+.color-scheme-beige-brown .review-card,
+.color-scheme-beige-brown .why-us-faq,
+.color-scheme-beige-brown .why-us-faq,
+.color-scheme-beige-brown .feature-card,
+.color-scheme-beige-brown .tech-card,
+.color-scheme-beige-brown .infra-feature,
+.color-scheme-beige-brown .comparison-row,
+.color-scheme-beige-brown .filters-panel,
+.color-scheme-beige-brown .sorting-panel,
+.color-scheme-beige-brown .favorites-header,
+.color-scheme-beige-brown .contact-card,
+.color-scheme-beige-brown .form-container,
+.color-scheme-beige-brown .faq-item,
+.color-scheme-beige-brown .social-card,
+.color-scheme-beige-brown .admin-tab-content.active,
+.color-scheme-beige-brown .admin-header,
+.color-scheme-beige-brown .role-badge,
+.color-scheme-beige-brown .status-badge,
+.color-scheme-beige-brown .faq-answer.active{
+    background: #f5f5dc !important;
+    color: #8b4513 !important;
+}
+
+.color-scheme-beige-brown .why-us-hero p,
+.color-scheme-beige-brown .advantage-card p,
+.color-scheme-beige-brown .advantage-card h3,
+.color-scheme-beige-brown .tech-item p,
+.color-scheme-beige-brown .tech-item h3,
+.color-scheme-beige-brown .review-content p,
+.color-scheme-beige-brown .review-author h4,
+.color-scheme-beige-brown .review-author span,
+.color-scheme-beige-brown .hero-content p,
+.color-scheme-beige-brown .stat-label,
+.color-scheme-beige-brown .feature-card h3,
+.color-scheme-beige-brown .feature-card p,
+.color-scheme-beige-brown .section-header p,
+.color-scheme-beige-brown .security-content ul li,
+.color-scheme-beige-brown .tech-card h3,
+.color-scheme-beige-brown .tech-card p,
+.color-scheme-beige-brown .infra-text h4,
+.color-scheme-beige-brown .infra-text p,
+.color-scheme-beige-brown .comparison-title,
+.color-scheme-beige-brown .comparison-value,
+.color-scheme-beige-brown .filter-group label,
+.color-scheme-beige-brown .cottage-title,
+.color-scheme-beige-brown .cottage-location,
+.color-scheme-beige-brown .feature-item,
+.color-scheme-beige-brown .sorting-panel label,
+.color-scheme-beige-brown .favorites-stats span,
+.color-scheme-beige-brown .contact-card-content p,
+.color-scheme-beige-brown .map-section h4,
+.color-scheme-beige-brown .map-section p,
+.color-scheme-beige-brown .form-container p,
+.color-scheme-beige-brown .form-container h4,
+.color-scheme-beige-brown .social-card h4,
+.color-scheme-beige-brown .social-card p,
+.color-scheme-beige-brown .social-card span,
+.color-scheme-beige-brown .faq-item h4,
+.color-scheme-beige-brown .faq-item p {
+    color: #8b4513 !important;
+}
+
+
+
+
+
+
+
+.color-scheme-blue-darkblue {
+    background-color: #add8e6 !important;
+    color: #00008b !important;
+}
+
+.color-scheme-blue-darkblue footer a {
+    background-color: #add8e6 !important;
+    color: #00008b !important;
+}
+
+.color-scheme-blue-darkblue body {
+    background-color: #add8e6 !important;
+    color: #00008b !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.color-scheme-blue-darkblue .why-us-hero,
+.color-scheme-blue-darkblue .why-us-advantages,
+.color-scheme-blue-darkblue .why-us-technology,
+.color-scheme-blue-darkblue .why-us-reviews,
+.color-scheme-blue-darkblue .advantages-hero,
+.color-scheme-blue-darkblue .location-section,
+.color-scheme-blue-darkblue .security-section,
+.color-scheme-blue-darkblue .technology-section,
+.color-scheme-blue-darkblue .infrastructure-section,
+.color-scheme-blue-darkblue .comparison-section,
+.color-scheme-blue-darkblue .filters-section,
+.color-scheme-blue-darkblue .contact-info,
+.color-scheme-blue-darkblue .map-section,
+.color-scheme-blue-darkblue .contact-form-section,
+.color-scheme-blue-darkblue .sidebar-item,
+.color-scheme-blue-darkblue .social-section,
+.color-scheme-blue-darkblue .contacts-faq,
+.color-scheme-blue-darkblue .admin-tabs,
+.color-scheme-blue-darkblue .advantage-card,
+.color-scheme-blue-darkblue .review-card,
+.color-scheme-blue-darkblue .why-us-faq,
+.color-scheme-blue-darkblue .why-us-faq,
+.color-scheme-blue-darkblue .feature-card,
+.color-scheme-blue-darkblue .tech-card,
+.color-scheme-blue-darkblue .infra-feature,
+.color-scheme-blue-darkblue .comparison-row,
+.color-scheme-blue-darkblue .filters-panel,
+.color-scheme-blue-darkblue .sorting-panel,
+.color-scheme-blue-darkblue .favorites-header,
+.color-scheme-blue-darkblue .contact-card,
+.color-scheme-blue-darkblue .form-container,
+.color-scheme-blue-darkblue .faq-item,
+.color-scheme-blue-darkblue .social-card,
+.color-scheme-blue-darkblue .admin-tab-content.active,
+.color-scheme-blue-darkblue .admin-header,
+.color-scheme-blue-darkblue .role-badge,
+.color-scheme-blue-darkblue .status-badge,
+.color-scheme-blue-darkblue .faq-answer.active{
+    background: #add8e6 !important;
+    color: #00008b !important;
+}
+
+.color-scheme-blue-darkblue .why-us-hero p,
+.color-scheme-blue-darkblue .advantage-card p,
+.color-scheme-blue-darkblue .advantage-card h3,
+.color-scheme-blue-darkblue .tech-item p,
+.color-scheme-blue-darkblue .tech-item h3,
+.color-scheme-blue-darkblue .review-content p,
+.color-scheme-blue-darkblue .review-author h4,
+.color-scheme-blue-darkblue .review-author span,
+.color-scheme-blue-darkblue .hero-content p,
+.color-scheme-blue-darkblue .stat-label,
+.color-scheme-blue-darkblue .feature-card h3,
+.color-scheme-blue-darkblue .feature-card p,
+.color-scheme-blue-darkblue .section-header p,
+.color-scheme-blue-darkblue .security-content ul li,
+.color-scheme-blue-darkblue .tech-card h3,
+.color-scheme-blue-darkblue .tech-card p,
+.color-scheme-blue-darkblue .infra-text h4,
+.color-scheme-blue-darkblue .infra-text p,
+.color-scheme-blue-darkblue .comparison-title,
+.color-scheme-blue-darkblue .comparison-value,
+.color-scheme-blue-darkblue .filter-group label,
+.color-scheme-blue-darkblue .cottage-title,
+.color-scheme-blue-darkblue .cottage-location,
+.color-scheme-blue-darkblue .feature-item,
+.color-scheme-blue-darkblue .sorting-panel label,
+.color-scheme-blue-darkblue .favorites-stats span,
+.color-scheme-blue-darkblue .contact-card-content p,
+.color-scheme-blue-darkblue .map-section h4,
+.color-scheme-blue-darkblue .map-section p,
+.color-scheme-blue-darkblue .form-container p,
+.color-scheme-blue-darkblue .form-container h4,
+.color-scheme-blue-darkblue .social-card h4,
+.color-scheme-blue-darkblue .social-card p,
+.color-scheme-blue-darkblue .social-card span,
+.color-scheme-blue-darkblue .faq-item h4,
+.color-scheme-blue-darkblue .faq-item p {
+    color: #00008b !important;
+}
+
+
+
+
+
+
+.font-size-small {
+    font-size: 14px !important;
+}
+
+.font-size-medium {
+    font-size: 16px !important;
+}
+
+.font-size-large {
+    font-size: 18px !important;
+}
+
+.accessibility-mode body {
+    line-height: 1.6 !important;
+    letter-spacing: 0.12em !important;
+    word-spacing: 0.16em !important;
+    text-align: left !important;
+}
+
+.accessibility-mode p {
+    line-height: 1.8 !important;
+    margin-bottom: 1.8em !important;
+    max-width: 80ch !important;
+}
+
+.accessibility-mode .text-replacement {
+    display: block;
+    padding: 10px;
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .accessibility-panel {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+    }
+    
+    .accessibility-buttons {
+        flex-direction: column;
+    }
+}
