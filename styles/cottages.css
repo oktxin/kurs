@@ -391,6 +391,10 @@
         gap: 1rem;
         text-align: center;
     }
+
+    .filter-actions{
+        flex-direction: column
+    }
     
     .filters-panel {
         grid-template-columns: 1fr;

@@ -436,11 +436,14 @@
     
     .location-section,
     .security-section,
-    .technology-section,
     .infrastructure-section,
     .comparison-section,
     .advantages-cta {
         padding: 4rem 2rem;
+    }
+
+    .technology-section{
+        padding: 4rem 0;
     }
     
     .location-content {
@@ -542,11 +545,14 @@
     
     .location-section,
     .security-section,
-    .technology-section,
     .infrastructure-section,
     .comparison-section,
     .advantages-cta {
         padding: 3rem 1rem;
+    }
+
+    .technology-section{
+        padding: 3rem 0;
     }
     
     .feature-icon {
