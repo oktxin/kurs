@@ -113,7 +113,6 @@
       "bedrooms": 2,
       "bathrooms": 1,
       "floors": 1,
-      "landArea": 300,
       "category": "economy",
       "status": "sold",
       "location": "Нур-Султан, сектор C",
@@ -121,10 +120,6 @@
       "images": [
         "house3-img.png"
       ],
-      "features": [
-        "парковка"
-      ],
-      "constructionYear": 2023,
       "createdAt": "2024-03-05T09:15:00.000Z"
     },
     {
@@ -143,15 +138,6 @@
       "images": [
         "house4-img.png"
       ],
-      "features": [
-        "бассейн",
-        "гараж на 2 авто",
-        "сауна",
-        "камин",
-        "умный дом",
-        "охрана"
-      ],
-      "constructionYear": 2024,
       "createdAt": "2024-01-20T16:45:00.000Z"
     },
     {
