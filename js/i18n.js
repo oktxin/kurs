@@ -31,6 +31,18 @@ class I18nManager {
 
     getRussianTranslations() {
         return {
+    'admin.cottages.form.category': 'Категория',
+    'admin.cottages.form.categoryEconomy': 'Эконом',
+    'admin.cottages.form.categoryStandard': 'Стандарт',
+    'admin.cottages.form.categoryComfort': 'Комфорт',
+    'admin.cottages.form.categoryPremium': 'Премиум',
+    'admin.cottages.form.categoryLuxury': 'Люкс',
+    'admin.cottages.table.category': 'Категория',
+
+                    'admin.validation.requiredField': "Это поле обязательно для заполнения",
+                    'admin.validation.positiveNumber': "Число должно быть положительным",
+                    'admin.validation.fillRequiredFields': "Пожалуйста, заполните все обязательные поля",
+                    'admin.notifications.userAddDisabled': "Добавление новых пользователей через админ-панель отключено",
             'app.name': 'NURA ELITE',
             'app.slogan': 'Элитные коттеджи',
 
@@ -310,13 +322,13 @@ class I18nManager {
         'contacts.hours': 'Пн-Пт: 9:00-18:00, Сб: 10:00-16:00',
 
         'contacts.office.title': 'Главный офис',
-        'contacts.office.address': 'ул. Кунаева 10, БЦ "Изумрудный", блок А, этаж 1<br>Нур-Султан, Казахстан',
-        'contacts.office.hours': 'Пн-Пт: 9:00-18:00<br>Сб: 10:00-16:00<br>Вс: выходной',
+        'contacts.office.address': 'ул. Кунаева 10, БЦ "Изумрудный", блок А, этаж 1 Нур-Султан, Казахстан',
+        'contacts.office.hours': 'Пн-Пт: 9:00-18:00 Сб: 10:00-16:00 Вс: выходной',
 
         'contacts.showroom.title': 'Шоурум и презентация',
-        'contacts.showroom.address': 'Коттеджный городок NURA ELITE<br>Нур-Султан, Казахстан',
+        'contacts.showroom.address': 'Коттеджный городок NURA ELITE Нур-Султан, Казахстан',
         'contacts.showroom.phone': '+7 (700) 001-18-89',
-        'contacts.showroom.hours': 'Ежедневно: 10:00-19:00<br>Экскурсии по предварительной записи',
+        'contacts.showroom.hours': 'Ежедневно: 10:00-19:00 Экскурсии по предварительной записи',
         'contacts.showroom.button': 'Записаться на экскурсию',
 
         'contacts.map.title': 'Мы на карте',
@@ -736,12 +748,24 @@ class I18nManager {
 'accessibility.images': 'Изображения',
 'accessibility.showImages': 'Показывать',
 'accessibility.hideImages': 'Скрыть',
-'accessibility.reset': 'Сбросить настройки'
+'accessibility.reset': 'Сбросить настройки',
         };
     }
 
     getEnglishTranslations() {
         return {
+'admin.cottages.form.category': 'Category',
+'admin.cottages.form.categoryEconomy': 'Economy',
+'admin.cottages.form.categoryStandard': 'Standard',
+'admin.cottages.form.categoryComfort': 'Comfort',
+'admin.cottages.form.categoryPremium': 'Premium',
+'admin.cottages.form.categoryLuxury': 'Luxury',
+'admin.cottages.table.category': 'Category',
+                    'admin.validation.requiredField': "This field is required",
+        'admin.validation.positiveNumber': "Number must be positive",
+        'admin.validation.fillRequiredFields': "Please fill in all required fields",
+        'admin.notifications.userAddDisabled': "Adding new users via admin panel is disabled",
+
             'app.name': 'NURA ELITE',
             'app.slogan': 'Elite Cottages',
 
@@ -1021,13 +1045,13 @@ class I18nManager {
         'contacts.hours': 'Mon-Fri: 9:00-18:00, Sat: 10:00-16:00',
 
         'contacts.office.title': 'Main Office',
-        'contacts.office.address': 'Kunaev st. 10, BC "Izumrudny", block A, floor 1<br>Nur-Sultan, Kazakhstan',
-        'contacts.office.hours': 'Mon-Fri: 9:00-18:00<br>Sat: 10:00-16:00<br>Sun: closed',
+        'contacts.office.address': 'Kunaev st. 10, BC "Izumrudny", block A, floor 1 Nur-Sultan, Kazakhstan',
+        'contacts.office.hours': 'Mon-Fri: 9:00-18:00 Sat: 10:00-16:00 Sun: closed',
 
         'contacts.showroom.title': 'Showroom and Presentation',
-        'contacts.showroom.address': 'NURA ELITE Cottage Town<br>Nur-Sultan, Kazakhstan',
+        'contacts.showroom.address': 'NURA ELITE Cottage Town Nur-Sultan, Kazakhstan',
         'contacts.showroom.phone': '+7 (700) 001-18-89',
-        'contacts.showroom.hours': 'Daily: 10:00-19:00<br>Tours by appointment',
+        'contacts.showroom.hours': 'Daily: 10:00-19:00 Tours by appointment',
         'contacts.showroom.button': 'Schedule a Tour',
 
         'contacts.map.title': 'We on the Map',
@@ -1453,6 +1477,17 @@ class I18nManager {
 
     getKazakhTranslations() {
         return {
+'admin.cottages.form.category': 'Санат',
+'admin.cottages.form.categoryEconomy': 'Эконом',
+'admin.cottages.form.categoryStandard': 'Стандарт',
+'admin.cottages.form.categoryComfort': 'Комфорт',
+'admin.cottages.form.categoryPremium': 'Премиум',
+'admin.cottages.form.categoryLuxury': 'Люкс',
+'admin.cottages.table.category': 'Санат',
+                    'admin.validation.requiredField': "Бұл өріс міндетті",
+        'admin.validation.positiveNumber': "Сан оң болуы керек",
+        'admin.validation.fillRequiredFields': "Барлық міндетті өрістерді толтырыңыз",
+        'admin.notifications.userAddDisabled': "Әкімшілік панелі арқылы жаңа пайдаланушыларды қосу өшірілген",
             'app.name': 'NURA ELITE',
             'app.slogan': 'Элитті коттеждер',
 
@@ -1731,13 +1766,13 @@ class I18nManager {
         'contacts.hours': 'Дс-Жм: 9:00-18:00, Сб: 10:00-16:00',
 
         'contacts.office.title': 'Бас кеңсе',
-        'contacts.office.address': 'Кунаев көш. 10, БО "Изумрудный", А блогы, 1 қабат<br>Нұр-Сұлтан, Қазақстан',
-        'contacts.office.hours': 'Дс-Жм: 9:00-18:00<br>Сб: 10:00-16:00<br>Жс: демалыс',
+        'contacts.office.address': 'Кунаев көш. 10, БО "Изумрудный", А блогы, 1 қабат Нұр-Сұлтан, Қазақстан',
+        'contacts.office.hours': 'Дс-Жм: 9:00-18:00 Сб: 10:00-16:00 Жс: демалыс',
 
         'contacts.showroom.title': 'Шоурум және презентация',
-        'contacts.showroom.address': 'NURA ELITE коттеджтік қалашығы<br>Нұр-Сұлтан, Қазақстан',
+        'contacts.showroom.address': 'NURA ELITE коттеджтік қалашығы Нұр-Сұлтан, Қазақстан',
         'contacts.showroom.phone': '+7 (700) 001-18-89',
-        'contacts.showroom.hours': 'Күнделікті: 10:00-19:00<br>Алдын ала жазылу бойынша экскурсиялар',
+        'contacts.showroom.hours': 'Күнделікті: 10:00-19:00 Алдын ала жазылу бойынша экскурсиялар',
         'contacts.showroom.button': 'Экскурсияға жазу',
 
         'contacts.map.title': 'Біз картада',
@@ -2231,8 +2266,6 @@ class I18nManager {
             btn.classList.remove('active');
         });
         document.querySelector(`.language-btn[title="${this.getLanguageName(langCode)}"]`)?.classList.add('active');
-        
-        this.showNotification(`Тіл өзгертілді: ${this.getLanguageName(langCode)}`, 'info');
     }
 
     getLanguageName(code) {

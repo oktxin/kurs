@@ -51,6 +51,76 @@ class AdminPanel {
         document.getElementById('cottages-search').addEventListener('input', (e) => this.filterCottages(e.target.value));
 
         this.setupModalHandlers();
+        this.setupFormValidation();
+    }
+
+    setupFormValidation() {
+        const cottageForm = document.getElementById('cottage-form');
+        const requiredFields = cottageForm.querySelectorAll('[required]');
+        
+        requiredFields.forEach(field => {
+            field.addEventListener('blur', () => this.validateField(field));
+            field.addEventListener('input', () => this.clearFieldError(field));
+        });
+    }
+
+    validateField(field) {
+        this.clearFieldError(field);
+        
+        if (field.hasAttribute('required') && !field.value.trim()) {
+            this.showFieldError(field, t('admin.validation.requiredField'));
+            return false;
+        }
+        
+        if (field.type === 'number' && field.value && field.value < 0) {
+            this.showFieldError(field, t('admin.validation.positiveNumber'));
+            return false;
+        }
+        
+        return true;
+    }
+
+    showFieldError(field, message) {
+        field.classList.add('error');
+        
+        let errorElement = field.parentNode.querySelector('.field-error');
+        if (!errorElement) {
+            errorElement = document.createElement('div');
+            errorElement.className = 'field-error';
+            field.parentNode.appendChild(errorElement);
+        }
+        errorElement.textContent = message;
+    }
+
+    clearFieldError(field) {
+        field.classList.remove('error');
+        const errorElement = field.parentNode.querySelector('.field-error');
+        if (errorElement) {
+            errorElement.remove();
+        }
+    }
+
+    clearAllFieldErrors() {
+        const form = document.getElementById('cottage-form');
+        const fields = form.querySelectorAll('.error');
+        const errorMessages = form.querySelectorAll('.field-error');
+        
+        fields.forEach(field => field.classList.remove('error'));
+        errorMessages.forEach(error => error.remove());
+    }
+
+    validateCottageForm() {
+        const form = document.getElementById('cottage-form');
+        const fields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        fields.forEach(field => {
+            if (!this.validateField(field)) {
+                isValid = false;
+            }
+        });
+        
+        return isValid;
     }
 
     switchTab(tabName) {
@@ -87,22 +157,22 @@ class AdminPanel {
         }
     }
 
-async loadUsers() {
-    try {
-        const users = await this.api.request('/users');
-        console.log('Users from API:', users);
+    async loadUsers() {
+        try {
+            const users = await this.api.request('/users');
+            console.log('Users from API:', users);
 
-        const validUsers = users.filter(user => 
-            user && user.id && user.email && user.firstName && user.lastName
-        );
-        
-        console.log('Valid users:', validUsers);
-        this.displayUsers(validUsers);
-    } catch (error) {
-        console.error('Error loading users:', error);
-        this.showNotification(t('admin.notifications.usersLoadError'), 'error');
+            const validUsers = users.filter(user => 
+                user && user.id && user.email && user.firstName && user.lastName
+            );
+            
+            console.log('Valid users:', validUsers);
+            this.displayUsers(validUsers);
+        } catch (error) {
+            console.error('Error loading users:', error);
+            this.showNotification(t('admin.notifications.usersLoadError'), 'error');
+        }
     }
-}
 
     displayUsers(users) {
         const tbody = document.getElementById('users-table-body');
@@ -111,53 +181,53 @@ async loadUsers() {
         this.addUserActionHandlers();
     }
 
-createUserRow(user) {
-    const userId = user.id || 'N/A';
-    const firstName = user.firstName || t('admin.users.notSpecified');
-    const lastName = user.lastName || t('admin.users.notSpecified');
-    const email = user.email || t('admin.users.notSpecified');
-    const phone = user.phone || t('admin.users.notSpecified');
-    const role = user.role || 'user';
-    const registerDate = user.createdAt ? new Date(user.createdAt).toLocaleDateString('ru-RU') : t('admin.users.notSpecified');
-    
-    return `
-        <tr>
-            <td>${userId}</td>
-            <td>${firstName} ${lastName}</td>
-            <td>${email}</td>
-            <td>${phone}</td>
-            <td><span class="role-badge role-${role}">${role === 'admin' ? t('admin.users.roleAdmin') : t('admin.users.roleUser')}</span></td>
-            <td>${registerDate}</td>
-            <td>
-                <div class="action-buttons">
-                    <button class="edit-btn" data-user-id="${userId}" title="${t('admin.actions.edit')}" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
-                        ✏️
-                    </button>
-                    <button class="delete-btn" data-user-id="${userId}" title="${t('admin.actions.delete')}" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
-                        🗑️
-                    </button>
-                </div>
-            </td>
-        </tr>
-    `;
-}
-
-async loadCottages() {
-    try {
-        const cottages = await this.api.request('/cottages');
-        console.log('Cottages from API:', cottages);
-
-        const validCottages = cottages.filter(cottage => 
-            cottage && cottage.id && cottage.title
-        );
+    createUserRow(user) {
+        const userId = user.id || 'N/A';
+        const firstName = user.firstName || t('admin.users.notSpecified');
+        const lastName = user.lastName || t('admin.users.notSpecified');
+        const email = user.email || t('admin.users.notSpecified');
+        const phone = user.phone || t('admin.users.notSpecified');
+        const role = user.role || 'user';
+        const registerDate = user.createdAt ? new Date(user.createdAt).toLocaleDateString('ru-RU') : t('admin.users.notSpecified');
         
-        console.log('Valid cottages:', validCottages);
-        this.displayCottages(validCottages);
-    } catch (error) {
-        console.error('Error loading cottages:', error);
-        this.showNotification(t('admin.notifications.cottagesLoadError'), 'error');
+        return `
+            <tr>
+                <td>${userId}</td>
+                <td>${firstName} ${lastName}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td><span class="role-badge role-${role}">${role === 'admin' ? t('admin.users.roleAdmin') : t('admin.users.roleUser')}</span></td>
+                <td>${registerDate}</td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="edit-btn" data-user-id="${userId}" title="${t('admin.actions.edit')}" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
+                            ✏️
+                        </button>
+                        <button class="delete-btn" data-user-id="${userId}" title="${t('admin.actions.delete')}" ${!userId || userId === 'N/A' ? 'disabled' : ''}>
+                            🗑️
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
     }
-}
+
+    async loadCottages() {
+        try {
+            const cottages = await this.api.request('/cottages');
+            console.log('Cottages from API:', cottages);
+
+            const validCottages = cottages.filter(cottage => 
+                cottage && cottage.id && cottage.title
+            );
+            
+            console.log('Valid cottages:', validCottages);
+            this.displayCottages(validCottages);
+        } catch (error) {
+            console.error('Error loading cottages:', error);
+            this.showNotification(t('admin.notifications.cottagesLoadError'), 'error');
+        }
+    }
 
     displayCottages(cottages) {
         const tbody = document.getElementById('cottages-table-body');
@@ -166,31 +236,43 @@ async loadCottages() {
         this.addCottageActionHandlers();
     }
 
-createCottageRow(cottage) {
-    const price = this.formatPrice(cottage.price);
-    const cottageId = cottage.id || 0;
-    
-    return `
-        <tr>
-            <td>${cottageId}</td>
-            <td>${cottage.title}</td>
-            <td>${price} ₸</td>
-            <td>${cottage.area} м²</td>
-            <td>${cottage.bedrooms}</td>
-            <td><span class="status-badge status-${cottage.status}">${this.getStatusText(cottage.status)}</span></td>
-            <td>
-                <div class="action-buttons">
-                    <button class="edit-btn" data-cottage-id="${cottageId}" title="${t('admin.actions.edit')}">
-                        ✏️
-                    </button>
-                    <button class="delete-btn" data-cottage-id="${cottageId}" title="${t('admin.actions.delete')}">
-                        🗑️
-                    </button>
-                </div>
-            </td>
-        </tr>
-    `;
-}
+    createCottageRow(cottage) {
+        const price = this.formatPrice(cottage.price);
+        const cottageId = cottage.id || 0;
+        
+        return `
+            <tr>
+                <td>${cottageId}</td>
+                <td>${cottage.title}</td>
+                <td>${price} ₸</td>
+                <td>${cottage.area} м²</td>
+                <td>${cottage.bedrooms}</td>
+                <td><span class="category-badge category-${cottage.category}">${this.getCategoryText(cottage.category)}</span></td>
+                <td><span class="status-badge status-${cottage.status}">${this.getStatusText(cottage.status)}</span></td>
+                <td>
+                    <div class="action-buttons">
+                        <button class="edit-btn" data-cottage-id="${cottageId}" title="${t('admin.actions.edit')}">
+                            ✏️
+                        </button>
+                        <button class="delete-btn" data-cottage-id="${cottageId}" title="${t('admin.actions.delete')}">
+                            🗑️
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        `;
+    }
+
+    getCategoryText(category) {
+        const categoryMap = {
+            'economy': t('admin.cottages.form.categoryEconomy'),
+            'standard': t('admin.cottages.form.categoryStandard'),
+            'comfort': t('admin.cottages.form.categoryComfort'),
+            'premium': t('admin.cottages.form.categoryPremium'),
+            'luxury': t('admin.cottages.form.categoryLuxury')
+        };
+        return categoryMap[category] || category;
+    }
 
     getStatusText(status) {
         const statusMap = {
@@ -201,91 +283,91 @@ createCottageRow(cottage) {
         return statusMap[status] || status;
     }
 
-addUserActionHandlers() {
-    document.querySelectorAll('.edit-btn[data-user-id]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const userId = e.currentTarget.dataset.userId;
-            if (!userId) {
-                console.error('Empty user ID');
-                this.showNotification(t('admin.errors.missingUserId'), 'error');
-                return;
-            }
-            this.editUser(userId);
+    addUserActionHandlers() {
+        document.querySelectorAll('.edit-btn[data-user-id]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const userId = e.currentTarget.dataset.userId;
+                if (!userId) {
+                    console.error('Empty user ID');
+                    this.showNotification(t('admin.errors.missingUserId'), 'error');
+                    return;
+                }
+                this.editUser(userId);
+            });
         });
-    });
 
-    document.querySelectorAll('.delete-btn[data-user-id]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const userId = e.currentTarget.dataset.userId;
-            if (!userId) {
-                console.error('Empty user ID');
-                this.showNotification(t('admin.errors.missingUserId'), 'error');
-                return;
-            }
-            this.deleteUser(userId);
+        document.querySelectorAll('.delete-btn[data-user-id]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const userId = e.currentTarget.dataset.userId;
+                if (!userId) {
+                    console.error('Empty user ID');
+                    this.showNotification(t('admin.errors.missingUserId'), 'error');
+                    return;
+                }
+                this.deleteUser(userId);
+            });
         });
-    });
-}
-
-addCottageActionHandlers() {
-    document.querySelectorAll('.edit-btn[data-cottage-id]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const cottageId = e.currentTarget.dataset.cottageId;
-            if (!cottageId) {
-                console.error('Empty cottage ID');
-                this.showNotification(t('admin.errors.missingCottageId'), 'error');
-                return;
-            }
-            this.editCottage(cottageId);
-        });
-    });
-
-    document.querySelectorAll('.delete-btn[data-cottage-id]').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const cottageId = e.currentTarget.dataset.cottageId;
-            if (!cottageId) {
-                console.error('Empty cottage ID');
-                this.showNotification(t('admin.errors.missingCottageId'), 'error');
-                return;
-            }
-            this.deleteCottage(cottageId);
-        });
-    });
-}
-
-async editUser(userId) {
-    try {
-        if (!userId || userId === 'N/A') {
-            throw new Error(t('admin.errors.invalidUserId'));
-        }
-        
-        console.log('Editing user with ID:', userId);
-        const user = await this.api.request(`/users/${userId}`);
-        
-        if (!user) {
-            throw new Error(t('admin.errors.userNotFound'));
-        }
-        
-        this.showUserModal(user);
-    } catch (error) {
-        console.error('Error loading user:', error);
-        this.showNotification(t('admin.errors.userLoadError') + ': ' + error.message, 'error');
     }
-}
 
-async editCottage(cottageId) {
-    try {
-        if (!cottageId) {
-            throw new Error(t('admin.errors.missingCottageId'));
-        }
-        
-        const cottage = await this.api.request(`/cottages/${cottageId}`);
-        this.showCottageModal(cottage);
-    } catch (error) {
-        console.error('Error loading cottage:', error);
-        this.showNotification(t('admin.errors.cottageLoadError') + ': ' + error.message, 'error');
+    addCottageActionHandlers() {
+        document.querySelectorAll('.edit-btn[data-cottage-id]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const cottageId = e.currentTarget.dataset.cottageId;
+                if (!cottageId) {
+                    console.error('Empty cottage ID');
+                    this.showNotification(t('admin.errors.missingCottageId'), 'error');
+                    return;
+                }
+                this.editCottage(cottageId);
+            });
+        });
+
+        document.querySelectorAll('.delete-btn[data-cottage-id]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const cottageId = e.currentTarget.dataset.cottageId;
+                if (!cottageId) {
+                    console.error('Empty cottage ID');
+                    this.showNotification(t('admin.errors.missingCottageId'), 'error');
+                    return;
+                }
+                this.deleteCottage(cottageId);
+            });
+        });
     }
-}
+
+    async editUser(userId) {
+        try {
+            if (!userId || userId === 'N/A') {
+                throw new Error(t('admin.errors.invalidUserId'));
+            }
+            
+            console.log('Editing user with ID:', userId);
+            const user = await this.api.request(`/users/${userId}`);
+            
+            if (!user) {
+                throw new Error(t('admin.errors.userNotFound'));
+            }
+            
+            this.showUserModal(user);
+        } catch (error) {
+            console.error('Error loading user:', error);
+            this.showNotification(t('admin.errors.userLoadError') + ': ' + error.message, 'error');
+        }
+    }
+
+    async editCottage(cottageId) {
+        try {
+            if (!cottageId) {
+                throw new Error(t('admin.errors.missingCottageId'));
+            }
+            
+            const cottage = await this.api.request(`/cottages/${cottageId}`);
+            this.showCottageModal(cottage);
+        } catch (error) {
+            console.error('Error loading cottage:', error);
+            this.showNotification(t('admin.errors.cottageLoadError') + ': ' + error.message, 'error');
+        }
+    }
 
     showUserModal(user = null) {
         const modal = document.getElementById('user-modal');
@@ -295,14 +377,23 @@ async editCottage(cottageId) {
         if (user) {
             title.textContent = t('admin.users.modal.editTitle');
             document.getElementById('user-id').value = user.id;
-            document.getElementById('user-first-name').value = user.firstName;
-            document.getElementById('user-last-name').value = user.lastName;
-            document.getElementById('user-email').value = user.email;
-            document.getElementById('user-phone').value = user.phone;
-            document.getElementById('user-role').value = user.role;
+
+            document.getElementById('user-first-name').value = user.firstName || '';
+            document.getElementById('user-last-name').value = user.lastName || '';
+            document.getElementById('user-email').value = user.email || '';
+            document.getElementById('user-phone').value = user.phone || '';
+            document.getElementById('user-role').value = user.role || 'user';
+
+            document.getElementById('user-first-name').readOnly = true;
+            document.getElementById('user-last-name').readOnly = true;
+            document.getElementById('user-email').readOnly = true;
+            document.getElementById('user-phone').readOnly = true;
+            document.getElementById('user-role').readOnly = false;
+            
         } else {
             title.textContent = t('admin.users.modal.addTitle');
             form.reset();
+            document.getElementById('save-user').style.display = 'none';
         }
         
         modal.classList.add('active');
@@ -312,6 +403,10 @@ async editCottage(cottageId) {
         const modal = document.getElementById('cottage-modal');
         const title = document.getElementById('cottage-modal-title');
         const form = document.getElementById('cottage-form');
+
+        this.clearAllFieldErrors();
+
+        document.getElementById('save-cottage').style.display = 'block';
         
         if (cottage) {
             title.textContent = t('admin.cottages.modal.editTitle');
@@ -323,15 +418,66 @@ async editCottage(cottageId) {
             document.getElementById('cottage-bedrooms').value = cottage.bedrooms;
             document.getElementById('cottage-bathrooms').value = cottage.bathrooms;
             document.getElementById('cottage-floors').value = cottage.floors;
+            document.getElementById('cottage-category').value = cottage.category || 'standard';
             document.getElementById('cottage-status').value = cottage.status;
             document.getElementById('cottage-description').value = cottage.description || '';
             document.getElementById('cottage-images').value = cottage.images ? cottage.images.join(', ') : '';
         } else {
             title.textContent = t('admin.cottages.modal.addTitle');
             form.reset();
+            document.getElementById('cottage-category').value = 'standard';
         }
         
         modal.classList.add('active');
+    }
+
+    async saveCottage() {
+        if (!this.validateCottageForm()) {
+            this.showNotification(t('admin.validation.fillRequiredFields'), 'error');
+            return;
+        }
+
+        const form = document.getElementById('cottage-form');
+        const cottageId = document.getElementById('cottage-id').value;
+        const cottageData = {
+            title: document.getElementById('cottage-title').value.trim(),
+            price: parseInt(document.getElementById('cottage-price').value),
+            location: document.getElementById('cottage-location').value.trim(),
+            area: parseInt(document.getElementById('cottage-area').value),
+            bedrooms: parseInt(document.getElementById('cottage-bedrooms').value),
+            bathrooms: parseInt(document.getElementById('cottage-bathrooms').value),
+            floors: parseInt(document.getElementById('cottage-floors').value),
+            category: document.getElementById('cottage-category').value,
+            status: document.getElementById('cottage-status').value,
+            description: document.getElementById('cottage-description').value.trim(),
+            images: document.getElementById('cottage-images').value
+                .split(',')
+                .map(img => img.trim())
+                .filter(img => img)
+        };
+
+        try {
+            if (cottageId) {
+                await this.api.request(`/cottages/${cottageId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify({ ...cottageData, id: cottageId }) 
+                });
+                this.showNotification(t('admin.notifications.cottageUpdated'), 'success');
+            } else {
+                cottageData.createdAt = new Date().toISOString();
+                await this.api.request('/cottages', {
+                    method: 'POST',
+                    body: JSON.stringify(cottageData)
+                });
+                this.showNotification(t('admin.notifications.cottageAdded'), 'success');
+            }
+
+            this.hideModals();
+            this.loadCottages();
+        } catch (error) {
+            console.error('Error saving cottage:', error);
+            this.showNotification(t('admin.notifications.cottageSaveError'), 'error');
+        }
     }
 
     setupModalHandlers() {
@@ -387,104 +533,65 @@ async editCottage(cottageId) {
             modal.classList.remove('active');
         });
         this.currentAction = null;
+
+        document.getElementById('save-user').style.display = 'block';
+        const userForm = document.getElementById('user-form');
+        const inputs = userForm.querySelectorAll('input');
+        inputs.forEach(input => {
+            if (input.id !== 'user-role') {
+                input.readOnly = false;
+            }
+        });
     }
 
-async saveUser() {
-    const form = document.getElementById('user-form');
-    const userId = document.getElementById('user-id').value;
-    const userData = {
-        firstName: document.getElementById('user-first-name').value,
-        lastName: document.getElementById('user-last-name').value,
-        email: document.getElementById('user-email').value,
-        phone: document.getElementById('user-phone').value,
-        role: document.getElementById('user-role').value
-    };
+    async saveUser() {
+        const form = document.getElementById('user-form');
+        const userId = document.getElementById('user-id').value;
+        
+        try {
+            if (userId) {
+                const currentUser = await this.api.request(`/users/${userId}`);
 
-    try {
-        if (userId) {
-            await this.api.request(`/users/${userId}`, {
-                method: 'PUT',
-                body: JSON.stringify({ ...userData, id: userId }) 
-            });
-            this.showNotification(t('admin.notifications.userUpdated'), 'success');
-        } else {
-            userData.password = 'tempPassword123!';
-            userData.createdAt = new Date().toISOString();
-            await this.api.request('/users', {
-                method: 'POST',
-                body: JSON.stringify(userData)
-            });
-            this.showNotification(t('admin.notifications.userAdded'), 'success');
+                const updatedUser = {
+                    ...currentUser,
+                    role: document.getElementById('user-role').value
+                };
+                
+                await this.api.request(`/users/${userId}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(updatedUser)
+                });
+                this.showNotification(t('admin.notifications.userUpdated'), 'success');
+            } else {
+                this.showNotification(t('admin.notifications.userAddDisabled'), 'info');
+                return;
+            }
+
+            this.hideModals();
+            this.loadUsers();
+        } catch (error) {
+            console.error('Error saving user:', error);
+            this.showNotification(t('admin.notifications.userSaveError'), 'error');
         }
-
-        this.hideModals();
-        this.loadUsers();
-    } catch (error) {
-        console.error('Error saving user:', error);
-        this.showNotification(t('admin.notifications.userSaveError'), 'error');
     }
-}
 
-async saveCottage() {
-    const form = document.getElementById('cottage-form');
-    const cottageId = document.getElementById('cottage-id').value;
-    const cottageData = {
-        title: document.getElementById('cottage-title').value,
-        price: parseInt(document.getElementById('cottage-price').value),
-        location: document.getElementById('cottage-location').value,
-        area: parseInt(document.getElementById('cottage-area').value),
-        bedrooms: parseInt(document.getElementById('cottage-bedrooms').value),
-        bathrooms: parseInt(document.getElementById('cottage-bathrooms').value),
-        floors: parseInt(document.getElementById('cottage-floors').value),
-        status: document.getElementById('cottage-status').value,
-        description: document.getElementById('cottage-description').value,
-        images: document.getElementById('cottage-images').value
-            .split(',')
-            .map(img => img.trim())
-            .filter(img => img)
-    };
-
-    try {
-        if (cottageId) {
-            await this.api.request(`/cottages/${cottageId}`, {
-                method: 'PUT',
-                body: JSON.stringify({ ...cottageData, id: cottageId }) 
-            });
-            this.showNotification(t('admin.notifications.cottageUpdated'), 'success');
-        } else {
-            cottageData.createdAt = new Date().toISOString();
-            await this.api.request('/cottages', {
-                method: 'POST',
-                body: JSON.stringify(cottageData)
-            });
-            this.showNotification(t('admin.notifications.cottageAdded'), 'success');
-        }
-
-        this.hideModals();
-        this.loadCottages();
-    } catch (error) {
-        console.error('Error saving cottage:', error);
-        this.showNotification(t('admin.notifications.cottageSaveError'), 'error');
+    async deleteUser(userId) {
+        this.currentAction = {
+            type: 'deleteUser',
+            id: userId, 
+            message: t('admin.confirmation.deleteUser')
+        };
+        this.showConfirmationModal();
     }
-}
 
-async deleteUser(userId) {
-    this.currentAction = {
-        type: 'deleteUser',
-        id: userId, 
-        message: t('admin.confirmation.deleteUser')
-    };
-    this.showConfirmationModal();
-}
-
-async deleteCottage(cottageId) {
-    this.currentAction = {
-        type: 'deleteCottage',
-        id: cottageId, 
-        message: t('admin.confirmation.deleteCottage')
-    };
-    this.showConfirmationModal();
-}
+    async deleteCottage(cottageId) {
+        this.currentAction = {
+            type: 'deleteCottage',
+            id: cottageId, 
+            message: t('admin.confirmation.deleteCottage')
+        };
+        this.showConfirmationModal();
+    }
 
     showConfirmationModal() {
         const modal = document.getElementById('confirmation-modal');
@@ -494,30 +601,30 @@ async deleteCottage(cottageId) {
         modal.classList.add('active');
     }
 
-async executeConfirmedAction() {
-    const { type, id } = this.currentAction;
-    
-    try {
-        if (type === 'deleteUser') {
-            await this.api.request(`/users/${id}`, {
-                method: 'DELETE'
-            });
-            this.showNotification(t('admin.notifications.userDeleted'), 'success');
-            this.loadUsers();
-        } else if (type === 'deleteCottage') {
-            await this.api.request(`/cottages/${id}`, {
-                method: 'DELETE'
-            });
-            this.showNotification(t('admin.notifications.cottageDeleted'), 'success');
-            this.loadCottages();
-        }
+    async executeConfirmedAction() {
+        const { type, id } = this.currentAction;
         
-        this.hideModals();
-    } catch (error) {
-        console.error('Error deleting:', error);
-        this.showNotification(t('admin.notifications.deleteError'), 'error');
+        try {
+            if (type === 'deleteUser') {
+                await this.api.request(`/users/${id}`, {
+                    method: 'DELETE'
+                });
+                this.showNotification(t('admin.notifications.userDeleted'), 'success');
+                this.loadUsers();
+            } else if (type === 'deleteCottage') {
+                await this.api.request(`/cottages/${id}`, {
+                    method: 'DELETE'
+                });
+                this.showNotification(t('admin.notifications.cottageDeleted'), 'success');
+                this.loadCottages();
+            }
+            
+            this.hideModals();
+        } catch (error) {
+            console.error('Error deleting:', error);
+            this.showNotification(t('admin.notifications.deleteError'), 'error');
+        }
     }
-}
 
     filterUsers(searchTerm) {
         const rows = document.querySelectorAll('#users-table-body tr');

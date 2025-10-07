@@ -496,9 +496,21 @@
     
     .social-card {
         padding: 1.5rem;
+        flex-direction: column;
     }
     
     .faq-item {
         padding: 1.5rem;
     }
 }
+
+@media screen and (max-width: 320px) {
+
+    .contact-detail{
+
+    text-align: left; /* Выравнивание по левому краю */
+    margin: 0; /* Убирает все отступы */
+    padding: 0; /* Убирает внутренние отступы */
+    }
+}
+

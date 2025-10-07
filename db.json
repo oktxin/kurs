@@ -22,7 +22,7 @@
       "lastName": "Иванов",
       "birthDate": "1990-05-15",
       "username": "ivanov",
-      "role": "user",
+      "role": "admin",
       "avatar": null,
       "createdAt": "2024-02-01T00:00:00.000Z"
     },
@@ -53,58 +53,24 @@
       "role": "user",
       "avatar": null,
       "createdAt": "2025-08-30T18:50:16.492Z"
+    },
+    {
+      "id": "1759587307728",
+      "email": "lolkekcheburek666frgd@gmail.com",
+      "phone": "+375291776679",
+      "password": "i*RuZ3AaCh5O",
+      "firstName": "Никита",
+      "lastName": "Кк",
+      "middleName": "Александрович",
+      "birthDate": "2005-11-10",
+      "username": "oktain",
+      "role": "admin",
+      "avatar": null,
+      "createdAt": "2025-10-04T14:15:07.728Z"
     }
   ],
   "sessions": [],
   "cottages": [
-    {
-      "id": "414f",
-      "title": "Коттедж Премиум 368м²",
-      "price": 250000000,
-      "area": 368,
-      "bedrooms": 4,
-      "bathrooms": 3,
-      "floors": 2,
-      "landArea": 1000,
-      "category": "premium",
-      "status": "available",
-      "location": "Нур-Султан, сектор A",
-      "description": "Элитный коттедж с панорамными окнами, современной отделкой и собственной территорией",
-      "images": [
-        "house1-img.png"
-      ],
-      "features": [
-        "гараж",
-        "сауна",
-        "камин",
-        "умный дом"
-      ],
-      "constructionYear": 2022,
-      "createdAt": "2024-01-15T10:00:00.000Z"
-    },
-    {
-      "id": "415f",
-      "title": "Коттедж Комфорт 179м²",
-      "price": 120000000,
-      "area": 179,
-      "bedrooms": 3,
-      "bathrooms": 2,
-      "floors": 1,
-      "landArea": 500,
-      "category": "comfort",
-      "status": "available",
-      "location": "Нур-Султан, сектор B",
-      "description": "Уютный коттедж для семьи с современной планировкой",
-      "images": [
-        "house2-img.png"
-      ],
-      "features": [
-        "гараж",
-        "терраса"
-      ],
-      "constructionYear": 2023,
-      "createdAt": "2024-02-10T14:30:00.000Z"
-    },
     {
       "id": "416f",
       "title": "Коттедж Эконом 125м²",
@@ -130,7 +96,6 @@
       "bedrooms": 5,
       "bathrooms": 4,
       "floors": 3,
-      "landArea": 1500,
       "category": "luxury",
       "status": "available",
       "location": "Нур-Султан, сектор A",
@@ -148,7 +113,6 @@
       "bedrooms": 3,
       "bathrooms": 2,
       "floors": 2,
-      "landArea": 600,
       "category": "standard",
       "status": "reserved",
       "location": "Нур-Султан, сектор B",
@@ -156,44 +120,7 @@
       "images": [
         "house5-img.png"
       ],
-      "features": [
-        "гараж",
-        "сад"
-      ],
-      "constructionYear": 2023,
       "createdAt": "2024-02-28T11:20:00.000Z"
-    },
-    {
-      "id": "699d",
-      "title": "rwerwe",
-      "price": 333,
-      "location": "rewrew",
-      "area": 33,
-      "bedrooms": 33,
-      "bathrooms": 33,
-      "floors": 33,
-      "status": "sold",
-      "description": "rewrewrewrewrrwer",
-      "images": [
-        "house1-img.png"
-      ],
-      "createdAt": "2025-08-31T15:48:29.997Z"
-    },
-    {
-      "id": "5733",
-      "title": "rewrwe",
-      "price": 33,
-      "location": "rwerew",
-      "area": 33,
-      "bedrooms": 3,
-      "bathrooms": 3,
-      "floors": 3,
-      "status": "reserved",
-      "description": "werewrewre",
-      "images": [
-        "house1-img.png"
-      ],
-      "createdAt": "2025-08-31T15:48:42.280Z"
     }
   ],
   "favorites": [
@@ -202,6 +129,18 @@
       "userId": "2",
       "cottageId": "414f",
       "createdAt": "2025-08-31T20:04:13.607Z"
+    },
+    {
+      "id": "7d10",
+      "userId": 1759587307728,
+      "cottageId": null,
+      "createdAt": "2025-10-04T15:50:00.900Z"
+    },
+    {
+      "id": "5c87",
+      "userId": "1759587307728",
+      "cottageId": "418f",
+      "createdAt": "2025-10-05T17:20:58.203Z"
     }
   ]
 }

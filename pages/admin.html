@@ -19,29 +19,6 @@
     <header>
         <div class="logo">
             <img src="../images/logo.png" alt="logo" data-i18n="alt.logo">
-                <div class="user-menu" id="user-menu" style="display: none;">
-                    <div class="user-avatar" id="user-avatar">
-                        <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
-                    </div>
-                    <div class="dropdown-menu" id="dropdown-menu">
-                        <div class="user-info">
-                            <span id="user-name" data-i18n="nav.user">Пользователь</span>
-                            <span id="user-email">user@example.com</span>
-                        </div>
-                        <a href="#" class="dropdown-item">
-                            <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
-                            <span data-i18n="nav.settings">Настройки</span>
-                        </a>
-                        <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
-                            <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
-                            <span data-i18n="nav.admin">Админ-панель</span>
-                        </a>
-                        <button class="dropdown-item logout-btn">
-                            <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
-                            <span data-i18n="nav.logout">Выход</span>
-                        </button>
-                    </div>
-                </div>
         </div>
 
         <div class="nav-div">
@@ -58,16 +35,40 @@
                 <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
                 <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
                 <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
-                <a href="favorites.html" data-i18n="nav.favorites">Избранное</a>
+                <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
                 <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
                 <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
             </nav>
         </div>
-
-        <div class="burger-menu">
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
+        <div class="burger-ava">
+            <div class="user-menu" id="user-menu" style="display: none;">
+                <div class="user-avatar" id="user-avatar">
+                    <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <div class="user-info">
+                        <span id="user-name">Пользователь</span>
+                        <span id="user-email">user@example.com</span>
+                    </div>
+                    <a href="#" class="dropdown-item">
+                        <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
+                        <span data-i18n="nav.settings">Настройки</span>
+                    </a>
+                    <a href="admin.html" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                        <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
+                        <span data-i18n="nav.admin">Админ-панель</span>
+                    </a>
+                    <button class="dropdown-item logout-btn">
+                        <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
+                        <span data-i18n="nav.logout">Выход</span>
+                    </button>
+                </div>
+            </div>
+            <div class="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
         </div>
 
         <nav class="mobile-menu">
@@ -75,7 +76,7 @@
             <a href="why-us.html" data-i18n="nav.whyus">Почему мы?</a>
             <a href="advantages.html" data-i18n="nav.advantages">Преимущества</a>
             <a href="cottages.html" data-i18n="nav.cottages">Коттеджи</a>
-            <a href="favorites.html" data-i18n="nav.favorites">Избранное</a>
+            <a href="favorites.html" class="active" data-i18n="nav.favorites">Избранное</a>
             <a href="contacts.html" data-i18n="nav.contacts">Контакты</a>
             <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
         </nav>
@@ -155,6 +156,7 @@
                                         <th data-i18n="admin.cottages.table.price">Цена</th>
                                         <th data-i18n="admin.cottages.table.area">Площадь</th>
                                         <th data-i18n="admin.cottages.table.bedrooms">Спальни</th>
+                                        <th data-i18n="admin.cottages.table.category">Категория</th>
                                         <th data-i18n="admin.cottages.table.status">Статус</th>
                                         <th data-i18n="admin.cottages.table.actions">Действия</th>
                                     </tr>
@@ -177,20 +179,20 @@
             </div>
             <div class="modal-body">
                 <form id="user-form" class="admin-form">
-                    <input type="hidden" id="user-id">
-                    <div class="form-group">
+                    <input type="hidden" id="user-id" style="display: none;">
+                    <div class="form-group" style="display: none;">
                         <label for="user-first-name" data-i18n="admin.users.form.firstName">Имя</label>
                         <input type="text" id="user-first-name" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                         <label for="user-last-name" data-i18n="admin.users.form.lastName">Фамилия</label>
                         <input type="text" id="user-last-name" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                         <label for="user-email" data-i18n="admin.users.form.email">Email</label>
                         <input type="email" id="user-email" required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" style="display: none;">
                         <label for="user-phone" data-i18n="admin.users.form.phone">Телефон</label>
                         <input type="tel" id="user-phone" required>
                     </div>
@@ -254,6 +256,18 @@
                             <label for="cottage-floors" data-i18n="admin.cottages.form.floors">Этажи</label>
                             <input type="number" id="cottage-floors" min="0" required>
                         </div>
+                        <div class="form-group">
+                            <label for="cottage-category" data-i18n="admin.cottages.form.category">Категория</label>
+                            <select id="cottage-category" required>
+                                <option value="economy" data-i18n="admin.cottages.form.categoryEconomy">Эконом</option>
+                                <option value="standard" data-i18n="admin.cottages.form.categoryStandard">Стандарт</option>
+                                <option value="comfort" data-i18n="admin.cottages.form.categoryComfort">Комфорт</option>
+                                <option value="premium" data-i18n="admin.cottages.form.categoryPremium">Премиум</option>
+                                <option value="luxury" data-i18n="admin.cottages.form.categoryLuxury">Люкс</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="cottage-status" data-i18n="admin.cottages.form.status">Статус</label>
                             <select id="cottage-status" required>
