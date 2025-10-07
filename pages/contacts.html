@@ -19,29 +19,6 @@
     <header>
         <div class="logo">
             <img src="../images/logo.png" alt="logo" data-i18n="alt.logo">
-            <div class="user-menu" id="user-menu" style="display: none;">
-                <div class="user-avatar" id="user-avatar">
-                    <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
-                </div>
-                <div class="dropdown-menu" id="dropdown-menu">
-                    <div class="user-info">
-                        <span id="user-name">Пользователь</span>
-                        <span id="user-email">user@example.com</span>
-                    </div>
-                    <a href="#" class="dropdown-item">
-                        <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
-                        <span data-i18n="nav.settings">Настройки</span>
-                    </a>
-                    <a href="#" class="dropdown-item" id="admin-panel-link" style="display: none;">
-                        <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
-                        <span data-i18n="nav.admin">Админ-панель</span>
-                    </a>
-                    <button class="dropdown-item logout-btn">
-                        <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
-                        <span data-i18n="nav.logout">Выход</span>
-                    </button>
-                </div>
-            </div>
         </div>
 
         <div class="nav-div">
@@ -63,11 +40,35 @@
                 <a href="auth.html" class="auth-link" id="auth-link" data-i18n="nav.auth">Вход/Регистрация</a>
             </nav>
         </div>
-
-        <div class="burger-menu">
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
-            <div class="burger-line"></div>
+        <div class="burger-ava">
+            <div class="user-menu" id="user-menu" style="display: none;">
+                <div class="user-avatar" id="user-avatar">
+                    <img src="../images/default-avatar.jpg" alt="Аватар" data-i18n="alt.avatar">
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <div class="user-info">
+                        <span id="user-name">Пользователь</span>
+                        <span id="user-email">user@example.com</span>
+                    </div>
+                    <a href="#" class="dropdown-item">
+                        <img src="../images/icons8-settings.gif" alt="Настройки" data-i18n="alt.settings">
+                        <span data-i18n="nav.settings">Настройки</span>
+                    </a>
+                    <a href="admin.html" class="dropdown-item" id="admin-panel-link" style="display: none;">
+                        <img src="../images/icons8-admin-50.png" alt="Админ-панель" data-i18n="alt.admin">
+                        <span data-i18n="nav.admin">Админ-панель</span>
+                    </a>
+                    <button class="dropdown-item logout-btn">
+                        <img src="../images/icons8-logout.gif" alt="Выход" data-i18n="alt.logout">
+                        <span data-i18n="nav.logout">Выход</span>
+                    </button>
+                </div>
+            </div>
+            <div class="burger-menu">
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+                <div class="burger-line"></div>
+            </div>
         </div>
 
         <nav class="mobile-menu">
@@ -115,7 +116,7 @@
                         <h3 data-i18n="contacts.office.title">Главный офис</h3>
                         <div class="contact-detail">
                             <img src="../images/location.gif" alt="Адрес" data-i18n="alt.contacts.location">
-                            <p data-i18n="contacts.office.address">ул. Кунаева 10, БЦ "Изумрудный", блок А, этаж 1<br>Нур-Султан, Казахстан</p>
+                            <p data-i18n="contacts.office.address">ул. Кунаева 10, БЦ "Изумрудный", блок А, этаж 1 Нур-Султан, Казахстан</p>
                         </div>
                         <div class="contact-detail">
                             <img src="../images/phone-black.gif" alt="Телефон" data-i18n="alt.contacts.phone">
@@ -127,7 +128,7 @@
                         </div>
                         <div class="contact-detail">
                             <img src="../images/clock.gif" alt="Время работы" data-i18n="alt.contacts.clock">
-                            <p data-i18n="contacts.office.hours">Пн-Пт: 9:00-18:00<br>Сб: 10:00-16:00<br>Вс: выходной</p>
+                            <p data-i18n="contacts.office.hours">Пн-Пт: 9:00-18:00 Сб: 10:00-16:00 Вс: выходной</p>
                         </div>
                     </div>
                 </div>
@@ -140,7 +141,7 @@
                         <h3 data-i18n="contacts.showroom.title">Шоурум и презентация</h3>
                         <div class="contact-detail">
                             <img src="../images/location.gif" alt="Адрес" data-i18n="alt.contacts.location">
-                            <p data-i18n="contacts.showroom.address">Коттеджный городок NURA ELITE<br>Нур-Султан, Казахстан</p>
+                            <p data-i18n="contacts.showroom.address">Коттеджный городок NURA ELITE Нур-Султан, Казахстан</p>
                         </div>
                         <div class="contact-detail">
                             <img src="../images/phone-black.gif" alt="Телефон" data-i18n="alt.contacts.phone">
@@ -148,7 +149,7 @@
                         </div>
                         <div class="contact-detail">
                             <img src="../images/clock.gif" alt="Время работы" data-i18n="alt.contacts.clock">
-                            <p data-i18n="contacts.showroom.hours">Ежедневно: 10:00-19:00<br>Экскурсии по предварительной записи</p>
+                            <p data-i18n="contacts.showroom.hours">Ежедневно: 10:00-19:00 Экскурсии по предварительной записи</p>
                         </div>
                         <button class="tour-btn" data-i18n="contacts.showroom.button">Записаться на экскурсию</button>
                     </div>
